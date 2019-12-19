@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.js"
+            integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <a href="{{ path('insert_tariff') }}"><button>Créer</button><a/>
+    <br>
+    {% for tariff in tariffs %}
+        <div>
+        {{ tariff.title }}
+        {{ tariff.description }}
+        {{ tariff.price }}
+        <button><a onclick="confirmRemove('{{ path('delete_tariff',{'id':tariff.id}) }}')">Supprimer</a></button>
+        <a href="{{ path('update_tariff', {'id':tariff.id}) }}"><button>Modifier</button></a>
+        </div>
+    {% endfor %}
+        <script src="{{ asset('assets/JS/tariff.js') }}"></script>
+</body>
+</html>
