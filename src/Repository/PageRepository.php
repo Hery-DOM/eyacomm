@@ -19,6 +19,17 @@ class PageRepository extends ServiceEntityRepository
         parent::__construct($registry, Page::class);
     }
 
+    public function findByService($id){
+        return $this->createQueryBuilder('p')
+                    ->select('p')
+                    ->leftJoin('p.context', 'c')
+                    ->addSelect('c')
+                    ->where('c = :context')
+                    ->setParameter('context', $id)
+                    ->getQuery()
+                    ->getResult();
+    }
+
     // /**
     //  * @return Page[] Returns an array of Page objects
     //  */

@@ -1,0 +1,21 @@
+<form action="#" method="GET">
+    <label for="category">Choix de la catégory</label>
+    <select name="category" id="category">
+        <option value="">Toutes les catégories</option>
+        {% for category in categories %}
+            {% if currentCategory == category.name %}
+                {% set selected = 'selected' %}
+            {% else %}
+                {% set selected = '' %}
+            {% endif %}
+            <option value="{{ category.name }}" {{ selected }}>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Filtrer">
+</form>
+
+{% for product in products %}
+    <div>{{ product.name }}</div>
+    <div>{{ product.description }}</div>
+    _______________
+{% endfor %}
