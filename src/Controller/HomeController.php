@@ -142,5 +142,44 @@ class HomeController extends AbstractController
         }
     }
 
+    /**
+     * @Route("/contact", name="contact")
+     * Page's contact
+     */
+    public function contact()
+    {
+        if(isset($_POST['submit'])){
+
+            // secure input
+            $society = $_POST['name'];
+            $activity = $_POST['activity'];
+            $address = $_POST['address'];
+            $phone = $_POST['phone'];
+            $email = $_POST['email'];
+            $message_input = $_POST['message'];
+
+
+            $to = "mail@mail.fr";
+            $subject = "Message via le site d'Eyacomm";
+            $message = "\n\rVous avez reçu un mail de la société ".$society;
+            $message .= "\n\rActivité : ".$activity;
+            $message .= "\n\rAdresse : ".$address;
+            $message .= "\n\rNuméro de téléphone : ".$phone;
+            $message .= "\n\rCourriel : ".$email;
+            $message .= "\n\rSa demande : ".$message_input;
+
+            $send = mail($to, $subject, $message);
+
+            if($send){
+                $this->addFlash('info','Votre message a bien été envoyé');
+            }else{
+                $this->addFlash('info', 'Une erreur est survenue lors de l\'envoi du mail, merci de recharger la page et recommencer l\'opération');
+            }
+
+        }
+
+        return $this->render("front-office/contact.html.twig");
+    }
+
 
 }
