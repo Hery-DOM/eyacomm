@@ -190,5 +190,19 @@ class HomeController extends AbstractController
         return $this->render('front-office/legal.html.twig');
     }
 
+    /**
+     * @Route("/eyacomm", name="eyacomm")
+     * To show about eyacomm's page
+     */
+    public function about(PageRepository $pageRepository)
+    {
+        // get the page with context 'a-propos' (id = 6)
+        $page = $pageRepository->findBy(['context' => 6]);
+
+        return $this->render('front-office/about.html.twig',[
+            'page' => $page
+        ]);
+    }
+
 
 }
