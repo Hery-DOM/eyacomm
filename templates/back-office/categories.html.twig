@@ -1,0 +1,10 @@
+<button><a href="{{ path('create_category') }}">Créer une catégorie</a></button>
+
+{% for category in categories %}
+    <div>
+        <h2>{{ category.name }}</h2>
+        <button><a href="#">Modifier</a></button>
+        <button><a href="#">Supprimer</a></button>
+    </div>
+
+{% endfor %}
