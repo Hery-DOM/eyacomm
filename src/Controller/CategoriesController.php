@@ -55,4 +55,37 @@ class CategoriesController extends AbstractController
 
     }
 
+    /**
+     * @Route("/a/category/update/{id}", name="update_category")
+     * To update a category, id in wild card
+     */
+    public function updateCategory($id, CategoryRepository $categoryRepository, Request $request,
+                                   EntityManagerInterface $entityManager)
+    {
+        // get the correct category with ID
+        $category = $categoryRepository->find($id);
+
+        if(empty($category)){
+            return $this->redirectToRoute('show_categories');
+        }
+
+        $form = $this->createForm(CategoryType::class, $category);
+        $formView = $form->createView();
+
+        if($request->isMethod('POST')){
+            $form->handleRequest($request);
+
+            if($form->isValid() && $form->isSubmitted()){
+                $entityManager->persist($category);
+                $entityManager->flush();
+                return $this->redirectToRoute('show_categories');
+            }
+        }
+
+        return $this->render('back-office/category_update.html.twig',[
+            'form' => $formView
+        ]);
+
+    }
+
 }
