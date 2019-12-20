@@ -1,0 +1,1 @@
+<p>Mentions légales</p>

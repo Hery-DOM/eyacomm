@@ -181,5 +181,14 @@ class HomeController extends AbstractController
         return $this->render("front-office/contact.html.twig");
     }
 
+    /**
+     * @Route("/mentions-legales", name="legal")
+     * To show legal notice
+     */
+    public function legal()
+    {
+        return $this->render('front-office/legal.html.twig');
+    }
+
 
 }
