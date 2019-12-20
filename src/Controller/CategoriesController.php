@@ -88,4 +88,20 @@ class CategoriesController extends AbstractController
 
     }
 
+    /**
+     * @Route("/a/category/remove/{id}", name="remove_category")
+     * To remove a category, without view
+     */
+    public function removeCategory($id, CategoryRepository $categoryRepository, EntityManagerInterface $entityManager)
+    {
+        // get the correct category with ID
+        $category = $categoryRepository->find($id);
+
+        $entityManager->remove($category);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('show_categories');
+
+    }
+
 }

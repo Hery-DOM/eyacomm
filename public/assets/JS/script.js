@@ -4,5 +4,3 @@ function confirmRemove(url){
     }
 
 }
-
-console.log('test');
