@@ -100,7 +100,7 @@ class TariffController extends AbstractController
 
         return $this->render('back-office/list_tariff.html.twig',
         [
-           'tariffs'=>$tariffs,
+           'tariff'=>$tariffs,
         ]
         );
     }
