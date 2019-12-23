@@ -1,0 +1,18 @@
+<script
+        src="https://code.jquery.com/jquery-3.4.1.slim.js"
+        integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+        crossorigin="anonymous"></script>
+
+
+<button><a href="{{ path('create_category') }}">Créer une catégorie</a></button>
+
+{% for category in categories %}
+    <div>
+        <h2>{{ category.name }}</h2>
+        <button><a href="{{ path('update_category',{'id': category.id}) }}">Modifier</a></button>
+        <button><a onclick="confirmRemove('{{ path('remove_category',{'id':category.id}) }}')">Supprimer</a></button>
+    </div>
+
+{% endfor %}
+
+<script src="{{ asset('assets/JS/script.js') }}"></script>
