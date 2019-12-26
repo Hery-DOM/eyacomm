@@ -33,7 +33,7 @@ class TariffController extends AbstractController
         }
 
 
-        return $this->render('insert_tariff.html.twig',
+        return $this->render('back-office/insert_tariff.html.twig',
             [
                 'tariff' =>$formTariffView,
             ]
@@ -59,7 +59,7 @@ class TariffController extends AbstractController
                 $entityManager->persist($tariff);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('update_tariff',[
+                return $this->redirectToRoute('back-office/update_tariff',[
                     "id" => $id
                 ]);
             }
@@ -67,7 +67,7 @@ class TariffController extends AbstractController
 
         }
 
-        return $this->render('update_tariff.html.twig',
+        return $this->render('back-office/update_tariff.html.twig',
         [
             'tariff' => $formTariffView,
         ]
@@ -86,7 +86,7 @@ class TariffController extends AbstractController
        $entityManager->remove($tariff);
        $entityManager->flush();
 
-       return $this->redirectToRoute('list_tariff');
+       return $this->redirectToRoute('back-office/list_tariff');
 
 
     }
@@ -98,9 +98,9 @@ class TariffController extends AbstractController
     {
         $tariffs = $tariffRepository->findAll();
 
-        return $this->render('list_tariff.html.twig',
+        return $this->render('back-office/list_tariff.html.twig',
         [
-           'tariffs'=>$tariffs,
+           'tariff'=>$tariffs,
         ]
         );
     }
