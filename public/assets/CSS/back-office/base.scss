@@ -1,0 +1,49 @@
+.back-base-header{
+  height: 10vh;
+  text-align: center;
+  background-color: #205081;
+  padding-top: 10px;
+
+  h1{
+    color: white
+  }
+}
+
+.back-aside-divider{
+  height: 2px;
+  width: 80%;
+  background-color: white;
+  margin: 20px auto;
+}
+
+.back-aside{
+  background-color: #333333;
+  height: 90vh;
+
+  nav ul{
+    padding-left: 20px;
+  }
+
+  nav a{
+    color: white;
+  }
+
+  nav a:before{
+    content: "\21E8";
+  }
+
+  nav a:hover{
+    text-decoration: none;
+    font-size: 1.1em;
+  }
+
+  nav h2{
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+  }
+}
+
+.back-content{
+  margin-top: 20px;
+}
