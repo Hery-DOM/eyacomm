@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Partie administrative</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.js"
+            integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('assets/CSS/styles.css') }}">
+</head>
+<body>
+
+    <header class="back-base-header">
+        <h1 class="back-base-h1">EYACOMM</h1>
+    </header>
+
+    <main class="container-fluid">
+        <div class="row">
+            <aside class="col-2 back-aside">
+                <nav>
+                    <h2>ADMIN</h2>
+                    <div class="back-aside-divider"></div>
+                    <ul>
+                        <li><a href="#"> Gestion des pages</a></li>
+                        <li><a href="#"> Les catégories des produits</a></li>
+                        <li><a href="#"> Les produits</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <section class="col-10 back-content">
+                {% block content %}
+                {% endblock %}
+            </section>
+        </div>
+
+    </main>
+
+
+
+    <footer>
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/JS/script.js') }}"></script>
+</body>
+</html>
