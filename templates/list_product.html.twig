@@ -9,11 +9,12 @@
     <script
             src="https://code.jquery.com/jquery-3.4.1.slim.js"
             integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+    </script>
 </head>
 <body>
 
-<a href="{{ path('insert_product') }}"><button>Créer</button><a/>
+    <a href="{{ path('insert_product') }}"><button>Créer</button><a/>
     <br>
     {% for product in products %}
         <div>
@@ -24,7 +25,7 @@
         <a href="{{ path('update_product', {'id':product.id}) }}"><button>Modifier</button></a>
         </div>
     {% endfor %}
-    <script src="{{ asset('assets/JS/tariff.js') }}"></script>
+    <script src="{{ asset('assets/JS/script.js') }}"></script>
 
 
 </body>

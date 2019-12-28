@@ -14,7 +14,7 @@ class ProductController extends AbstractController
 {
 
     /**
-     * @Route("insert_product", name="insert_product")
+     * @Route("product/insert_product", name="insert_product")
      */
     public function insertProduct(EntityManagerInterface $entityManager, Request $request)
     {
@@ -27,14 +27,16 @@ class ProductController extends AbstractController
         if ($request->isMethod('POST')){
 
             $formProduct->handleRequest($request);
+            
+            if($formProduct->isValid() && $formProduct->isSubmitted()){
+                $entityManager->persist($product);
+                $entityManager->flush();
 
-            $entityManager->persist($product);
-            $entityManager->flush();
+            return $this->redirectToRoute('list_product');
 
-
+            }
 
         }
-
 
         return $this->render('insert_product.html.twig'
         ,
@@ -47,7 +49,8 @@ class ProductController extends AbstractController
     /**
      * @Route("product/update_product/{id}", name="update_product")
      */
-    public function updateProduct(EntityManagerInterface $entityManager, ProductRepository $productRepository, Request $request, $id )
+    public function updateProduct(EntityManagerInterface $entityManager, 
+    ProductRepository $productRepository, Request $request, $id )
     {
         $product = $productRepository->find($id);
 
@@ -63,32 +66,31 @@ class ProductController extends AbstractController
                 $entityManager->persist($product);
                 $entityManager->flush();
             
-            return $this->redirectToRoute('update_product',
+            return $this->redirectToRoute('list_product',
             [
                 'id'=>$id
-            ] );   
-            }    
+            ] );
 
+            }    
         }
-        
-        
-        
+         
         return $this->render('update_product.html.twig',
         [
             'product'=>$formProductView,
         ]
-    );
+        );
     }
 
 
     /**
-     * @Route("delete_product", name="delete_product")
+     * @Route("product/delete_product/{id}", name="delete_product")
      */ 
-    public function deleteProduct(EntityManagerInterface $entityManager, ProductRepository $productRepository, Request $request, $id)
+    public function deleteProduct(EntityManagerInterface $entityManager, 
+    ProductRepository $productRepository, Request $request, $id)
     {
         $product = $productRepository->find($id);
 
-        $entityManager->persist($product);
+        $entityManager->remove($product);
         $entityManager->flush();
 
         return $this->redirectToRoute('list_product');

@@ -9,12 +9,13 @@
     <script
             src="https://code.jquery.com/jquery-3.4.1.slim.js"
             integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+    </script>
 </head>
 <body>
     <a href="{{ path('insert_tariff') }}"><button>Créer</button><a/>
     <br>
-    {% for tariff in tariffs %}
+    {% for tariff in tariff %}
         <div>
         {{ tariff.title }}
         {{ tariff.description }}

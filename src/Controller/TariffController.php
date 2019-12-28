@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class TariffController extends AbstractController
 {
     /**
-     * @Route("/insert_tariff", name="insert_tariff")
+     * @Route("tariff/insert_tariff", name="insert_tariff")
      */
     public function insertTarrif(EntityManagerInterface $entityManager, Request $request)
     {
@@ -28,8 +28,14 @@ class TariffController extends AbstractController
 
             $formTariff->handleRequest($request);
 
-            $entityManager->persist($tariff);
-            $entityManager->flush();
+            if($formTariff->isValid() && $formTariff->isSubmitted()){
+                $entityManager->persist($tariff);
+                $entityManager->flush();
+
+            return $this->redirectToRoute('list_tariff');
+
+            }
+
         }
 
 
@@ -59,7 +65,7 @@ class TariffController extends AbstractController
                 $entityManager->persist($tariff);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('back-office/update_tariff',[
+                return $this->redirectToRoute('list_tariff',[
                     "id" => $id
                 ]);
             }
@@ -77,16 +83,17 @@ class TariffController extends AbstractController
 
 
     /**
-     * @Route("delete_tariff/{id}", name="delete_tariff")
+     * @Route("tariff/delete_tariff/{id}", name="delete_tariff")
      */
-    public function deleteTariff($id, EntityManagerInterface $entityManager, Request $request, TariffRepository $tariffRepository)
+    public function deleteTariff($id, EntityManagerInterface $entityManager, 
+    Request $request, TariffRepository $tariffRepository)
     {
        $tariff = $tariffRepository->find($id);
 
        $entityManager->remove($tariff);
        $entityManager->flush();
 
-       return $this->redirectToRoute('back-office/list_tariff');
+       return $this->redirectToRoute('list_tariff');
 
 
     }
