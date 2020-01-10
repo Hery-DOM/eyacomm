@@ -38,7 +38,7 @@ class ProductController extends AbstractController
 
         }
 
-        return $this->render('insert_product.html.twig'
+        return $this->render('back-office/insert_product.html.twig'
         ,
             [
                 "product"=>$formProductView 
@@ -74,7 +74,7 @@ class ProductController extends AbstractController
             }    
         }
          
-        return $this->render('update_product.html.twig',
+        return $this->render('back-office/update_product.html.twig',
         [
             'product'=>$formProductView,
         ]
@@ -103,7 +103,7 @@ class ProductController extends AbstractController
     {   
         $products = $productRepository->findAll(); 
 
-        return $this->render('list_product.html.twig',
+        return $this->render('back-office/list_product.html.twig',
         [
             'products'=>$products,
         ]

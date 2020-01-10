@@ -1,0 +1,54 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="container">
+            <form action="#" method="GET" class="row">
+                <label for="context" class="col-2">CATEGORIE</label>
+                <select name="id" id="context" class="col-6">
+                    <option value="0">Sélectionnez la catégorie de la page à modifier</option>
+                    {% for context in contexts %}
+                        {% set select = '' %}
+                        {% if id is defined %}
+                            {% if context.id == id %}
+                                {% set select = 'selected' %}
+                            {% endif %}
+                        {% endif %}
+                        <option value="{{ context.id }}" {{ select }}>{{ context.name }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="submit1" value="Sélectionner" class="col-2 btn btn-success mx-2">
+            </form>
+        </div>
+    </div>
+
+    {% if contextTarget is defined %}
+        {% if contextTarget.id == 3 or contextTarget.id == 4 %}
+            <button class="btn btn-primary">
+                <a href="{{ path('text_create',{'idContext':contextTarget.id}) }}">Créer une page pour la catégorie {{
+                    contextTarget.name }}</a>
+            </button>
+        {% endif %}
+        <table class="categories-table">
+            <tr>
+                <th class="category-title">Liste des {{ contextTarget.name }}</th>
+            </tr>
+            {% for page in pages %}
+                <tr>
+                    <td rowspan="2" class="category-name">{{ page.title }}</td>
+                    <td class="category-button-box"><a href="{{ path('text_update',{'id':page.id}) }}"
+                                                       class="category-button-update">Modifier</a></td>
+                </tr>
+                {% if page.context.id == 3 or page.context.id == 4 %}
+                <tr>
+                    <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('text_remove',
+                            {'id':page.id}) }}')" class="category-button-delete">Supprimer</a></td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+
+        </table>
+    {% endif %}
+
+{% endblock %}

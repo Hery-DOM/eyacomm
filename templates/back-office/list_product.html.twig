@@ -1,0 +1,17 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+<a href="{{ path('insert_product') }}"><button>Créer</button><a/>
+    <br>
+    {% for product in products %}
+        <div>
+        {{ product.name }}
+        {{ product.picture }}
+        {{ product.description }}
+        <button><a onclick="confirmRemove('{{ path('delete_product',{'id':product.id}) }}')">Supprimer</a></button>
+        <a href="{{ path('update_product', {'id':product.id}) }}"><button>Modifier</button></a>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+    <a href="{{ path('text_home') }}">Retour</a>
+    {% for message in app.flashes('info') %}
+        <p>{{ message }}</p>
+    {% endfor %}
+{{ form(form) }}
+{% endblock %}
