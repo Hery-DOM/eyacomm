@@ -8,6 +8,10 @@ a {
   color: black;
   text-decoration: none; }
 
+a:hover {
+  text-decoration: none;
+  cursor: pointer; }
+
 .back-base-header {
   height: 10vh;
   text-align: center;
@@ -70,5 +74,66 @@ a {
 .category-button-box {
   text-align: center;
   width: 20%; }
+
+.base-header {
+  min-height: 12vh;
+  background-color: black; }
+  .base-header a {
+    color: white; }
+  .base-header a:hover {
+    font-size: 1.1em; }
+
+.base-logo-box {
+  height: 60px; }
+  .base-logo-box img {
+    height: 100%;
+    width: auto; }
+
+.base-footer {
+  background-color: grey;
+  height: 8vh; }
+
+.service-header {
+  height: 100vh;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  position: relative; }
+  .service-header a {
+    color: white; }
+  .service-header a:hover {
+    font-size: 1.1em; }
+
+.service-logo-box {
+  height: 60px; }
+  .service-logo-box img {
+    height: 100%;
+    width: auto; }
+
+.service-thread {
+  color: white;
+  font-size: 0.8em; }
+
+.service-header-box {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  font-size: 1.4em; }
+  .service-header-box .service-header-text {
+    margin-bottom: 80px; }
+  .service-header-box .service-action {
+    border: 1px solid white;
+    padding: 2%;
+    background-color: #10529E;
+    border-radius: 5px; }
+
+/********** FOOTER **********/
+.service-footer {
+  background-color: grey;
+  height: 8vh; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -44,6 +44,7 @@ class HomeController extends AbstractController
      */
     public function showServices(PageRepository $pageRepository){
 
+
         //get page for services (id = 2)
         $service_pages = $pageRepository->findByService(2);
         $service_pages = $service_pages[0];

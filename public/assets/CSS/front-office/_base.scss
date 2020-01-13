@@ -1,0 +1,23 @@
+.base-header{
+  min-height: 12vh;
+  background-color: black;
+  a{
+    color: white;
+  }
+  a:hover{
+    font-size: 1.1em;
+  }
+}
+
+.base-logo-box{
+  height: 60px;
+  img{
+    height: 100%;
+    width: auto;
+  }
+}
+
+.base-footer{
+  background-color: grey;
+  height: 8vh;
+}
