@@ -201,7 +201,12 @@ class HomeController extends AbstractController
      */
     public function legal()
     {
-        return $this->render('front-office/legal.html.twig');
+        //get thread
+        $thread = "Mentions légales";
+
+        return $this->render('front-office/legal.html.twig',[
+            'thread' => $thread
+        ]);
     }
 
     /**
