@@ -165,23 +165,26 @@ a:hover {
   background-image: url("../img/outils0.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 100vh; }
 
 .service-main-img-propositions {
   background-image: url("../img/propositions0.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 100vh; }
 
 .service-main-img-gammes {
   background-image: url("../img/gammes0.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   height: 100vh; }
 
 .service-main-text {
   background-color: #17447D;
-  height: 100vh; }
+  min-height: 100vh; }
 
 .service-text-container {
   padding: 20px;
