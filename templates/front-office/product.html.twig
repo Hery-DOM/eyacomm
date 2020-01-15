@@ -1,2 +1,14 @@
-<div>{{ product.name }}</div>
-<div>{{ product.description }}</div>
+{% extends 'front-office/bases/base.html.twig' %}
+
+{% block title %}
+    <h1>{{ product.name }}</h1>
+{% endblock %}
+
+{% block content %}
+    <h1 class="d-md-none">{{ product.name }}</h1>
+    <div class="product-one-img-box">
+        <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
+    </div>
+    <p>{{ product.description }}</p>
+
+{% endblock %}

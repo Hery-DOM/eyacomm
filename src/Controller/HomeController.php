@@ -147,9 +147,15 @@ class HomeController extends AbstractController
 
         // if the product exists => get it
         $product = $productRepository->findOneBy(['name' => $product]);
+        $category = $product->getCategory()->getName();
+
+        //get thread
+        $thread = "Nos services / Nos gammes / ".$category." / ".$product->getName();
+
         if(!empty($product)){
             return $this->render('front-office/product.html.twig',[
-                'product' => $product
+                'product' => $product,
+                'thread' => $thread
             ]);
         }else{
             return $this->redirectToRoute('services_range');

@@ -292,5 +292,8 @@ a:hover {
   border: 1px solid black; }
 
 /************** FIN - EVERY PRODUCTS **************/
+.product-one-img-box {
+  margin-top: 30px;
+  width: 100%; }
 
 /*# sourceMappingURL=styles.css.map */
