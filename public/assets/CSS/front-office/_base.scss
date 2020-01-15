@@ -1,12 +1,51 @@
 .base-header{
   min-height: 12vh;
   background-color: black;
+  position: relative;
   a{
     color: white;
   }
   a:hover{
     font-size: 1.1em;
   }
+
+  .base-thread{
+    position: absolute;
+    top: 120%;
+    left: 20px;
+    color: white;
+    z-index: 10;
+    font-size: 0.7em;
+  }
+
+}
+
+.base-main{
+  height: 80vh;
+}
+
+.base-img{
+  background-image: url("../img/city.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+}
+
+.base-text-container{
+  display: flex;
+  align-items: center;
+  .base-text-box{
+    padding: 10px;
+    *{
+      margin: 50px 0;
+    }
+    h1{
+      color: #4A4A4A;
+      text-transform: uppercase;
+    }
+  }
+
 }
 
 .base-logo-box{
@@ -18,6 +57,39 @@
 }
 
 .base-footer{
-  background-color: grey;
+  background-color: black;
   height: 8vh;
+  text-align: right;
+  padding-top: 20px;
+  a{
+    color: white;
+  }
 }
+
+/** MENU HIDDEN **/
+.header-hidden-menu{
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100%;
+  height: 100vh;
+  background-color: $blue;
+  z-index: 99;
+  color: white;
+  padding: 10px;
+  ul li {
+    margin: 20px 0;
+
+    a {
+      color: white;
+      font-size: 1.2em;
+    }
+  }
+}
+
+.header-hidden-close{
+  font-size: 1.8em;
+}
+
+
+/** FIN - MENU HIDDEN **/

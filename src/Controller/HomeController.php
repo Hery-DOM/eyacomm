@@ -197,16 +197,21 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/eyacomm", name="eyacomm")
+     * @Route("/eyaltelecomm", name="eyaltelecomm")
      * To show about eyacomm's page
      */
     public function about(PageRepository $pageRepository)
     {
         // get the page with context 'a-propos' (id = 6)
         $page = $pageRepository->findBy(['context' => 6]);
+        $page = $page[0];
+
+        // get thread
+        $thread = "La société";
 
         return $this->render('front-office/about.html.twig',[
-            'page' => $page
+            'page' => $page,
+            'thread' => $thread
         ]);
     }
 

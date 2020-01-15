@@ -77,11 +77,40 @@ a:hover {
 
 .base-header {
   min-height: 12vh;
-  background-color: black; }
+  background-color: black;
+  position: relative; }
   .base-header a {
     color: white; }
   .base-header a:hover {
     font-size: 1.1em; }
+  .base-header .base-thread {
+    position: absolute;
+    top: 120%;
+    left: 20px;
+    color: white;
+    z-index: 10;
+    font-size: 0.7em; }
+
+.base-main {
+  height: 80vh; }
+
+.base-img {
+  background-image: url("../img/city.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh; }
+
+.base-text-container {
+  display: flex;
+  align-items: center; }
+  .base-text-container .base-text-box {
+    padding: 10px; }
+    .base-text-container .base-text-box * {
+      margin: 50px 0; }
+    .base-text-container .base-text-box h1 {
+      color: #4A4A4A;
+      text-transform: uppercase; }
 
 .base-logo-box {
   height: 60px; }
@@ -90,9 +119,34 @@ a:hover {
     width: auto; }
 
 .base-footer {
-  background-color: grey;
-  height: 8vh; }
+  background-color: black;
+  height: 8vh;
+  text-align: right;
+  padding-top: 20px; }
+  .base-footer a {
+    color: white; }
 
+/** MENU HIDDEN **/
+.header-hidden-menu {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100%;
+  height: 100vh;
+  background-color: #17447D;
+  z-index: 99;
+  color: white;
+  padding: 10px; }
+  .header-hidden-menu ul li {
+    margin: 20px 0; }
+    .header-hidden-menu ul li a {
+      color: white;
+      font-size: 1.2em; }
+
+.header-hidden-close {
+  font-size: 1.8em; }
+
+/** FIN - MENU HIDDEN **/
 .service-header {
   height: 100vh;
   background-image: url("../img/background2.jpg");
@@ -135,27 +189,6 @@ a:hover {
     background-color: white;
     color: #17447D; }
 
-/** MENU HIDDEN **/
-.service-header-hidden-menu {
-  position: fixed;
-  top: 0;
-  left: -100vw;
-  width: 100%;
-  height: 100vh;
-  background-color: #17447D;
-  z-index: 99;
-  color: white;
-  padding: 10px; }
-  .service-header-hidden-menu ul li {
-    margin: 20px 0; }
-    .service-header-hidden-menu ul li a {
-      color: white;
-      font-size: 1.2em; }
-
-.service-header-hidden-close {
-  font-size: 1.8em; }
-
-/** FIN - MENU HIDDEN **/
 /********** FIN HEADER **********/
 /********** MAIN **********/
 .service-section-tools article {
@@ -217,5 +250,16 @@ a:hover {
   padding-top: 20px; }
   .service-footer a {
     color: white; }
+
+.societe-action-box {
+  width: 100%;
+  text-align: center; }
+
+.societe-action {
+  border: 1px solid white;
+  padding: 2% 5%;
+  background-color: #17447D;
+  border-radius: 15px;
+  color: white; }
 
 /*# sourceMappingURL=styles.css.map */

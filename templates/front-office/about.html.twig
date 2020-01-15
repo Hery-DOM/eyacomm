@@ -1,5 +1,11 @@
+{% extends 'front-office/bases/base.html.twig' %}
 
-{% for page in page %}
-<div>{{ page.title }}</div>
-<div>{{ page.text }}</div>
-{% endfor %}
+{% block content %}
+
+    <h1>{{ page.title }}</h1>
+    <p>{{ page.text }}</p>
+    <div class="societe-action-box">
+        <a href="#" class="societe-action">Rejoignez-nous !</a>
+    </div>
+
+{% endblock %}
