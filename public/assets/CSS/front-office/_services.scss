@@ -1,14 +1,14 @@
 .service-header{
   height: 100vh;
-  background-image: url("../img/background.jpg");
+  background-image: url("../img/background2.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   position: relative;
-  a{
+  .service-nav-link{
     color: white;
   }
-  a:hover{
+  .service-nav-link:hover{
     font-size: 1.1em;
   }
 }
@@ -44,8 +44,110 @@
     padding: 2%;
     background-color: $blue;
     border-radius: 5px;
+    color: white;
+  }
+  .service-action:hover{
+    background-color: white;
+    color: $blue;
   }
 }
+
+
+/** MENU HIDDEN **/
+.service-header-hidden-menu{
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100%;
+  height: 100vh;
+  background-color: $blue;
+  z-index: 99;
+  color: white;
+  padding: 10px;
+  ul li {
+    margin: 20px 0;
+
+    a {
+      color: white;
+      font-size: 1.2em;
+    }
+  }
+}
+
+.service-header-hidden-close{
+  font-size: 1.8em;
+}
+
+
+/** FIN - MENU HIDDEN **/
+
+/********** FIN HEADER **********/
+
+
+/********** MAIN **********/
+.service-section-tools article{
+  min-height: 100vh;
+
+}
+
+.service-main-img-outils{
+  background-image: url('../img/outils0.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.service-main-img-propositions{
+  background-image: url('../img/propositions0.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.service-main-img-gammes{
+  background-image: url('../img/gammes0.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.service-main-text{
+  background-color: $blue;
+  height: 100vh;
+}
+
+.service-text-container{
+  padding: 20px;
+  color: white;
+  h2{
+    margin-bottom: 50px;
+  }
+
+  .service-link-container{
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .service-link-action{
+    border:1px solid $blue;
+    padding: 2% 8%;
+    background-color: white;
+    border-radius: 10px;
+    color: $blue;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .service-link-action:hover{
+    border: 1px solid white;
+    background-color: $blue;
+    color: white;
+  }
+}
+
+
+/********** FIN - MAIN **********/
 
 
 
@@ -55,4 +157,10 @@
 .service-footer{
   background-color: grey;
   height: 8vh;
+  text-align: right;
+  padding-top: 20px;
+  a{
+    color: white;
+  }
 }
+

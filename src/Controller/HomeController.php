@@ -53,14 +53,19 @@ class HomeController extends AbstractController
         $tool = $pageRepository->findByService(3);
         $intro_tool = $tool[0];
 
+        //get page for "proposition" (id = 4)
+        $proposal = $pageRepository->findByService(4);
+        $intro_propo = $proposal[0];
+
         //get page for "gammes" (id = 5)
         $range = $pageRepository->findByService(5);
-        $range = $range[0];
+        $intro_range = $range[0];
 
         return $this->render('front-office/services.html.twig',[
             'service' => $service_pages,
             'outils' => $intro_tool,
-            'gamme' => $range
+            'gamme' => $intro_range,
+            'proposition' => $intro_propo
         ]);
     }
 

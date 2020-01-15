@@ -95,14 +95,14 @@ a:hover {
 
 .service-header {
   height: 100vh;
-  background-image: url("../img/background.jpg");
+  background-image: url("../img/background2.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   position: relative; }
-  .service-header a {
+  .service-header .service-nav-link {
     color: white; }
-  .service-header a:hover {
+  .service-header .service-nav-link:hover {
     font-size: 1.1em; }
 
 .service-logo-box {
@@ -128,12 +128,91 @@ a:hover {
   .service-header-box .service-action {
     border: 1px solid white;
     padding: 2%;
-    background-color: #10529E;
-    border-radius: 5px; }
+    background-color: #17447D;
+    border-radius: 5px;
+    color: white; }
+  .service-header-box .service-action:hover {
+    background-color: white;
+    color: #17447D; }
 
+/** MENU HIDDEN **/
+.service-header-hidden-menu {
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100%;
+  height: 100vh;
+  background-color: #17447D;
+  z-index: 99;
+  color: white;
+  padding: 10px; }
+  .service-header-hidden-menu ul li {
+    margin: 20px 0; }
+    .service-header-hidden-menu ul li a {
+      color: white;
+      font-size: 1.2em; }
+
+.service-header-hidden-close {
+  font-size: 1.8em; }
+
+/** FIN - MENU HIDDEN **/
+/********** FIN HEADER **********/
+/********** MAIN **********/
+.service-section-tools article {
+  min-height: 100vh; }
+
+.service-main-img-outils {
+  background-image: url("../img/outils0.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; }
+
+.service-main-img-propositions {
+  background-image: url("../img/propositions0.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; }
+
+.service-main-img-gammes {
+  background-image: url("../img/gammes0.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; }
+
+.service-main-text {
+  background-color: #17447D;
+  height: 100vh; }
+
+.service-text-container {
+  padding: 20px;
+  color: white; }
+  .service-text-container h2 {
+    margin-bottom: 50px; }
+  .service-text-container .service-link-container {
+    text-align: center;
+    width: 100%;
+    margin-top: 50px; }
+  .service-text-container .service-link-action {
+    border: 1px solid #17447D;
+    padding: 2% 8%;
+    background-color: white;
+    border-radius: 10px;
+    color: #17447D;
+    text-align: center;
+    font-weight: bold; }
+  .service-text-container .service-link-action:hover {
+    border: 1px solid white;
+    background-color: #17447D;
+    color: white; }
+
+/********** FIN - MAIN **********/
 /********** FOOTER **********/
 .service-footer {
   background-color: grey;
-  height: 8vh; }
+  height: 8vh;
+  text-align: right;
+  padding-top: 20px; }
+  .service-footer a {
+    color: white; }
 
 /*# sourceMappingURL=styles.css.map */
