@@ -96,7 +96,6 @@ class HomeController extends AbstractController
      */
     public function showRange(ProductRepository $productRepository, Request $request, CategoryRepository $categoryRepository)
     {
-        $current_category = '';
 
         //get every categories
         $categories = $categoryRepository->findAll();
@@ -107,7 +106,11 @@ class HomeController extends AbstractController
         //if there is a category in parameter
         $parameter = $request->query->get('category');
         $parameter = $this->checkInput($parameter);
-        $current_category = $parameter;
+        if(!empty($parameter)){
+            $current_category = $parameter;
+        }else{
+            $current_category = "Catégories";
+        }
 
         if(isset($parameter) && !empty($parameter) ){
 
@@ -121,10 +124,15 @@ class HomeController extends AbstractController
 
         }
 
+        // get thread
+        $thread = "Nos services / Nos gammes";
+
         return $this->render('front-office/every_products.html.twig',[
             'products' => $products,
             'categories' => $categories,
-            'currentCategory' => $current_category
+            'currentCategory' => $current_category,
+            'parameter' => $parameter,
+            'thread' => $thread
         ]);
     }
 

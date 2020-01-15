@@ -92,21 +92,35 @@ a:hover {
     font-size: 0.7em; }
 
 .base-main {
-  height: 80vh; }
+  height: 80vh;
+  overflow: scroll; }
 
 .base-img {
   background-image: url("../img/city.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 80vh; }
+  min-height: 80vh;
+  position: fixed; }
+
+.base-title-optionnal {
+  position: absolute;
+  width: 100%; }
+  .base-title-optionnal h1 {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-transform: uppercase; }
 
 .base-text-container {
   display: flex;
   align-items: center; }
   .base-text-container .base-text-box {
     padding: 10px; }
-    .base-text-container .base-text-box * {
+    .base-text-container .base-text-box h1, .base-text-container .base-text-box p {
       margin: 50px 0; }
     .base-text-container .base-text-box h1 {
       color: #4A4A4A;
@@ -261,5 +275,22 @@ a:hover {
   background-color: #17447D;
   border-radius: 15px;
   color: white; }
+
+/************** EVERY PRODUCTS **************/
+.products-filter {
+  padding: 0.2% 3%;
+  border: 1px solid #17447D;
+  border-radius: 5px;
+  background-color: #17447D;
+  color: white; }
+
+.products-filter:hover {
+  background-color: white;
+  color: #17447D; }
+
+#category {
+  border: 1px solid black; }
+
+/************** FIN - EVERY PRODUCTS **************/
 
 /*# sourceMappingURL=styles.css.map */

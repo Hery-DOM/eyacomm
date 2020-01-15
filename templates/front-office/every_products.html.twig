@@ -1,21 +1,38 @@
-<form action="#" method="GET">
-    <label for="category">Choix de la catégory</label>
-    <select name="category" id="category">
-        <option value="">Toutes les catégories</option>
-        {% for category in categories %}
-            {% if currentCategory == category.name %}
-                {% set selected = 'selected' %}
-            {% else %}
-                {% set selected = '' %}
-            {% endif %}
-            <option value="{{ category.name }}" {{ selected }}>{{ category.name }}</option>
-        {% endfor %}
-    </select>
-    <input type="submit" value="Filtrer">
-</form>
+{% extends 'front-office/bases/base.html.twig' %}
 
-{% for product in products %}
-    <div>{{ product.name }}</div>
-    <div>{{ product.description }}</div>
-    _______________
-{% endfor %}
+{% block title %}
+    <h1>{{ currentCategory }}</h1>
+{% endblock %}
+
+{% block content %}
+    <form action="#" method="GET" class="mb-5">
+        <label for="category">Catégorie : </label>
+        <select name="category" id="category">
+            {% for category in categories %}
+                {% if category.name == parameter %}
+                    <option value="{{ category.name }}" selected>{{ category.name }}</option>
+                {% else %}
+                    <option value="{{ category.name }}">{{ category.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <input type="submit" value="Filtrer" class="products-filter">
+    </form>
+
+    <div class="products-container container">
+        <div class="row">
+            {% for product in products %}
+                <div class="product-one col-12 col-md-6 mb-4">
+                    <div class="product-img-box">
+                        <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
+                    </div>
+                    <h2>{{ product.name }}</h2>
+                </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+
+{% endblock %}
