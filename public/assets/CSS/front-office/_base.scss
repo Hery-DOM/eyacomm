@@ -109,3 +109,15 @@
 
 
 /** FIN - MENU HIDDEN **/
+
+
+
+/************************ BASE 2 ************************/
+
+.base2-header{
+  @extend .base-header;
+  background-image: url('../img/background-header.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

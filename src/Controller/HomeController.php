@@ -17,13 +17,6 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
 
-    private function checkInput($value){
-        $value = trim($value);
-        $value = stripslashes($value);
-        $value = htmlspecialchars($value);
-        return $value;
-    }
-
     /**
      * @Route("/offres", name="offre")
      * To show the differents offers (= tariff)
@@ -73,28 +66,39 @@ class HomeController extends AbstractController
      * @Route("/services/category/{cat}", name="services_categories")
      * Dynamic page to see the service's category in accord to wild card
      */
-    public function showTools(PageRepository $pageRepository, $cat, ContextRepository $contextRepository)
+    public function showTools(PageRepository $pageRepository, $cat, ContextRepository $contextRepository,
+                              PersonnalFunction $personnalFunction)
     {
         // secure the wild card
-        $cat = $this->checkInput($cat);
+        $cat = $personnalFunction->checkInput($cat);
+
+        //get thread
+        $thread = "Nos services / Nos ".$cat;
 
         //get contexts
         $context_id = $contextRepository->findBy(['name' => $cat]);
+        //if the category doesn't exist => return to services's page
+        if(empty($context_id)){
+            return $this->redirectToRoute('services');
+        }
         $context_id = $context_id[0]->getId();
 
         //get the page
         $pages = $pageRepository->findByService($context_id);
 
         return $this->render('front-office/services_category.html.twig',[
-            'pages' => $pages
+            'pages' => $pages,
+            'thread' => $thread,
+            'cat' => $cat
         ]);
     }
 
     /**
      * @Route("/services/gammes", name="services_range")
-     * To show every produtcs
+     * To show every products
      */
-    public function showRange(ProductRepository $productRepository, Request $request, CategoryRepository $categoryRepository)
+    public function showRange(ProductRepository $productRepository, Request $request, CategoryRepository
+    $categoryRepository, PersonnalFunction $personnalFunction)
     {
 
         //get every categories
@@ -105,7 +109,7 @@ class HomeController extends AbstractController
 
         //if there is a category in parameter
         $parameter = $request->query->get('category');
-        $parameter = $this->checkInput($parameter);
+        $parameter = $personnalFunction->checkInput($parameter);
         if(!empty($parameter)){
             $current_category = $parameter;
         }else{
@@ -140,10 +144,10 @@ class HomeController extends AbstractController
      * @Route("/services/gammes/{product}", name="services_product")
      * To show single product
      */
-    public function showProduct($product, ProductRepository $productRepository)
+    public function showProduct($product, ProductRepository $productRepository, PersonnalFunction $personnalFunction)
     {
         //secure the wild card
-        $product = $this->checkInput($product);
+        $product = $personnalFunction->checkInput($product);
 
         // if the product exists => get it
         $product = $productRepository->findOneBy(['name' => $product]);
