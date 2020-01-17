@@ -1,0 +1,59 @@
+.offers-container{
+  min-height: 80vh;
+  padding-top: 30px;
+}
+
+.offers-h1{
+  text-align: center;
+  color: white;
+}
+
+.offer-box{
+  margin: 10% 0;
+}
+
+.offer-box-intern{
+  border: 5px solid white;
+  border-radius: 5%;
+  padding: 20px 30px;
+  background-color: $blue;
+  p{
+    color: white;
+  }
+}
+
+.offer-title-box{
+  background-color: white;
+  border-radius:25px;
+  width: 80%;
+  height: 150px;
+  margin: 10px auto 30px;
+  text-align: center;
+  color: $grey;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.offers-action{
+  text-align: center;
+  margin: 20% 0;
+}
+
+.offers-button{
+  background-color: $blue;
+  width: 30%;
+  padding: 20px;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 2px solid white;
+  font-size: 1.7em;
+  font-weight: bold;
+}
+
+.offers-button:hover{
+  background-color: white;
+  color: $blue;
+  border: 2px solid $blue;
+}

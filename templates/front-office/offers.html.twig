@@ -1,4 +1,26 @@
-{% for offer in offers %}
-    <div>{{ offer.title }}</div>
-    <div>{{ offer.description }}</div>
-{% endfor %}
+{% extends 'front-office/bases/base3.html.twig' %}
+
+
+{% block content %}
+    <div class="offers-container">
+        <h1 class="offers-h1">{{ thread }}</h1>
+        <section class="row mx-0">
+            {% for offer in offers %}
+                <div class="offer-box col-12 col-md-6 col-lg-4 justify-content-around align-items-center">
+                        <div class="offer-box-intern">
+                            <div class="offer-title-box">
+                                <h2 class="offer-h2">{{ offer.title }}</h2>
+                            </div>
+                            <p>{{ offer.description }}</p>
+                        </div>
+
+                </div>
+            {% endfor %}
+        </section>
+        <section class="offers-action">
+            <a href="#" class="offers-button">Demander un devis</a>
+        </section>
+    </div>
+
+
+{% endblock %}

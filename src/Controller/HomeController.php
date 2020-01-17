@@ -26,8 +26,12 @@ class HomeController extends AbstractController
         //get the offers
         $offers = $tariffRepository->findAll();
 
+        //get thread
+        $thread = "Nos offres";
+
         return $this->render('front-office/offers.html.twig',[
-            'offers' => $offers
+            'offers' => $offers,
+            'thread' => $thread
         ]);
     }
 

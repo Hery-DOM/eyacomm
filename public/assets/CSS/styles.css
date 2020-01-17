@@ -78,15 +78,15 @@ p {
   text-align: center;
   width: 20%; }
 
-.base-header, .base2-header {
+.base-header, .base2-header, .base3-header {
   min-height: 12vh;
   background-color: black;
   position: relative; }
-  .base-header a, .base2-header a {
+  .base-header a, .base2-header a, .base3-header a {
     color: white; }
-  .base-header a:hover, .base2-header a:hover {
+  .base-header a:hover, .base2-header a:hover, .base3-header a:hover {
     font-size: 1.1em; }
-  .base-header .base-thread, .base2-header .base-thread {
+  .base-header .base-thread, .base2-header .base-thread, .base3-header .base-thread {
     position: absolute;
     top: 120%;
     left: 20px;
@@ -161,7 +161,8 @@ p {
       font-size: 1.2em; }
 
 .header-hidden-close {
-  font-size: 1.8em; }
+  font-size: 1.8em;
+  color: white; }
 
 /** FIN - MENU HIDDEN **/
 /************************ BASE 2 ************************/
@@ -171,6 +172,18 @@ p {
   background-position: center;
   background-size: cover; }
 
+/************************ FIN  - BASE 2 ************************/
+/************************ BASE 3 ************************/
+.base3-body {
+  background-image: url("../img/background2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; }
+
+.base3-header {
+  background-color: rgba(0, 0, 0, 0); }
+
+/************************ FIN - BASE 3 ************************/
 .service-header {
   height: 100vh;
   background-image: url("../img/background2.jpg");
@@ -336,5 +349,56 @@ margin-bottom: 100px;*/
   /*margin-top: 50px;
   margin-bottom: 50px;*/
   color: #454141; }
+
+.offers-container {
+  min-height: 80vh;
+  padding-top: 30px; }
+
+.offers-h1 {
+  text-align: center;
+  color: white; }
+
+.offer-box {
+  margin: 10% 0; }
+
+.offer-box-intern {
+  border: 5px solid white;
+  border-radius: 5%;
+  padding: 20px 30px;
+  background-color: #17447D; }
+  .offer-box-intern p {
+    color: white; }
+
+.offer-title-box {
+  background-color: white;
+  border-radius: 25px;
+  width: 80%;
+  height: 150px;
+  margin: 10px auto 30px;
+  text-align: center;
+  color: #4A4A4A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; }
+
+.offers-action {
+  text-align: center;
+  margin: 20% 0; }
+
+.offers-button {
+  background-color: #17447D;
+  width: 30%;
+  padding: 20px;
+  color: white;
+  text-transform: uppercase;
+  border-radius: 10px;
+  border: 2px solid white;
+  font-size: 1.7em;
+  font-weight: bold; }
+
+.offers-button:hover {
+  background-color: white;
+  color: #17447D;
+  border: 2px solid #17447D; }
 
 /*# sourceMappingURL=styles.css.map */

@@ -105,6 +105,7 @@
 
 .header-hidden-close{
   font-size: 1.8em;
+  color: white;
 }
 
 
@@ -121,3 +122,26 @@
   background-position: center;
   background-size: cover;
 }
+
+/************************ FIN  - BASE 2 ************************/
+
+
+
+
+
+/************************ BASE 3 ************************/
+.base3-body{
+  background-image: url("../img/background2.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.base3-header{
+  @extend .base-header;
+  background-color: rgba(0,0,0,0);
+}
+
+
+
+/************************ FIN - BASE 3 ************************/
