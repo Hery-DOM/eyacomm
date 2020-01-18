@@ -1,0 +1,46 @@
+.home-main{
+  height: 92vh;
+  width: 100%;
+  background-color: skyblue;
+  position: relative;
+}
+
+.home-left-container{
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  border: 1px solid red;
+  text-align: center;
+
+  a{
+    padding: 2% 5%;
+    background-color: $blue;
+    color: white;
+    border: 1px solid $blue;
+    border-radius: 10px;
+    text-transform: uppercase;
+  }
+
+  a:hover{
+    background-color: white;
+    color: $blue;
+  }
+
+}
+
+.home-right-container{
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  border: 1px solid red;
+
+  li{
+    font-size: 1.3em;
+  }
+
+  li:before{
+    content:url('../img/star.png');
+    position: absolute;
+    left: -10px;
+  }
+}

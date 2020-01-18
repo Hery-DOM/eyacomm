@@ -181,6 +181,41 @@ a:hover {
   background-color: rgba(0, 0, 0, 0); }
 
 /************************ FIN - BASE 3 ************************/
+.home-main {
+  height: 92vh;
+  width: 100%;
+  background-color: skyblue;
+  position: relative; }
+
+.home-left-container {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  border: 1px solid red;
+  text-align: center; }
+  .home-left-container a {
+    padding: 2% 5%;
+    background-color: #17447D;
+    color: white;
+    border: 1px solid #17447D;
+    border-radius: 10px;
+    text-transform: uppercase; }
+  .home-left-container a:hover {
+    background-color: white;
+    color: #17447D; }
+
+.home-right-container {
+  position: absolute;
+  top: 30%;
+  left: 70%;
+  border: 1px solid red; }
+  .home-right-container li {
+    font-size: 1.3em; }
+  .home-right-container li:before {
+    content: url("../img/star.png");
+    position: absolute;
+    left: -10px; }
+
 .service-header {
   height: 100vh;
   background-image: url("../img/background2.jpg");

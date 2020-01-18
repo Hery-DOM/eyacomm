@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>EYAL TELECOMM</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('assets/CSS/styles.css') }}">
+</head>
+<body>
+
+<main class="home-main">
+
+    <div class="home-left-container">
+        <h1 class="home-h1">EYAL TELECOMM</h1>
+        <p class="home-p">Pour un accompagnement sur-mesure dans votre accompagnement de téléphonie</p>
+        <a href="{{ path('quote') }}">Demandez un devis</a>
+    </div>
+
+    <div class="home-right-container">
+        <nav>
+            <ul>
+                <li><a href="{{ path('eyaltelecomm') }}">La société</a></li>
+                <li><a href="{{ path('services') }}">Nos services</a></li>
+                <li><a href="{{ path('offre') }}">Nos offres</a></li>
+                <li><a href="{{ path('contact') }}">Une question ?</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</main>
+
+<footer class="container-fluid service-footer">
+    <a href="{{ path('legal') }}">Mentions légales</a>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/JS/script.js') }}"></script>
+</body>
+</html>

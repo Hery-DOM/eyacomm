@@ -16,6 +16,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+    /**
+     * @Route("/", name="home")
+     */
+    public function home()
+    {
+        return $this->render('front-office/home.html.twig');
+    }
 
     /**
      * @Route("/offres", name="offre")
