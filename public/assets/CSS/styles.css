@@ -12,9 +12,6 @@ a:hover {
   text-decoration: none;
   cursor: pointer; }
 
-p {
-  color: #454141; }
-
 .back-base-header {
   height: 10vh;
   text-align: center;
@@ -314,6 +311,18 @@ p {
 #category {
   border: 1px solid black; }
 
+.product-link-one {
+  padding: 2%;
+  background-color: #17447D;
+  color: white;
+  border: white;
+  border: #17447D 1px solid;
+  border-radius: 10px; }
+
+.product-link-one:hover {
+  background-color: white;
+  color: #17447D; }
+
 /************** FIN - EVERY PRODUCTS **************/
 .product-one-img-box {
   margin-top: 30px;
@@ -326,8 +335,7 @@ p {
   padding: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center; }
+  justify-content: center; }
 
 .category-text-box-color {
   background-color: #17447D;
@@ -339,16 +347,13 @@ p {
   text-align: center;
   color: #4A4A4A;
   text-transform: uppercase;
-                          /*
-margin-top: 70px;
-margin-bottom: 100px;*/
   font-size: 2.2em; }
 
 .category-h2 {
   font-size: 1.9em;
-  /*margin-top: 50px;
-  margin-bottom: 50px;*/
-  color: #454141; }
+  color: #454141;
+  margin-top: 90px;
+  margin-bottom: 50px; }
 
 .offers-container {
   min-height: 80vh;
@@ -359,7 +364,7 @@ margin-bottom: 100px;*/
   color: white; }
 
 .offer-box {
-  margin: 10% 0; }
+  margin: 5% 0; }
 
 .offer-box-intern {
   border: 5px solid white;
@@ -383,7 +388,7 @@ margin-bottom: 100px;*/
 
 .offers-action {
   text-align: center;
-  margin: 20% 0; }
+  margin: 2% 0 10%; }
 
 .offers-button {
   background-color: #17447D;

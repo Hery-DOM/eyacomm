@@ -14,5 +14,11 @@ $(document).ready(function(){
             }
         )
     });
+
+    $('.service-action').click(function(){
+        $('html').animate({
+            scrollTop: 800
+        },'slow');
+    });
 });
 

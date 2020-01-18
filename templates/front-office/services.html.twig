@@ -14,13 +14,13 @@
 <header class="container-fluid service-header pt-2">
     <nav class="container d-none d-md-block">
         <ul class="row text-center p-1 justify-content-around align-items-center">
-            <li class="col-2"><a href="#" class="service-nav-link">La société</a></li>
-            <li class="col-2"><a href="#" class="service-nav-link">Nos services</a></li>
+            <li class="col-2"><a href="{{ path('eyaltelecomm') }}" class="service-nav-link">La société</a></li>
+            <li class="col-2"><a href="{{ path('services') }}" class="service-nav-link">Nos services</a></li>
             <li class="col-4 service-logo-box">
                 <img src="{{ asset('assets/img/logo.png') }}" alt="logo eyal telecomm">
             </li>
-            <li class="col-2"><a href="#" class="service-nav-link">Nos offres</a></li>
-            <li class="col-2"><a href="#" class="service-nav-link">Une question ?</a></li>
+            <li class="col-2"><a href="{{ path('offre') }}" class="service-nav-link">Nos offres</a></li>
+            <li class="col-2"><a href="{{ path('contact') }}" class="service-nav-link">Une question ?</a></li>
         </ul>
     </nav>
     <nav class="container d-md-none mb-3">
@@ -43,10 +43,10 @@
         </div>
 
         <ul>
-            <li><a href="#">La société</a></li>
-            <li><a href="#">Nos services</a></li>
-            <li><a href="#">Nos offres</a></li>
-            <li><a href="#">Une question ?</a></li>
+            <li><a href="{{ path('eyaltelecomm') }}">La société</a></li>
+            <li><a href="{{ path('services') }}">Nos services</a></li>
+            <li><a href="{{ path('offre') }}">Nos offres</a></li>
+            <li><a href="{{ path('contact') }}">Une question ?</a></li>
         </ul>
     </div>
 
@@ -58,7 +58,7 @@
         <div class="service-header-text">
             <p>{{ service.text }}</p>
         </div>
-        <a href="#" class="service-action">Voir nos services</a>
+        <a href="#services-anchor" class="service-action">Voir nos services</a>
     </div>
 
 
@@ -66,7 +66,7 @@
 </header>
 
 <main>
-    <section class="container-fluid p-0 service-section-tools">
+    <section class="container-fluid p-0 service-section-tools" id="services-anchor">
         <article class="row mx-0">
             <div class="service-main-img-outils col-12 col-md-6 p-0 order-0"></div>
             <div class="service-main-text col-12 col-md-6 d-flex flex-column justify-content-around
@@ -75,7 +75,9 @@
                     <h2>{{ outils.title }}</h2>
                     <p>{{ outils.text }}</p>
                     <div class="service-link-container">
-                        <a href="#" class="service-link-action">En savoir plus</a>
+                        <a href="{{ path('services_categories',{'cat':'outils'}) }}" class="service-link-action">En
+                            savoir
+                            plus</a>
                     </div>
                 </div>
             </div>
@@ -88,7 +90,8 @@
                     <h2>{{ proposition.title }}</h2>
                     <p>{{ proposition.text }}</p>
                     <div class="service-link-container">
-                        <a href="#" class="service-link-action">En savoir plus</a>
+                        <a href="{{ path('services_categories',{'cat':'propositions'}) }}"
+                           class="service-link-action">En savoir plus</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +106,7 @@
                      <h2>{{ gamme.title }}</h2>
                      <p>{{ gamme.text }}</p>
                      <div class="service-link-container">
-                         <a href="#" class="service-link-action">En savoir plus</a>
+                         <a href="{{ path('services_range') }}" class="service-link-action">En savoir plus</a>
                      </div>
                  </div>
              </div>
@@ -113,7 +116,7 @@
 </main>
 
 <footer class="container-fluid service-footer">
-    <a href="#">Mentions légales</a>
+    <a href="{{ path('legal') }}">Mentions légales</a>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

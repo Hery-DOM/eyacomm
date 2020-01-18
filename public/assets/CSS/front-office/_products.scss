@@ -17,4 +17,18 @@
   border:1px solid black;
 }
 
+.product-link-one{
+  padding: 2%;
+  background-color: $blue;
+  color: white;
+  border: white;
+  border: $blue 1px solid;
+  border-radius: 10px;
+}
+
+.product-link-one:hover{
+  background-color: white;
+  color: $blue;
+}
+
 /************** FIN - EVERY PRODUCTS **************/

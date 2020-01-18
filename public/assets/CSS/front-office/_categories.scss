@@ -7,8 +7,7 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
 }
 
 .category-text-box-color{
@@ -22,15 +21,13 @@
 .category-h1{
   text-align: center;
   color: $grey;
-  text-transform: uppercase;/*
-  margin-top: 70px;
-  margin-bottom: 100px;*/
+  text-transform: uppercase;
   font-size: 2.2em;
 }
 
 .category-h2{
   font-size: 1.9em;
-  /*margin-top: 50px;
-  margin-bottom: 50px;*/
   color: $grey2;
+  margin-top: 90px;
+  margin-bottom: 50px;
 }

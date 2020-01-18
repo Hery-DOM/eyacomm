@@ -14,13 +14,13 @@
     <header class="container-fluid base2-header pt-2">
         <nav class="container d-none d-md-block">
             <ul class="row text-center p-1 justify-content-around align-items-center">
-                <li class="col-2"><a href="#">La société</a></li>
-                <li class="col-2"><a href="#">Nos services</a></li>
+                <li class="col-2"><a href="{{ path('eyaltelecomm') }}">La société</a></li>
+                <li class="col-2"><a href="{{ path('services') }}">Nos services</a></li>
                 <li class="col-4 base-logo-box">
                     <img src="{{ asset('assets/img/logo.png') }}" alt="logo eyacomm">
                 </li>
-                <li class="col-2"><a href="#">Nos offres</a></li>
-                <li class="col-2"><a href="#">Une question ?</a></li>
+                <li class="col-2"><a href="{{ path('offre') }}">Nos offres</a></li>
+                <li class="col-2"><a href="{{ path('contact') }}">Une question ?</a></li>
             </ul>
         </nav>
         <nav class="container d-md-none mb-3">
@@ -42,10 +42,10 @@
             </div>
 
             <ul>
-                <li><a href="#">La société</a></li>
-                <li><a href="#">Nos services</a></li>
-                <li><a href="#">Nos offres</a></li>
-                <li><a href="#">Une question ?</a></li>
+                <li><a href="{{ path('eyaltelecomm') }}">La société</a></li>
+                <li><a href="{{ path('services') }}">Nos services</a></li>
+                <li><a href="{{ path('offre') }}">Nos offres</a></li>
+                <li><a href="{{ path('contact') }}">Une question ?</a></li>
             </ul>
         </div>
         <p class="base-thread d-none d-md-block">Acceuil / {{ thread }}</p>
@@ -57,7 +57,7 @@
     </main>
 
     <footer class="container-fluid base-footer">
-        <a href="#">Mentions légales</a>
+        <a href="{{ path('legal') }}">Mentions légales</a>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
