@@ -1,0 +1,156 @@
+{% extends 'front-office/bases/base3.html.twig' %}
+
+{% block content %}
+
+    <section class="contact-container">
+        <h1 class="contact-h1">Demandez<span class="d-none d-md-inline-block">-</span><span
+                    class="d-block d-md-inline">un devis</span></h1>
+        <p class="contact-p">Votre réponse sous 24 heures maximum</p>
+        <p class="contact-p">Renseignez ou demandez un rappel pour échanger directement avec votre conseillé</p>
+        <div>
+            {% for message in app.flashes('info') %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+
+        <form action="#" method="POST" class="contact-form">
+            <div class="contact-form-box">
+                <label for="society">Nom de l'entreprise</label>
+                <input type="text" id="society" name="society" required>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="name">Nom de l'interlocuteur</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="address">Adresse</label>
+                <input type="phone" id="address" name="address" required>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+
+            <div class="divider-box">
+                <div class="half-divider"></div>
+                <p class="contact-p">Situation actuelle</p>
+                <div class="half-divider"></div>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="operator">Opérateur actuelle</label>
+                <input type="text" id="operator" name="operator">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="ending">Date de fin d'engagement</label>
+                <input type="text" id="ending" name="ending">
+            </div>
+
+            <div class="divider-box">
+                <div class="half-divider"></div>
+                <p class="contact-p">Internet</p>
+                <div class="half-divider"></div>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="internet"></label>
+                <select name="internet" id="internet">
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                </select>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="adsl">ADSL</label>
+                <input type="text" id="adsl" name="adsl">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="sdsl">SDSL</label>
+                <input type="text" id="sdsl" name="sdsl">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="fibre">Fibre</label>
+                <input type="text" id="fibre" name="fibre">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="numeris">Nombre de TO ou ligne numeris</label>
+                <input type="text" id="numeris" name="numeris">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="calls">Nombre d'appels en simultané</label>
+                <input type="text" id="calls" name="calls">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="analogic">Nombre de lignes anaglogiques</label>
+                <input type="text" id="analogic" name="analogic">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="coast">Coût mensuel</label>
+                <input type="text" id="coast" name="coast">
+            </div>
+
+            <div class="divider-box">
+                <div class="half-divider"></div>
+                <p class="contact-p">Matériel</p>
+                <div class="half-divider"></div>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="wire">Nombre de postes filaires</label>
+                <input type="text" id="wire" name="wire">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="wireless">Nombre de postes sans fil</label>
+                <input type="text" id="wireless" name="wireless">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="age">Âge du matériel</label>
+                <input type="text" id="age" name="age">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="location">En location</label>
+                <select name="location" id="location">
+                    <option value="oui">Oui</option>
+                    <option value="non">Non</option>
+                </select>
+            </div>
+
+            <div class="contact-form-box">
+                <label for="coast_material">Coût mensuel</label>
+                <input type="text" id="coast_material" name="coast_material">
+            </div>
+
+            <div class="contact-form-box">
+                <label for="comments">Commentaires et besoins actuels (merci d'exprimer vos besoins si ils sont
+                    différents de votre situation actuelle)</label>
+                <textarea name="comments" id="comments" cols="30" rows="10"></textarea>
+            </div>
+            <p>
+                Postes supplémentaires ? <br>
+                Appels en simultané supplémentaires ? <br>
+                Messagerie pro à prévoir ou serveur vocal intéractif (tapez 1, tapez 2 etc)
+            </p>
+
+            <div class="contact-form-submit-box">
+                <input type="submit" name="submit_quote" value="Envoyer" class="contact-form-submit">
+            </div>
+
+
+        </form>
+    </section>
+
+
+{% endblock %}

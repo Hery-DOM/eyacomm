@@ -247,5 +247,62 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/devis", name="quote")
+     * To show quote's form
+     */
+    public function quote(PersonnalFunction $personnalFunction)
+    {
+        // get thread
+        $thread = "Devis";
+
+        if(isset($_POST['submit_quote'])){
+            foreach($_POST as $key => $value){
+                $title = $personnalFunction->checkInput($key);
+                $$title = $personnalFunction->checkInput($value);
+            }
+
+            $to = "mail@mail.fr";
+            $subject = "Demande de devis";
+            $message = "Vous avez une demande de devis : ";
+            $message .= "\n\r Nom de la société : ".$society;
+            $message .= "\n\r Nom de l'interlocuteur : ".$name;
+            $message .= "\n\r Adresse : ".$address;
+            $message .= "\n\r Numéro de téléphone : ".$phone;
+            $message .= "\n\r SITUATION ACTUELLE";
+            $message .= "\n\r Opérateur actuelle : ".$operator;
+            $message .= "\n\r Date de fin d'engagement : ".$ending;
+            $message .= "\n\r INTERNET : ".$internet;
+            $message .= "\n\r ADSL : ".$adsl;
+            $message .= "\n\r SDSL : ".$sdsl;
+            $message .= "\n\r Fibre :  ".$fibre;
+            $message .= "\n\r Nombre de TO ou ligne numeris : ".$numeris;
+            $message .= "\n\r Nombre d'appels en simultanée : ".$calls;
+            $message .= "\n\r Nombre de lignes analogiques : ".$analogic;
+            $message .= "\n\r Coût mensuel : ".$coast;
+            $message .= "\n\r MATERIEL";
+            $message .= "\n\r Nombre de postes filaires : ".$wire;
+            $message .= "\n\r Nombre de postes sans fil : ".$wireless;
+            $message .= "\n\r Âge du matériel : ".$age;
+            $message .= "\n\r En location : ".$location;
+            $message .= "\n\r Coût mensuel : ".$coast_material;
+            $message .= "\n\r Commentaires : ".$comments;
+
+            $send = mail($to, $subject, $message);
+
+            if($send){
+                $this->addFlash('info','Votre message a bien été envoyé');
+            }else{
+                $this->addFlash('info', 'Une erreur est survenue lors de l\'envoi du mail, merci de recharger la page et recommencer l\'opération');
+            }
+
+
+        }
+
+        return $this->render('front-office/quote.html.twig',[
+            'thread' => $thread
+        ]);
+    }
+
 
 }
