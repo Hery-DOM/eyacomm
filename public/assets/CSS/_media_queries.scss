@@ -1,0 +1,17 @@
+@media screen and(max-width: 768px){
+
+  .contact-form{
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-form-box{
+    display: block!important;
+    label, input, textarea{
+      width: 100%!important;
+      text-align: center!important;
+    }
+  }
+
+
+}

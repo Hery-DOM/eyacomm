@@ -176,6 +176,9 @@ class HomeController extends AbstractController
      */
     public function contact()
     {
+        //get thread
+        $thread = "Nous contacter";
+
         if(isset($_POST['submit'])){
 
             // secure input
@@ -206,7 +209,9 @@ class HomeController extends AbstractController
 
         }
 
-        return $this->render("front-office/contact.html.twig");
+        return $this->render("front-office/contact.html.twig",[
+            "thread" => $thread
+        ]);
     }
 
     /**
