@@ -5,12 +5,39 @@
   position: relative;
 }
 
+.home-video-box{
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  .home-video-calc{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+  }
+
+}
+
 .home-left-container{
   position: absolute;
-  top: 30%;
-  left: 10%;
-  border: 1px solid red;
+  top: 35%;
+  left: 20%;
   text-align: center;
+  color: white;
+  height: 40%;
+  width: 30%;
+  min-width: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  p{
+    font-size: 1.2em;
+  }
 
   a{
     padding: 2% 5%;
@@ -30,12 +57,18 @@
 
 .home-right-container{
   position: absolute;
-  top: 30%;
+  top: 45%;
   left: 70%;
-  border: 1px solid red;
 
   li{
     font-size: 1.3em;
+    a{
+      color: white;
+    }
+
+    a:hover{
+      color: $blue;
+    }
   }
 
   li:before{
@@ -43,4 +76,67 @@
     position: absolute;
     left: -10px;
   }
+
+  li:nth-child(2):before, li:nth-child(2){
+    margin-left: 70px;
+  }
+
+  li:nth-child(2){
+    margin-top: 20px;
+  }
+
+  li:nth-child(3):before, li:nth-child(3){
+    margin-left: 120px;
+  }
+
+  li:nth-child(3){
+    margin-top: 20px;
+  }
+
+  li:nth-child(4):before, li:nth-child(4){
+    margin-left: 160px;
+  }
+
+  li:nth-child(4) {
+    margin-top: 20px;
+  }
+
 }
+
+.home-main-mobile-container{
+  background-image: url('../img/background2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  padding-top: 50px;
+}
+
+.home-main-mobile{
+  width: 80%;
+  height: 50vh;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgba(255,255,255,0.8);
+  border-radius: 20px;
+  padding: 0 20px;
+  color: $grey;
+
+  a{
+    padding: 2% 5%;
+    background-color: $blue;
+    border: 1px solid $blue;
+    border-radius: 20px;
+    color: white;
+  }
+
+  a:hover{
+    background-color: white;
+    color: $blue;
+  }
+}
+

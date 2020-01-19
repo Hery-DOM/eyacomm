@@ -11,30 +11,47 @@
 </head>
 <body>
 
-<main class="home-main">
+<main>
+    <section class="home-main d-none d-xl-block">
+        <div class="home-video-box">
+            <div class="home-video-calc"></div>
+            <video autoplay muted loop>
+                <source src="{{ asset('assets/video/video.mp4') }}" type="video/mp4">
+            </video>
+        </div>
 
-    <div class="home-left-container">
-        <h1 class="home-h1">EYAL TELECOMM</h1>
-        <p class="home-p">Pour un accompagnement sur-mesure dans votre accompagnement de téléphonie</p>
-        <a href="{{ path('quote') }}">Demandez un devis</a>
-    </div>
+        <div class="home-left-container">
+            <h1 class="home-h1">EYAL<br/> TELECOMM</h1>
+            <p class="home-p">Pour un accompagnement sur-mesure dans votre accompagnement de téléphonie</p>
+            <a href="{{ path('quote') }}">Demandez un devis</a>
+        </div>
 
-    <div class="home-right-container">
-        <nav>
-            <ul>
-                <li><a href="{{ path('eyaltelecomm') }}">La société</a></li>
-                <li><a href="{{ path('services') }}">Nos services</a></li>
-                <li><a href="{{ path('offre') }}">Nos offres</a></li>
-                <li><a href="{{ path('contact') }}">Une question ?</a></li>
-            </ul>
-        </nav>
-    </div>
+        <div class="home-right-container">
+            <nav>
+                <ul>
+                    <li><a href="{{ path('eyaltelecomm') }}">La société</a></li>
+                    <li><a href="{{ path('services') }}">Nos services</a></li>
+                    <li><a href="{{ path('offre') }}">Nos offres</a></li>
+                    <li><a href="{{ path('contact') }}">Une question ?</a></li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <section class="home-main-mobile-container d-block d-xl-none">
+        <div class="home-main-mobile">
+                <h1 class="home-h1">EYAL<br/> TELECOMM</h1>
+                <p class="home-p">Pour un accompagnement sur-mesure dans votre accompagnement de téléphonie</p>
+                <a href="{{ path('services') }}">Voir les services</a>
+        </div>
+    </section>
 
 </main>
 
-<footer class="container-fluid service-footer">
+
+{#<footer class="container-fluid service-footer">
     <a href="{{ path('legal') }}">Mentions légales</a>
-</footer>
+</footer>#}
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
