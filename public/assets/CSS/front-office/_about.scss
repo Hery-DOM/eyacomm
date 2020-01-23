@@ -7,6 +7,12 @@
   border:1px solid white;
   padding: 2% 5%;
   background-color: $blue;
+  border: 1px solid $blue;
   border-radius: 15px;
   color: white;
+}
+
+.societe-action:hover{
+  background-color: white;
+  color: $blue;
 }

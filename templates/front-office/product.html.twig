@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{{ path('services_range') }}" class="product-one-back">Retour</a>
     <h1 class="d-md-none">{{ product.name }}</h1>
     <div class="product-one-img-box">
         <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">

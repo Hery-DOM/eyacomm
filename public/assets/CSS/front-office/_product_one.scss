@@ -3,3 +3,12 @@
   width: 100%;
 }
 
+.product-one-back{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.product-one-back:hover{
+  color: $blue;
+}
