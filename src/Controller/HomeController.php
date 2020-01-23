@@ -310,13 +310,60 @@ class HomeController extends AbstractController
             }else{
                 $this->addFlash('info', 'Merci de renseigner tous les champs obligatoires');
             }
-
-
-
-
         }
 
         return $this->render('front-office/quote.html.twig',[
+            'thread' => $thread
+        ]);
+    }
+
+
+
+    /**
+     * @Route("/{context}", name="page_context")
+     */
+    public function mobile($context, PageRepository $pageRepository, PersonnalFunction $personnalFunction)
+    {
+
+        $context = $personnalFunction->checkInput($context);
+
+        $contexts_bdd = [
+            'offres-mobiles' => 7,
+            'partie-fixe' => 8,
+            'internet' => 9,
+            'partenaires' => 10
+        ];
+
+        //check if context exists
+        $check_array = array_key_exists($context, $contexts_bdd);
+        if(!$check_array){
+            return $this->redirectToRoute('home');
+        }
+
+        //get thread
+        switch ($context){
+            case 'offres-mobiles':
+                $thread = "Nos offres mobiles";
+                break;
+            case 'partie-fixe':
+                $thread = "La partie fixe";
+                break;
+            case 'internet':
+                $thread = "Internet";
+                break;
+            case 'partenaires':
+                $thread = "Nos partenaires";
+                break;
+        }
+
+        // get the context's ID
+        $id = $contexts_bdd[$context];
+
+        //get page with context = "offres mobiles", id=7
+        $page = $pageRepository->findBy(['context' => $id])[0];
+
+        return $this->render('front-office/page.html.twig',[
+            'page' => $page,
             'thread' => $thread
         ]);
     }
