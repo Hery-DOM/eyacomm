@@ -542,6 +542,16 @@ a:hover {
   text-align: center;
   font-weight: bold; }
 
+.contact-person-box {
+  width: 70%;
+  margin: 10px auto;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px; }
+  .contact-person-box h2 {
+    color: #454141;
+    font-size: 1.5em; }
+
 .contact-form {
   width: 50%;
   margin: 0 auto; }
