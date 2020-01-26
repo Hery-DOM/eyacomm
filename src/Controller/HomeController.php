@@ -61,14 +61,9 @@ class HomeController extends AbstractController
         $proposal = $pageRepository->findByService(4);
         $intro_propo = $proposal[0];
 
-        //get page for "gammes" (id = 5)
-        $range = $pageRepository->findByService(5);
-        $intro_range = $range[0];
-
         return $this->render('front-office/services.html.twig',[
             'service' => $service_pages,
             'outils' => $intro_tool,
-            'gamme' => $intro_range,
             'proposition' => $intro_propo
         ]);
     }
@@ -107,7 +102,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/services/gammes", name="services_range")
+     * @Route("/equipement", name="equipement")
      * To show every products
      */
     public function showRange(ProductRepository $productRepository, Request $request, CategoryRepository
@@ -154,7 +149,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/services/gammes/{product}", name="services_product")
+     * @Route("/equipement/{product}", name="equipement_product")
      * To show single product
      */
     public function showProduct($product, ProductRepository $productRepository, PersonnalFunction $personnalFunction)
@@ -183,7 +178,7 @@ class HomeController extends AbstractController
      * @Route("/contact", name="contact")
      * Page's contact
      */
-    public function contact()
+    public function contact(PersonnalFunction $personnalFunction)
     {
         //get thread
         $thread = "Nous contacter";
@@ -191,12 +186,12 @@ class HomeController extends AbstractController
         if(isset($_POST['submit'])){
 
             // secure input
-            $society = $_POST['name'];
-            $activity = $_POST['activity'];
-            $address = $_POST['address'];
-            $phone = $_POST['phone'];
-            $email = $_POST['email'];
-            $message_input = $_POST['message'];
+            $society = $personnalFunction->checkInput($_POST['name']);
+            $activity = $personnalFunction->checkInput($_POST['activity']);
+            $address = $personnalFunction->checkInput($_POST['address']);
+            $phone = $personnalFunction->checkInput($_POST['phone']);
+            $email = $personnalFunction->checkInput($_POST['email']);
+            $message_input = $personnalFunction->checkInput($_POST['message']);
 
 
             $to = "mail@mail.fr";

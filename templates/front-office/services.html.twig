@@ -15,13 +15,38 @@
 <header class="container-fluid service-header pt-2">
     <nav class="container d-none d-md-block">
         <ul class="row text-center p-1 justify-content-around align-items-center">
-            <li class="col-2"><a href="{{ path('eyaltelecomm') }}" class="service-nav-link">La société</a></li>
-            <li class="col-2"><a href="{{ path('services') }}" class="service-nav-link">Nos services</a></li>
-            <li class="col-4 service-logo-box">
-                <img src="{{ asset('assets/img/logo.png') }}" alt="logo eyal telecomm">
+            <div class="col-5">
+                <div class="row mx-0">
+                    <li class="col-4"><a href="{{ path('eyaltelecomm') }}" class="service-nav-link">La société</a></li>
+                    <li class="col-4"><a href="{{ path('services') }}" class="service-nav-link">Nos services</a></li>
+                    <li class="col-4"><a href="{{ path('offre') }}" class="service-nav-link">Nos offres</a></li>
+                </div>
+                <div class="row mx-0">
+                    <li class="col-6"><a href="{{ path('page_context',{'context':'partenaires'}) }}" class="service-nav-link"
+                        >Partenaires</a></li>
+                    <li class="col-6"><a href="{{ path('page_context',{'context':'offres-mobiles'}) }}"
+                                         class="service-nav-link">Offres
+                            mobiles</a></li>
+                </div>
+            </div>
+            <li class="col-2 base-logo-box">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="logo eyacomm">
             </li>
-            <li class="col-2"><a href="{{ path('offre') }}" class="service-nav-link">Nos offres</a></li>
-            <li class="col-2"><a href="{{ path('contact') }}" class="service-nav-link">Une question ?</a></li>
+            <div class="col-5">
+                <div class="row mx-0">
+                    <li class="col-4"><a href="{{ path('page_context',{'context':'partie-fixe'}) }}" class="service-nav-link
+">Partie
+                            fixe</a></li>
+                    <li class="col-4"><a href="{{ path('page_context',{'context':'internet'}) }}" class="service-nav-link
+">Internet</a></li>
+                    <li class="col-4"><a href="#" class="service-nav-link">Espace client</a></li>
+                </div>
+                <div class="row mx-0">
+                    <li class="col-6"><a href="{{ path('page_context',{'context':'equipement'}) }}" class="service-nav-link
+">Equipement</a></li>
+                    <li class="col-6"><a href="{{ path('contact') }}" class="service-nav-link">Contacts</a></li>
+                </div>
+            </div>
         </ul>
     </nav>
     <nav class="container d-md-none mb-3">
@@ -99,19 +124,6 @@
             <div class="service-main-img-propositions col-12 col-md-6 p-0 order-0 order-md-1"></div>
         </article>
 
-        <article class="row mx-0">
-             <div class="service-main-img-gammes col-12 col-md-6 p-0 order-0"></div>
-             <div class="service-main-text col-12 col-md-6 d-flex flex-column justify-content-around
-             align-items-center py-4 order-1">
-                 <div class="service-text-container">
-                     <h2>{{ gamme.title }}</h2>
-                     <p>{{ gamme.text }}</p>
-                     <div class="service-link-container">
-                         <a href="{{ path('services_range') }}" class="service-link-action">En savoir plus</a>
-                     </div>
-                 </div>
-             </div>
-         </article>
     </section>
 
 </main>
