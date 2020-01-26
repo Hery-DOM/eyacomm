@@ -312,6 +312,21 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/espace-client", name="membership")
+     * To see customer's bills
+     */
+    public function membership()
+    {
+        // get thread
+        $thread = "Espace client";
+
+        return $this->render('front-office/membership.html.twig',
+            [
+                'thread' => $thread
+            ]);
+    }
+
 
 
     /**

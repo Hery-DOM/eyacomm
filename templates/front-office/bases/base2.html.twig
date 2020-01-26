@@ -34,7 +34,7 @@
                         <li class="col-4"><a href="{{ path('page_context',{'context':'partie-fixe'}) }}">Partie
                                 fixe</a></li>
                         <li class="col-4"><a href="{{ path('page_context',{'context':'internet'}) }}">Internet</a></li>
-                        <li class="col-4"><a href="#">Espace client</a></li>
+                        <li class="col-4"><a href="{{ path('membership') }}">Espace client</a></li>
                     </div>
                     <div class="row mx-0">
                         <li class="col-6"><a href="{{ path('page_context',{'context':'equipement'}) }}">Equipement</a></li>
@@ -71,7 +71,7 @@
                 <li><a href="{{ path('page_context',{'context':'equipement'}) }}">Equipement</a></li>
                 <li><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
                 <li><a href="{{ path('contact') }}">Contacts</a></li>
-                <li><a href="#">Espace client</a></li>
+                <li><a href="{{ path('membership') }}">Espace client</a></li>
             </ul>
         </div>
         <p class="base-thread d-none d-md-block">Acceuil / {{ thread }}</p>
