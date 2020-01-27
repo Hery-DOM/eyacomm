@@ -330,7 +330,7 @@ class HomeController extends AbstractController
 
 
     /**
-     * @Route("/{context}", name="page_context")
+     * @Route("/eyal-telecom/{context}", name="page_context")
      */
     public function mobile($context, PageRepository $pageRepository, PersonnalFunction $personnalFunction)
     {

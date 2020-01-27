@@ -48,7 +48,7 @@ class TariffController extends AbstractController
 
 
     /**
-     * @Route("tariff/update_tariff/{id}", name="update_tariff")
+     * @Route("/a/tariff/update_tariff/{id}", name="update_tariff")
      */
     public function updateTariff(EntityManagerInterface $entityManager, Request $request, TariffRepository $tariffRepository, $id)
     {
@@ -83,7 +83,7 @@ class TariffController extends AbstractController
 
 
     /**
-     * @Route("tariff/delete_tariff/{id}", name="delete_tariff")
+     * @Route("/a/tariff/delete_tariff/{id}", name="delete_tariff")
      */
     public function deleteTariff($id, EntityManagerInterface $entityManager, 
     Request $request, TariffRepository $tariffRepository)
@@ -99,7 +99,7 @@ class TariffController extends AbstractController
     }
 
     /**
-     * @Route("/list_tariff", name="list_tariff")
+     * @Route("/a/list_tariff", name="list_tariff")
      */
     public function listTariff(TariffRepository $tariffRepository)
     {

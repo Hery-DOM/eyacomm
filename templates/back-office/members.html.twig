@@ -1,0 +1,23 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+    <table class="categories-table">
+        <tr>
+            <th class="category-title">Liste des utilisateurs</th>
+            <th class="category-button-create"><button><a href="{{ path('fos_user_registration_register') }}">Créer un utilisateur</a></button></th>
+        </tr>
+        {% for user in users %}
+            <tr>
+                <td rowspan="2" class="category-name">{{ user.username }}</td>
+                <td class="category-button-box"><a href="{{ path('admin_members_update',{'id':user.id}) }}"
+                                                   class="category-button-update">Modifier</a></td>
+            </tr>
+            <tr>
+                <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('admin_members_delete',{'id':user.id}) }}')" class="category-button-delete">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

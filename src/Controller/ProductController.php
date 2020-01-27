@@ -14,7 +14,7 @@ class ProductController extends AbstractController
 {
 
     /**
-     * @Route("product/insert_product", name="insert_product")
+     * @Route("/a/product/insert_product", name="insert_product")
      */
     public function insertProduct(EntityManagerInterface $entityManager, Request $request)
     {
@@ -47,7 +47,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("product/update_product/{id}", name="update_product")
+     * @Route("/a/product/update_product/{id}", name="update_product")
      */
     public function updateProduct(EntityManagerInterface $entityManager, 
     ProductRepository $productRepository, Request $request, $id )
@@ -83,7 +83,7 @@ class ProductController extends AbstractController
 
 
     /**
-     * @Route("product/delete_product/{id}", name="delete_product")
+     * @Route("/a/product/delete_product/{id}", name="delete_product")
      */ 
     public function deleteProduct(EntityManagerInterface $entityManager, 
     ProductRepository $productRepository, Request $request, $id)
@@ -97,7 +97,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/list_product", name="list_product")
+     * @Route("/a/list_product", name="list_product")
      */
     public function listProduct(ProductRepository $productRepository)
     {   
