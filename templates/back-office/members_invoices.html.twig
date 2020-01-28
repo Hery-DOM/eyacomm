@@ -1,0 +1,22 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+    <table class="categories-table">
+        <tr>
+            <th class="category-title">Factures du client {{ user.firstname }}  {{ user.lastname }}</th>
+            <th class="category-button-create"><button><a href="{{ path('admin_members_invoice_add',{'id':user.id}) }}">Ajouter une facture</a></button></th>
+        </tr>
+        {% for invoice in invoices|sort((a,b) => b.id <=> a.id) %}
+            <tr>
+                <td rowspan="2" class="category-name">{{ invoice.name }}</td>
+                <td class="category-button-box"><a href="{{ asset('assets/pdf') }}/{{ invoice.name }}" class="category-button-update" target="_blank">Télécharger</a></td>
+            </tr>
+            <tr>
+                <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('admin_members_invoice_delete',{'id':invoice.id}) }}')" class="category-button-delete">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

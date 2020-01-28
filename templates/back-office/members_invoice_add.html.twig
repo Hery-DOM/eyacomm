@@ -1,0 +1,11 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+    {% for message in app.flashes('info') %}
+        {{ message }}
+    {% endfor %}
+
+{{ form(form) }}
+
+{% endblock %}
