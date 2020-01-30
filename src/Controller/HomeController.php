@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Repository\CategoryRepository;
 use App\Repository\ContextRepository;
+use App\Repository\InvoiceRepository;
 use App\Repository\PageRepository;
 use App\Repository\ProductRepository;
 use App\Repository\TariffRepository;
@@ -316,14 +317,21 @@ class HomeController extends AbstractController
      * @Route("/espace-client", name="membership")
      * To see customer's bills
      */
-    public function membership()
+    public function membership(InvoiceRepository $invoiceRepository)
     {
+        // get user connected
+        $user = $this->getUser();
+
+        // get user's invoices
+        $invoices = $invoiceRepository->findBy(['user' => $user->getId()]);
+
         // get thread
         $thread = "Espace client";
 
         return $this->render('front-office/membership.html.twig',
             [
-                'thread' => $thread
+                'thread' => $thread,
+                'invoices' => $invoices
             ]);
     }
 

@@ -5,5 +5,19 @@
 {% endblock %}
 
 {% block content %}
-    <p>A rédiger</p>
+    <h1>Vos factures</h1>
+    <section class="row mx-0 flex-wrap">
+        {% for invoice in invoices|sort((a,b) => b.id <=> a.id) %}
+            <div class="col-12 col-md-4 py-3">
+                <a href="{{ asset('assets/pdf') }}/{{ invoice.name }}" target="_blank">
+                    <div class="membership-img-box">
+                        <img src="{{ asset('assets/img/invoice.png') }}" alt="image facture {{ invoice.name }}" class="img-fluid">
+                    </div>
+                    <div class="membership-img-text">
+                        <h2>{{ invoice.name }}</h2>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </section>
 {% endblock %}
