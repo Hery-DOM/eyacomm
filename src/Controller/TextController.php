@@ -10,6 +10,8 @@ use App\Repository\ContextRepository;
 use App\Repository\PageRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -51,6 +53,9 @@ class TextController extends AbstractController
         // get page according with ID
         $page = $pageRepository->find($id);
 
+        // get page's context
+        $context = $page->getContext();
+
         // form creation
         $form = $this->createForm(PageType::class, $page);
         $formView = $form->createView();
@@ -59,9 +64,57 @@ class TextController extends AbstractController
             $form->handleRequest($request);
 
             if($form->isValid() && $form->isSubmitted()){
+                //pour ajouter une image
+                /** @var UploadedFile $image */
+                $image = $form['picture']->getData();
+
+                // Condition nécessaire car le champ 'image' n'est pas requis
+                // donc le fichier doit être traité que s'il est téléchargé
+                if ($image) {
+                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                    // Nécessaire pour inclure le nom du fichier en tant qu'URL + sécurité + nom unique
+                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+
+                    // Déplace le fichier dans le dossier des images d'articles
+                    try {
+                        if(!is_null($page->getPicture())){
+                            //si le champ "picture" de la table "article" n'est pas nul, on supprime le fichier
+                            // correspondant
+                            unlink("assets/img//".$page->getPicture());
+                        }
+                        $move = $image->move(
+                            $this->getParameter('images'),
+                            $newFilename
+                        );
+                        if (!$move) {
+                            throw new FileException('Erreur lors du chargement de l\'image ');
+                        }
+                    } catch (FileException $e) {
+                        // ... capture de l'exception
+                        $this->addFlash('info', $e->getMessage());
+                        return $this->redirectToRoute('text_update',[
+                            'id' => $id
+                        ]);
+                    }
+
+                    $page->setPicture($newFilename);
+
+                }
+
+
+
+
+
                 $entityManager->persist($page);
                 $entityManager->flush();
                 $this->addFlash('info','Données modifiées');
+                return $this->redirectToRoute('text_update',[
+                    'id' => $id
+                ]);
+            }else{
+                $this->addFlash('info', 'Erreur lors de la soumission du formulaire');
                 return $this->redirectToRoute('text_update',[
                     'id' => $id
                 ]);
@@ -70,7 +123,8 @@ class TextController extends AbstractController
         }
 
         return $this->render("back-office/text_update.html.twig",[
-            'form' => $formView
+            'form' => $formView,
+            'context' => $context
         ]);
     }
 
@@ -112,6 +166,7 @@ class TextController extends AbstractController
     public function textRemove(EntityManagerInterface $entityManager, PageRepository $pageRepository, $id)
     {
         $page = $pageRepository->find($id);
+        unlink("assets/img//".$page->getPicture());
         $entityManager->remove($page);
         $entityManager->flush();
 

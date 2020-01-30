@@ -5,5 +5,22 @@
     {% for message in app.flashes('info') %}
         <p>{{ message }}</p>
     {% endfor %}
-{{ form(form) }}
+{{ form_start(form) }}
+    {{ form_label(form.title) }}
+    {{ form_widget(form.title) }}
+
+    {{ form_label(form.text) }}
+    {{ form_widget(form.text) }}
+
+    {% if context.id != 11 %}
+        {% do form.picture.setRendered %}
+    {% else %}
+        {{ form_label(form.picture) }}
+    {% endif %}
+
+        {{ form_widget(form.picture) }}
+
+    {{ form_widget(form.Valider) }}
+
+{{ form_end(form) }}
 {% endblock %}

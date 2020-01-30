@@ -6,6 +6,7 @@
 parameters:
     app.path.general_images: /
     invoices: '%kernel.project_dir%/public/assets/pdf'
+    images: '%kernel.project_dir%/public/assets/img'
 services:
     # default configuration for services in *this* file
     _defaults:

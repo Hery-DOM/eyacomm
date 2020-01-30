@@ -24,7 +24,7 @@
     </div>
 
     {% if contextTarget is defined %}
-        {% if contextTarget.id == 3 or contextTarget.id == 4 %}
+        {% if contextTarget.id == 3 or contextTarget.id == 4 or contextTarget.id == 11%}
             <button class="btn btn-primary">
                 <a href="{{ path('text_create',{'idContext':contextTarget.id}) }}">Créer une page pour la catégorie {{
                     contextTarget.name }}</a>
@@ -40,7 +40,7 @@
                     <td class="category-button-box"><a href="{{ path('text_update',{'id':page.id}) }}"
                                                        class="category-button-update">Modifier</a></td>
                 </tr>
-                {% if page.context.id == 3 or page.context.id == 4 %}
+                {% if page.context.id == 3 or page.context.id == 4 or page.context.id == 11 %}
                 <tr>
                     <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('text_remove',
                             {'id':page.id}) }}')" class="category-button-delete">Supprimer</a></td>

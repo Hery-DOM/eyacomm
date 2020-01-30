@@ -246,9 +246,13 @@ class HomeController extends AbstractController
         // get thread
         $thread = "La société";
 
+        //get the page with context 'portrait' (id = 11)
+        $portraits = $pageRepository->findBy(['context' => 11]);
+
         return $this->render('front-office/about.html.twig',[
             'page' => $page,
-            'thread' => $thread
+            'thread' => $thread,
+            'portraits' => $portraits
         ]);
     }
 
