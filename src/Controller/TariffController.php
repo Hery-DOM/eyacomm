@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityManagerInterface;
 class TariffController extends AbstractController
 {
     /**
-     * @Route("tariff/insert_tariff", name="insert_tariff")
+     * @Route("/admin/tariff/insert_tariff", name="insert_tariff")
      */
     public function insertTarrif(EntityManagerInterface $entityManager, Request $request)
     {
@@ -48,7 +48,7 @@ class TariffController extends AbstractController
 
 
     /**
-     * @Route("/a/tariff/update_tariff/{id}", name="update_tariff")
+     * @Route("/admin/tariff/update_tariff/{id}", name="update_tariff")
      */
     public function updateTariff(EntityManagerInterface $entityManager, Request $request, TariffRepository $tariffRepository, $id)
     {
@@ -83,7 +83,7 @@ class TariffController extends AbstractController
 
 
     /**
-     * @Route("/a/tariff/delete_tariff/{id}", name="delete_tariff")
+     * @Route("/admin/tariff/delete_tariff/{id}", name="delete_tariff")
      */
     public function deleteTariff($id, EntityManagerInterface $entityManager, 
     Request $request, TariffRepository $tariffRepository)
@@ -99,7 +99,7 @@ class TariffController extends AbstractController
     }
 
     /**
-     * @Route("/a/list_tariff", name="list_tariff")
+     * @Route("/admin/list_tariff", name="list_tariff")
      */
     public function listTariff(TariffRepository $tariffRepository)
     {

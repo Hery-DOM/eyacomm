@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TextController extends AbstractController
 {
     /**
-     * @Route("/a/text",name="text_home")
+     * @Route("/admin/text",name="text_home")
      */
     public function textHome(ContextRepository $contextRepository, Request $request, PersonnalFunction
     $personnalFunction, PageRepository $pageRepository)
@@ -46,7 +46,7 @@ class TextController extends AbstractController
     }
 
     /**
-     * @Route("/a/text/update/{id}", name="text_update")
+     * @Route("/admin/text/update/{id}", name="text_update")
      */
     public function textUpdate($id, PageRepository $pageRepository, Request $request, EntityManagerInterface $entityManager)
     {
@@ -129,7 +129,7 @@ class TextController extends AbstractController
     }
 
     /**
-     * @Route("/a/text/create", name="text_create")
+     * @Route("/admin/text/create", name="text_create")
      */
     public function textCreate(Request $request, EntityManagerInterface $entityManager, ContextRepository $contextRepository)
     {
@@ -161,7 +161,7 @@ class TextController extends AbstractController
     }
 
     /**
-     * @Route("/a/text/remove/{id}",name="text_remove")
+     * @Route("/admin/text/remove/{id}",name="text_remove")
      */
     public function textRemove(EntityManagerInterface $entityManager, PageRepository $pageRepository, $id)
     {

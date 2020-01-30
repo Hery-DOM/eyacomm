@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoriesController extends AbstractController
 {
     /**
-     * @Route("/a/category", name="show_categories")
+     * @Route("/admin/category", name="show_categories")
      */
     public function showCategories(CategoryRepository $categoryRepository)
     {
@@ -28,7 +28,7 @@ class CategoriesController extends AbstractController
     }
 
     /**
-     * @Route("/a/category/new", name="create_category")
+     * @Route("/admin/category/new", name="create_category")
      * To create a new category
      */
     public function createCategory(Request $request, EntityManagerInterface $entityManager)
@@ -56,7 +56,7 @@ class CategoriesController extends AbstractController
     }
 
     /**
-     * @Route("/a/category/update/{id}", name="update_category")
+     * @Route("/admin/category/update/{id}", name="update_category")
      * To update a category, id in wild card
      */
     public function updateCategory($id, CategoryRepository $categoryRepository, Request $request,
@@ -89,7 +89,7 @@ class CategoriesController extends AbstractController
     }
 
     /**
-     * @Route("/a/category/remove/{id}", name="remove_category")
+     * @Route("/admin/category/remove/{id}", name="remove_category")
      * To remove a category, without view
      */
     public function removeCategory($id, CategoryRepository $categoryRepository, EntityManagerInterface $entityManager)

@@ -21,18 +21,6 @@
 
     <main class="container-fluid">
         <div class="row">
-            <aside class="col-2 back-aside">
-                <nav>
-                    <h2>ADMIN</h2>
-                    <div class="back-aside-divider"></div>
-                    <ul>
-                        <li><a href="{{ path('admin_members') }}">Gérer les clients</a></li>
-                        <li><a href="{{ path('text_home') }}"> Gestion des pages</a></li>
-                        <li><a href="{{ path('show_categories') }}"> Les catégories de produits</a></li>
-                        <li><a href="{{ path('list_product') }}"> Les produits</a></li>
-                    </ul>
-                </nav>
-            </aside>
             <section class="col-10 back-content">
                 {% block content %}
                 {% endblock %}

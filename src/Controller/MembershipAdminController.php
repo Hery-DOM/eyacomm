@@ -20,7 +20,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MembershipAdminController extends AbstractController
 {
     /**
-     * @Route("/a/members", name="admin_members")
+     * @Route("/admin/members", name="admin_members")
      * To show every customers
      */
     public function membershipHome(UserRepository $userRepository)
@@ -34,7 +34,7 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/a/members/invoices", name="admin_members_invoices")
+     * @Route("/admin/members/invoices", name="admin_members_invoices")
      * To see every invoices according with user
      */
     public function memberInvoices(Request $request, UserRepository $userRepository, InvoiceRepository $invoiceRepository)
@@ -55,7 +55,7 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/a/members/invoices/add/{id}", name="admin_members_invoice_add")
+     * @Route("/admin/members/invoices/add/{id}", name="admin_members_invoice_add")
      * {id} is user's ID
      */
     public function memberInvoiceAdd($id, Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)
@@ -122,7 +122,7 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/a/members/invoice/delete/{id}", name="admin_members_invoice_delete")
+     * @Route("/admin/members/invoice/delete/{id}", name="admin_members_invoice_delete")
      * {id} is invoice's ID
      */
     public function membersInvoiceDelete($id, InvoiceRepository $invoiceRepository, EntityManagerInterface $entityManager)
@@ -147,7 +147,7 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/a/members/update", name="admin_members_update")
+     * @Route("/admin/members/update", name="admin_members_update")
      * To update an user
      */
     public function membersUpdate(Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)
@@ -181,7 +181,7 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/a/members/delete", name="admin_members_delete")
+     * @Route("/admin/members/delete", name="admin_members_delete")
      * To delete an user / no view
      */
     public function membersDelete(Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)

@@ -318,7 +318,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/espace-client", name="membership")
+     * @Route("/user/espace-client", name="membership")
      * To see customer's bills
      */
     public function membership(InvoiceRepository $invoiceRepository)

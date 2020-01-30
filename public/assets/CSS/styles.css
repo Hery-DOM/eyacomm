@@ -36,8 +36,7 @@ a:hover {
   .back-aside nav a:before {
     content: "\21E8"; }
   .back-aside nav a:hover {
-    text-decoration: none;
-    font-size: 1.1em; }
+    text-decoration: underline; }
   .back-aside nav h2 {
     margin-top: 10px;
     color: white;
@@ -114,16 +113,13 @@ a:hover {
     color: white;
     text-transform: uppercase; }
 
-.base-text-container {
-  display: flex;
-  align-items: center; }
-  .base-text-container .base-text-box {
-    padding: 10px; }
-    .base-text-container .base-text-box h1, .base-text-container .base-text-box p {
-      margin: 50px 0; }
-    .base-text-container .base-text-box h1 {
-      color: #4A4A4A;
-      text-transform: uppercase; }
+.base-text-container .base-text-box {
+  padding: 10px; }
+  .base-text-container .base-text-box h1, .base-text-container .base-text-box p {
+    margin: 50px 0; }
+  .base-text-container .base-text-box h1 {
+    color: #4A4A4A;
+    text-transform: uppercase; }
 
 .base-logo-box img {
   height: auto;
