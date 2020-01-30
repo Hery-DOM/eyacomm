@@ -2,5 +2,8 @@
 
 {% block content %}
     <a href="{{ path('text_home') }}">Retour</a>
+    {% for message in app.flashes('info') %}
+        {{ message }}
+    {% endfor %}
     {{ form(form) }}
 {% endblock %}

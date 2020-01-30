@@ -148,6 +148,39 @@ class TextController extends AbstractController
             $form->handleRequest($request);
 
             if($form->isValid() && $form->isSubmitted()){
+
+                //pour ajouter une image
+                /** @var UploadedFile $image */
+                $image = $form['picture']->getData();
+
+                // Condition nécessaire car le champ 'image' n'est pas requis
+                // donc le fichier doit être traité que s'il est téléchargé
+                if ($image) {
+                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                    // Nécessaire pour inclure le nom du fichier en tant qu'URL + sécurité + nom unique
+                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+
+                    // Déplace le fichier dans le dossier des images d'articles
+                    try {
+                        $move = $image->move(
+                            $this->getParameter('images'),
+                            $newFilename
+                        );
+                        if (!$move) {
+                            throw new FileException('Erreur lors du chargement de l\'image ');
+                        }
+                    } catch (FileException $e) {
+                        // ... capture de l'exception
+                        $this->addFlash('info', $e->getMessage());
+                        return $this->redirectToRoute('text_create');
+                    }
+
+                    $page->setPicture($newFilename);
+
+                }
+
                 $entityManager->persist($page);
                 $page->setContext($context);
                 $entityManager->flush();

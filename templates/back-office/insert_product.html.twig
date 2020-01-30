@@ -1,6 +1,10 @@
 {% extends 'back-office/base/base.html.twig' %}
 
 {% block content %}
+    <a href="{{ path('list_product') }}">Retour</a>
+    {% for message in app.flashes('info') %}
+        {{ message }}
+    {% endfor %}
 {{ form(product) }}
 
 {% endblock %}

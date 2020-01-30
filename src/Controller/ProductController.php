@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,6 +31,39 @@ class ProductController extends AbstractController
             $formProduct->handleRequest($request);
             
             if($formProduct->isValid() && $formProduct->isSubmitted()){
+
+                //pour ajouter une image
+                /** @var UploadedFile $image */
+                $image = $formProduct['picture']->getData();
+
+                // Condition nécessaire car le champ 'image' n'est pas requis
+                // donc le fichier doit être traité que s'il est téléchargé
+                if ($image) {
+                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                    // Nécessaire pour inclure le nom du fichier en tant qu'URL + sécurité + nom unique
+                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+
+                    // Déplace le fichier dans le dossier des images d'articles
+                    try {
+                        $move = $image->move(
+                            $this->getParameter('images'),
+                            $newFilename
+                        );
+                        if (!$move) {
+                            throw new FileException('Erreur lors du chargement de l\'image ');
+                        }
+                    } catch (FileException $e) {
+                        // ... capture de l'exception
+                        $this->addFlash('info', $e->getMessage());
+                        return $this->redirectToRoute('insert_product');
+                    }
+
+                    $product->setPicture($newFilename);
+
+                }
+
                 $entityManager->persist($product);
                 $entityManager->flush();
 
@@ -63,6 +98,44 @@ class ProductController extends AbstractController
             $formProduct->handleRequest($request);
             
             if($formProduct->isValid() && $formProduct->isSubmitted()){
+                //pour ajouter une image
+                /** @var UploadedFile $image */
+                $image = $formProduct['picture']->getData();
+
+                // Condition nécessaire car le champ 'image' n'est pas requis
+                // donc le fichier doit être traité que s'il est téléchargé
+                if ($image) {
+                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                    // Nécessaire pour inclure le nom du fichier en tant qu'URL + sécurité + nom unique
+                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+
+
+                    // Déplace le fichier dans le dossier des images d'articles
+                    try {
+                        if(!is_null($product->getPicture())){
+                            //si le champ "picture" de la table "article" n'est pas nul, on supprime le fichier
+                            // correspondant
+                            unlink("assets/img//".$product->getPicture());
+                        }
+                        $move = $image->move(
+                            $this->getParameter('images'),
+                            $newFilename
+                        );
+                        if (!$move) {
+                            throw new FileException('Erreur lors du chargement de l\'image ');
+                        }
+                    } catch (FileException $e) {
+                        // ... capture de l'exception
+                        $this->addFlash('info', $e->getMessage());
+                        return $this->redirectToRoute('insert_product');
+                    }
+
+                    $product->setPicture($newFilename);
+
+                }
+
+
                 $entityManager->persist($product);
                 $entityManager->flush();
             
