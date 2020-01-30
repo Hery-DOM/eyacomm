@@ -1,14 +1,14 @@
-{% extends 'front-office/bases/base.html.twig' %}
+{% extends 'front-office/bases/base3.html.twig' %}
 
-{% block title %}
-    <h1>{{ product.name }}</h1>
-{% endblock %}
 
 {% block content %}
-    <a href="{{ path('equipement') }}" class="product-one-back">Retour</a>
-    <h1 class="d-md-none">{{ product.name }}</h1>
-    <div class="product-one-img-box">
-        <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
+    <div class="base3-container">
+        <a href="{{ path('equipement') }}" class="product-one-back">Retour</a>
+        <h1>{{ product.name }}</h1>
+        <div class="product-one-img-box text-center my-4">
+            <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
+        </div>
+        <p>{{ product.description }}</p>
     </div>
-    <p>{{ product.description }}</p>
+
 {% endblock %}

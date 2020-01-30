@@ -1,11 +1,28 @@
+.about-container-society{
+  width: 80%;
+  margin: 0 auto;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.about-container-team{
+  @extend .about-container-society;
+  width: 100%;
+  h3,p{
+    text-align: center;
+  }
+}
+
 .societe-action-box{
   width: 100%;
   text-align: center;
 }
 
 .societe-action{
-  border:1px solid white;
-  padding: 2% 5%;
+  padding: 2% 3%;
   background-color: $blue;
   border: 1px solid $blue;
   border-radius: 15px;

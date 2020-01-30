@@ -72,6 +72,8 @@
   }
 }
 
+
+
 .base-footer{
   background-color: black;
   height: 8vh;
@@ -109,6 +111,7 @@
 }
 
 
+
 /** FIN - MENU HIDDEN **/
 
 
@@ -130,11 +133,29 @@
 
 
 /************************ BASE 3 ************************/
+
+
 .base3-body{
   background-image: url("../img/background2.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.base3-main{
+  min-height: 70vh;
+}
+
+.base3-container{
+  width: 80%;
+  margin: 50px auto;
+  background-color: rgba(255,255,255,0.8);
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  h1{
+    text-align: center;
+  }
 }
 
 .base3-header{

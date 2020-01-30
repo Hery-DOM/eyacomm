@@ -1,10 +1,14 @@
 {% extends 'front-office/bases/base.html.twig' %}
 
 {% block title %}
-    <h1>Espace membre</h1>
+    <h1>Espace client</h1>
 {% endblock %}
 
 {% block content %}
+    <p class="text-right m-0 p-0">Connecté en tant que : {{ user.firstname }} {{ user.lastname }}</p>
+    <div class="text-right">
+        <a href="{{ path('fos_user_security_logout') }}" class="text-right m-0 p-0">Se déconnecter</a>
+    </div>
     <h1>Vos factures</h1>
     <section class="row mx-0 flex-wrap">
         {% for invoice in invoices|sort((a,b) => b.id <=> a.id) %}

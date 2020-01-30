@@ -174,6 +174,19 @@ a:hover {
   background-size: cover;
   background-position: center; }
 
+.base3-main {
+  min-height: 70vh; }
+
+.base3-container {
+  width: 80%;
+  margin: 50px auto;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 20px;
+  position: relative; }
+  .base3-container h1 {
+    text-align: center; }
+
 .base3-header {
   background-color: rgba(0, 0, 0, 0); }
 
@@ -388,13 +401,26 @@ a:hover {
   .service-footer a {
     color: white; }
 
+.about-container-society, .about-container-team {
+  width: 80%;
+  margin: 0 auto;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center; }
+
+.about-container-team {
+  width: 100%; }
+  .about-container-team h3, .about-container-team p {
+    text-align: center; }
+
 .societe-action-box {
   width: 100%;
   text-align: center; }
 
 .societe-action {
-  border: 1px solid white;
-  padding: 2% 5%;
+  padding: 2% 3%;
   background-color: #17447D;
   border: 1px solid #17447D;
   border-radius: 15px;
@@ -521,13 +547,6 @@ a:hover {
   background-color: white;
   color: #17447D;
   border: 2px solid #17447D; }
-
-.contact-container {
-  width: 80%;
-  margin: 50px auto;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 20px; }
 
 .contact-h1 {
   text-align: center;

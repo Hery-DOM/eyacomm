@@ -138,7 +138,7 @@ class HomeController extends AbstractController
         }
 
         // get thread
-        $thread = "Nos services / Nos gammes";
+        $thread = "Equipement";
 
         return $this->render('front-office/every_products.html.twig',[
             'products' => $products,
@@ -163,7 +163,7 @@ class HomeController extends AbstractController
         $category = $product->getCategory()->getName();
 
         //get thread
-        $thread = "Nos services / Nos gammes / ".$category." / ".$product->getName();
+        $thread = "Equipement / ".$category." / ".$product->getName();
 
         if(!empty($product)){
             return $this->render('front-office/product.html.twig',[
@@ -335,7 +335,8 @@ class HomeController extends AbstractController
         return $this->render('front-office/membership.html.twig',
             [
                 'thread' => $thread,
-                'invoices' => $invoices
+                'invoices' => $invoices,
+                'user' => $user
             ]);
     }
 

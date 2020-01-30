@@ -34,16 +34,13 @@
             </li>
             <div class="col-5">
                 <div class="row mx-0">
-                    <li class="col-4"><a href="{{ path('page_context',{'context':'partie-fixe'}) }}" class="service-nav-link
-">Partie
+                    <li class="col-4"><a href="{{ path('page_context',{'context':'partie-fixe'}) }}" class="service-nav-link">Partie
                             fixe</a></li>
-                    <li class="col-4"><a href="{{ path('page_context',{'context':'internet'}) }}" class="service-nav-link
-">Internet</a></li>
+                    <li class="col-4"><a href="{{ path('page_context',{'context':'internet'}) }}" class="service-nav-link">Internet</a></li>
                     <li class="col-4"><a href="#" class="service-nav-link">Espace client</a></li>
                 </div>
                 <div class="row mx-0">
-                    <li class="col-6"><a href="{{ path('page_context',{'context':'equipement'}) }}" class="service-nav-link
-">Equipement</a></li>
+                    <li class="col-6"><a href="{{ path('equipement') }}" class="service-nav-link">Equipement</a></li>
                     <li class="col-6"><a href="{{ path('contact') }}" class="service-nav-link">Contacts</a></li>
                 </div>
             </div>
@@ -72,7 +69,13 @@
             <li><a href="{{ path('eyaltelecomm') }}">La société</a></li>
             <li><a href="{{ path('services') }}">Nos services</a></li>
             <li><a href="{{ path('offre') }}">Nos offres</a></li>
-            <li><a href="{{ path('contact') }}">Une question ?</a></li>
+            <li><a href="{{ path('page_context',{'context':'offres-mobiles'}) }}">Offres mobiles</a></li>
+            <li><a href="{{ path('page_context',{'context':'partie-fixe'}) }}">Partie fixe</a></li>
+            <li><a href="{{ path('page_context',{'context':'internet'}) }}">Internet</a></li>
+            <li><a href="{{ path('equipement') }}">Equipement</a></li>
+            <li><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
+            <li><a href="{{ path('contact') }}">Contacts</a></li>
+            <li><a href="{{ path('membership') }}">Espace client</a></li>
         </ul>
     </div>
 

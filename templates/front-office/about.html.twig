@@ -1,28 +1,35 @@
-{% extends 'front-office/bases/base.html.twig' %}
+{% extends 'front-office/bases/base3.html.twig' %}
 
 {% block content %}
 
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.text }}</p>
-    <div class="societe-action-box">
-        <a href="{{ path('contact') }}" class="societe-action">Contactez-nous !</a>
-    </div>
-    
-    <section class="container mt-5">
-        <h2>Notre équipe</h2>
-        <div class="row">
-            {% for portrait in portraits %}
-                <div class="col-12 col-md-4">
-                    <div class="about-img-box">
-                        <img src="{{ asset('assets/img') }}/{{ portrait.picture }}" alt="image portrait {{ portrait.title }}" class="img-fluid">
-                        <h3>{{ portrait.title }}</h3>
-                        <p>{{ portrait.text }}</p>
+    <div class="base3-container">
+        <section class="about-container-society">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.text }}</p>
+            <div class="societe-action-box">
+                <a href="{{ path('contact') }}" class="societe-action">Contactez-nous !</a>
+            </div>
+        </section>
+
+
+        <section class="container mt-5 about-container-team">
+            <h2>Notre équipe</h2>
+            <div class="row">
+                {% for portrait in portraits %}
+                    <div class="col-12 col-md-4 my-3">
+                        <div class="about-img-box">
+                            <img src="{{ asset('assets/img') }}/{{ portrait.picture }}" alt="image portrait {{ portrait.title }}" class="img-fluid">
+                            <h3>{{ portrait.title }}</h3>
+                            <p>{{ portrait.text }}</p>
+                        </div>
                     </div>
-                </div>
 
-            {% endfor %}
+                {% endfor %}
 
-        </div>
-    </section>
+            </div>
+        </section>
+    </div>
+
+
 
 {% endblock %}

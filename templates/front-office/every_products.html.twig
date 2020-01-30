@@ -1,40 +1,41 @@
-{% extends 'front-office/bases/base.html.twig' %}
+{% extends 'front-office/bases/base3.html.twig' %}
 
-{% block title %}
-    <h1>{{ currentCategory }}</h1>
-{% endblock %}
 
 {% block content %}
-    <form action="#" method="GET" class="mb-5">
-        <label for="category">Catégorie : </label>
-        <select name="category" id="category">
-            {% for category in categories %}
-                {% if category.name == parameter %}
-                    <option value="{{ category.name }}" selected>{{ category.name }}</option>
-                {% else %}
-                    <option value="{{ category.name }}">{{ category.name }}</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-        <input type="submit" value="Filtrer" class="products-filter">
-    </form>
+    <div class="base3-container">
+        <h1>Nos produits</h1>
+        <form action="#" method="GET" class="mb-5">
+            <label for="category">Catégorie : </label>
+            <select name="category" id="category">
+                {% for category in categories %}
+                    {% if category.name == parameter %}
+                        <option value="{{ category.name }}" selected>{{ category.name }}</option>
+                    {% else %}
+                        <option value="{{ category.name }}">{{ category.name }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+            <input type="submit" value="Filtrer" class="products-filter">
+        </form>
 
-    <div class="products-container container">
-        <div class="row">
-            {% for product in products %}
-                <div class="product-one col-12 col-md-6 mb-4">
-                    <div class="product-img-box">
-                        <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
+        <div class="products-container container">
+            <div class="row text-center">
+                {% for product in products %}
+                    <div class="product-one col-12 col-md-6 my-4">
+                        <div class="product-img-box">
+                            <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
+                        </div>
+                        <h2 class="my-3">{{ product.name }}</h2>
+                        <a href="{{ path('equipement_product',{'product':product.name}) }}" class="product-link-one">Voir le
+                            produit</a>
                     </div>
-                    <h2>{{ product.name }}</h2>
-                    <a href="{{ path('equipement_product',{'product':product.name}) }}" class="product-link-one">Voir le
-                        produit</a>
-                </div>
 
-            {% endfor %}
+                {% endfor %}
+            </div>
+
         </div>
-
     </div>
+
 
 
 {% endblock %}
