@@ -20,9 +20,14 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function home()
+    public function home(PageRepository $pageRepository)
     {
-        return $this->render('front-office/home.html.twig');
+        // get text "raisons de nous choisir" (id = 18)
+        $page = $pageRepository->find(18);
+
+        return $this->render('front-office/home.html.twig',[
+            'page' => $page
+        ]);
     }
 
     /**

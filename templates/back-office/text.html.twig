@@ -8,7 +8,7 @@
                 <label for="context" class="col-2">CATEGORIE</label>
                 <select name="id" id="context" class="col-6">
                     <option value="0">Sélectionnez la catégorie de la page à modifier</option>
-                    {% for context in contexts %}
+                    {% for context in contexts|sort((a,b) => a.name <=> b.name) %}
                         {% set select = '' %}
                         {% if id is defined %}
                             {% if context.id == id %}
@@ -32,7 +32,7 @@
         {% endif %}
         <table class="categories-table">
             <tr>
-                <th class="category-title">Liste des {{ contextTarget.name }}</th>
+                <th class="category-title">{{ contextTarget.name }}</th>
             </tr>
             {% for page in pages %}
                 <tr>
