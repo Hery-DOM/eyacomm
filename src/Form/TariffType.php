@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Tariff;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -15,7 +16,7 @@ class TariffType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('description')
+            ->add('description', CKEditorType::class)
             ->add('price')
 
             ->add('Enregistrer', SubmitType::class)

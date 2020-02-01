@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Page;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -16,7 +17,7 @@ class PageType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('text')
+            ->add('text', CKEditorType::class)
             ->add('picture', FileType::class,[
                 'label' => 'Photo',
                 'mapped' => false,

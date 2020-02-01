@@ -47,17 +47,38 @@
         </div>
     </section>
 
-    <section>
-        <h1>{{ page.title }}</h1>
-        <p>{{ page.text }}</p>
+    <section class="home-main-reasons">
+        <article class="home-main-reasons-text">
+            <h1>{{ page.title }}</h1>
+            <p>{{ page.text|raw }}</p>
+        </article>
+    </section>
+
+    <section class="home-main-team container-fluid">
+        <h1>Notre équipe</h1>
+        <article class="home-main-team-text row mx-0 flex-wrap">
+            {% for portrait in portraits %}
+                <div class="col-12 col-md-4 px-5">
+                    <div class="home-main-team-card">
+                        <div class="home-main-team-img-box">
+                            <img src="{{ asset('assets/img/') }}{{ portrait.picture }}" alt="image portrait {{ portrait.title
+                            }}"
+                                 class="img-fluid">
+                        </div>
+                        <h2>{{ portrait.title }}</h2>
+                        <p>{{ portrait.text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </article>
     </section>
 
 </main>
 
 
-{#<footer class="container-fluid service-footer">
+<footer class="container-fluid service-footer">
     <a href="{{ path('legal') }}">Mentions légales</a>
-</footer>#}
+</footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

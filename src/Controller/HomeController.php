@@ -25,8 +25,12 @@ class HomeController extends AbstractController
         // get text "raisons de nous choisir" (id = 18)
         $page = $pageRepository->find(18);
 
+        //get the page with context 'portrait' (id = 11)
+        $portraits = $pageRepository->findBy(['context' => 11]);
+
         return $this->render('front-office/home.html.twig',[
-            'page' => $page
+            'page' => $page,
+            'portraits' => $portraits
         ]);
     }
 

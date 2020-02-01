@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Category;
 use App\Entity\Product;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -32,7 +33,7 @@ class ProductType extends AbstractType
                     ])
                 ]
             ])
-            ->add('description')
+            ->add('description', CKEditorType::class)
              ->add('category', EntityType::class,[
                  'class' => Category::class,
                  'choice_label' => 'name'

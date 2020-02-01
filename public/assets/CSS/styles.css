@@ -189,10 +189,10 @@ a:hover {
 
 /************************ FIN - BASE 3 ************************/
 .home-main {
-  height: 92vh;
+  height: 100vh;
   width: 100%;
-  background-color: skyblue;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 .home-video-box {
   width: 100%;
@@ -293,6 +293,44 @@ a:hover {
   .home-main-mobile a:hover {
     background-color: white;
     color: #17447D; }
+
+.home-main-reasons {
+  background-image: url("../img/outils0.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px; }
+
+.home-main-reasons-text {
+  padding: 20px 30px;
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  text-align: center;
+  color: black; }
+  .home-main-reasons-text h1 {
+    margin-bottom: 40px; }
+
+.home-main-team {
+  padding: 30px 0 50px; }
+  .home-main-team h1 {
+    text-transform: uppercase;
+    text-align: center;
+    margin: 30px 0; }
+
+.home-main-team-card {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px; }
+
+.home-main-team-img-box {
+  border-radius: 20px;
+  overflow: hidden; }
+
+.home-main-team-text h2, .home-main-team-text p {
+  text-align: center;
+  margin: 20px 0; }
 
 .service-header {
   height: 100vh;
