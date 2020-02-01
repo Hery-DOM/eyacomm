@@ -243,7 +243,7 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/eyaltelecomm", name="eyaltelecomm")
+     * @Route("/eyaltelecom", name="eyaltelecom")
      * To show about eyacomm's page
      */
     public function about(PageRepository $pageRepository)
@@ -347,6 +347,17 @@ class HomeController extends AbstractController
                 'invoices' => $invoices,
                 'user' => $user
             ]);
+    }
+
+    /**
+     * @Route("/sitemap/", name="sitemap")
+     */
+    public function sitemap()
+    {
+        $thread = "Plan du site";
+        return $this->render('front-office/sitemap.html.twig',[
+            'thread' => $thread
+        ]);
     }
 
 
