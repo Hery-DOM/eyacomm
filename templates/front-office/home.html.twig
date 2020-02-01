@@ -30,7 +30,7 @@
         <div class="home-right-container">
             <nav>
                 <ul>
-                    <li><a href="{{ path('eyaltelecomm') }}">La société</a></li>
+                    <li><a href="{{ path('eyaltelecom') }}">La société</a></li>
                     <li><a href="{{ path('services') }}">Nos services</a></li>
                     <li><a href="{{ path('offre') }}">Nos offres</a></li>
                     <li><a href="{{ path('contact') }}">Une question ?</a></li>
@@ -51,6 +51,7 @@
         <article class="home-main-reasons-text">
             <h1>{{ page.title }}</h1>
             <p>{{ page.text|raw }}</p>
+            <a href="{{ path('quote') }}"><button>Demandez un devis</button></a>
         </article>
     </section>
 

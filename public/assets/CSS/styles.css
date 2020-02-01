@@ -295,34 +295,49 @@ a:hover {
     color: #17447D; }
 
 .home-main-reasons {
-  background-image: url("../img/outils0.png");
+  background-image: url("../img/logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  padding: 20px; }
+  background-size: contain; }
 
 .home-main-reasons-text {
   padding: 20px 30px;
-  width: 80%;
-  margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.9);
   text-align: center;
-  color: black; }
+  color: white;
+  font-size: 1.3em; }
   .home-main-reasons-text h1 {
-    margin-bottom: 40px; }
+    margin-bottom: 40px;
+    text-transform: uppercase; }
+  .home-main-reasons-text a button {
+    color: white;
+    margin: 40px 0;
+    width: 300px;
+    height: 60px;
+    background-color: #17447D;
+    color: white;
+    border: 1px solid #17447D;
+    border-radius: 10px;
+    text-transform: uppercase; }
+  .home-main-reasons-text a:hover button {
+    background-color: white;
+    color: #17447D; }
 
 .home-main-team {
-  padding: 30px 0 50px; }
+  padding: 30px 0 50px;
+  background-color: #17447D; }
   .home-main-team h1 {
     text-transform: uppercase;
     text-align: center;
-    margin: 30px 0; }
+    margin: 30px 0;
+    color: white; }
 
 .home-main-team-card {
-  border: 1px solid black;
+  border: 1px solid white;
+  background-color: white;
   border-radius: 10px;
-  padding: 20px; }
+  padding: 20px;
+  margin: 20px 0; }
 
 .home-main-team-img-box {
   border-radius: 20px;
