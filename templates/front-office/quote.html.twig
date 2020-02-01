@@ -47,7 +47,7 @@
 
             <div class="contact-form-box">
                 <label for="ending">Date de fin d'engagement</label>
-                <input type="text" id="ending" name="ending">
+                <input type="date" id="ending" name="ending">
             </div>
 
             <div class="divider-box">
@@ -57,21 +57,27 @@
             </div>
 
             <div class="contact-form-box">
-                <label for="internet"></label>
+                <label for="internet">Internet</label>
                 <select name="internet" id="internet">
                     <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="non" selected>Non</option>
                 </select>
             </div>
 
             <div class="contact-form-box">
                 <label for="adsl">ADSL</label>
-                <input type="text" id="adsl" name="adsl">
+                <select name="adsl" id="adsl">
+                    <option value="oui">Oui</option>
+                    <option value="non" selected>Non</option>
+                </select>
             </div>
 
             <div class="contact-form-box">
                 <label for="sdsl">SDSL</label>
-                <input type="text" id="sdsl" name="sdsl">
+                <select name="sdsl" id="sdsl">
+                    <option value="oui">Oui</option>
+                    <option value="non" selected>Non</option>
+                </select>
             </div>
 
             <div class="contact-form-box">
@@ -81,21 +87,33 @@
 
             <div class="contact-form-box">
                 <label for="numeris">Nombre de TO ou ligne numeris</label>
-                <input type="text" id="numeris" name="numeris">
+                <select name="numeris" id="numeris">
+                    {% for i in 0..99%}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="contact-form-box">
                 <label for="calls">Nombre d'appels en simultané</label>
-                <input type="text" id="calls" name="calls">
+                <select name="calls" id="calls">
+                    {% for i in 0..99%}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="contact-form-box">
                 <label for="analogic">Nombre de lignes anaglogiques</label>
-                <input type="text" id="analogic" name="analogic">
+                <select name="analogic" id="analogic">
+                    {% for i in 0..99%}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="contact-form-box">
-                <label for="coast">Coût mensuel</label>
+                <label for="coast">Coût mensuel (HT)</label>
                 <input type="text" id="coast" name="coast">
             </div>
 
@@ -107,29 +125,47 @@
 
             <div class="contact-form-box">
                 <label for="wire">Nombre de postes filaires</label>
-                <input type="text" id="wire" name="wire">
+                <select name="wire" id="wire">
+                    {% for i in 0..99%}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="contact-form-box">
                 <label for="wireless">Nombre de postes sans fil</label>
-                <input type="text" id="wireless" name="wireless">
+                <select name="wireless" id="wireless">
+                    {% for i in 0..99%}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="contact-form-box">
                 <label for="age">Âge du matériel</label>
-                <input type="text" id="age" name="age">
+                <select name="age" id="age">
+                    {% for i in 0..50%}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
             </div>
 
             <div class="contact-form-box">
                 <label for="location">En location</label>
                 <select name="location" id="location">
                     <option value="oui">Oui</option>
-                    <option value="non">Non</option>
+                    <option value="non" selected>Non</option>
                 </select>
             </div>
 
+            <div class="contact-form-box quote-location-option">
+                <label for="location_date">Date de fin d'engagement</label>
+                <input type="date" id="location_date" name="location_date" disabled>
+            </div>
+
+
             <div class="contact-form-box">
-                <label for="coast_material">Coût mensuel</label>
+                <label for="coast_material">Coût mensuel (HT)</label>
                 <input type="text" id="coast_material" name="coast_material">
             </div>
 

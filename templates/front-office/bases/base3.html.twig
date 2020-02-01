@@ -83,7 +83,14 @@
 </main>
 
 <footer class="container-fluid base-footer">
-    <a href="{{ path('legal') }}">Mentions légales</a>
+    <div class="row mx-0 w-25">
+        <div class="col-12 col-md-6">
+            <a href="{{ path('sitemap') }}">Plan du site</a>
+        </div>
+        <div class="col-12 col-md-6">
+            <a href="{{ path('legal') }}">Mentions légales</a>
+        </div>
+    </div>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

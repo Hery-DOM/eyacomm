@@ -22,3 +22,12 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $('#location').change(function(){
+        if($('#location').val() == 'oui'){
+            $('#location_date').removeAttr('disabled');
+        }else{
+            $('#location_date').attr('disabled','');
+        }
+    });
+});

@@ -132,8 +132,9 @@
 .service-footer{
   background-color: grey;
   height: 8vh;
-  text-align: right;
   padding-top: 20px;
+  display: flex;
+  justify-content: flex-end;
   a{
     color: white;
   }

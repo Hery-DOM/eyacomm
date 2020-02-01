@@ -280,6 +280,12 @@ class HomeController extends AbstractController
                 ($_POST['phone'])){
                 foreach($_POST as $key => $value){
                     $title = $personnalFunction->checkInput($key);
+                    $value = $personnalFunction->checkInput($value);
+                    if($key == "ending" || $key == "location_date"){
+                        $value = strftime($value);
+                        $date = new \DateTime($value);
+                        $value = $date->format('d/m/Y');
+                    }
                     $$title = $personnalFunction->checkInput($value);
                 }
 
@@ -306,8 +312,12 @@ class HomeController extends AbstractController
                 $message .= "\n\r Nombre de postes sans fil : ".$wireless;
                 $message .= "\n\r Âge du matériel : ".$age;
                 $message .= "\n\r En location : ".$location;
+                if($location == "oui"){
+                    $message .= "\n\r Date de fin d'engagement : ".$location_date;
+                }
                 $message .= "\n\r Coût mensuel : ".$coast_material;
                 $message .= "\n\r Commentaires : ".$comments;
+                DD($message);
 
                 $send = mail($to, $subject, $message);
 

@@ -130,7 +130,9 @@ a:hover {
   background-color: black;
   height: 8vh;
   text-align: right;
-  padding-top: 20px; }
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-end; }
   .base-footer a {
     color: white; }
 
@@ -446,8 +448,9 @@ a:hover {
 .service-footer {
   background-color: grey;
   height: 8vh;
-  text-align: right;
-  padding-top: 20px; }
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-end; }
   .service-footer a {
     color: white; }
 
