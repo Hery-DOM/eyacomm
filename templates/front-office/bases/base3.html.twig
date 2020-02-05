@@ -39,6 +39,9 @@
                 <div class="row mx-0">
                     <li class="col-6"><a href="{{ path('equipement') }}">Equipement</a></li>
                     <li class="col-6"><a href="{{ path('contact') }}">Contacts</a></li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                    {% endif %}
                 </div>
             </div>
         </ul>
@@ -72,6 +75,9 @@
             <li><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
             <li><a href="{{ path('contact') }}">Contacts</a></li>
             <li><a href="{{ path('membership') }}">Espace client</a></li>
+            {% if is_granted('ROLE_USER') %}
+                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+            {% endif %}
         </ul>
     </div>
     <p class="base-thread d-none d-md-block">Acceuil / {{ thread }}</p>
@@ -83,11 +89,11 @@
 </main>
 
 <footer class="container-fluid base-footer">
-    <div class="row mx-0 w-25">
-        <div class="col-12 col-md-6">
+    <div class="row mx-0 w-100 w-md-25">
+        <div class="col-6">
             <a href="{{ path('sitemap') }}">Plan du site</a>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-6">
             <a href="{{ path('legal') }}">Mentions légales</a>
         </div>
     </div>

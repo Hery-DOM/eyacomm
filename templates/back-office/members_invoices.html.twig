@@ -1,7 +1,7 @@
 {% extends 'back-office/base/base.html.twig' %}
 
 {% block content %}
-
+    <a href="{{ path('admin_members') }}">Retour</a>
     <table class="categories-table">
         <tr>
             <th class="category-title">Factures du client {{ user.firstname }}  {{ user.lastname }}</th>

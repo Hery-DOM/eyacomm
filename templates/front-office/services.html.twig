@@ -42,6 +42,9 @@
                 <div class="row mx-0">
                     <li class="col-6"><a href="{{ path('equipement') }}" class="service-nav-link">Equipement</a></li>
                     <li class="col-6"><a href="{{ path('contact') }}" class="service-nav-link">Contacts</a></li>
+                    {% if is_granted('ROLE_USER') %}
+                        <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                    {% endif %}
                 </div>
             </div>
         </ul>
@@ -76,6 +79,9 @@
             <li><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
             <li><a href="{{ path('contact') }}">Contacts</a></li>
             <li><a href="{{ path('membership') }}">Espace client</a></li>
+            {% if is_granted('ROLE_USER') %}
+                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+            {% endif %}
         </ul>
     </div>
 
@@ -85,7 +91,7 @@
 
     <div class="service-header-box">
         <div class="service-header-text">
-            <p>{{ service.text }}</p>
+            <p>{{ service.text|raw }}</p>
         </div>
         <a href="#nos-services" class="service-action">Voir nos services</a>
     </div>
@@ -102,7 +108,7 @@
             align-items-center py-4 order-1">
                 <div class="service-text-container">
                     <h2>{{ outils.title }}</h2>
-                    <p>{{ outils.text }}</p>
+                    <p>{{ outils.text|raw }}</p>
                     <div class="service-link-container">
                         <a href="{{ path('services_categories',{'cat':'outils'}) }}" class="service-link-action">En
                             savoir
@@ -117,7 +123,7 @@
             align-items-center py-4 order-1 order-md-0">
                 <div class="service-text-container">
                     <h2>{{ proposition.title }}</h2>
-                    <p>{{ proposition.text }}</p>
+                    <p>{{ proposition.text|raw }}</p>
                     <div class="service-link-container">
                         <a href="{{ path('services_categories',{'cat':'propositions'}) }}"
                            class="service-link-action">En savoir plus</a>
@@ -132,11 +138,11 @@
 </main>
 
 <footer class="container-fluid service-footer">
-    <div class="row mx-0 w-25">
-        <div class="col-12 col-md-6">
+    <div class="row mx-0 w-100 w-md-25">
+        <div class="col-6">
             <a href="{{ path('sitemap') }}">Plan du site</a>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-6">
             <a href="{{ path('legal') }}">Mentions légales</a>
         </div>
     </div>

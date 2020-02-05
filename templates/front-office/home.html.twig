@@ -11,17 +11,65 @@
     <link rel="stylesheet" href="{{ asset('assets/CSS/styles.css') }}">
 </head>
 <body>
+<header class="container-fluid home-header pt-2">
+    <nav class=" container d-xl-none xl-3">
+        <div class="row">
+            <div class="col-2">
+                <img src="{{ asset('assets/img/logo.png') }}" alt="logo eyal telecomm" class="img-fluid">
+            </div>
+            <div class="header-hidden-button col-3 col-sm-2 offset-7 offset-sm-8">
+                <img src="{{ asset('assets/img/burgerwhite.png') }}" alt="menu burger" class="img-fluid">
+            </div>
+        </div>
+    </nav>
+    <div class="header-hidden-menu">
+        <div class="row justify-content-between align-items-center">
+            <h2 class="col-10">EYAL TELECOMM</h2>
+            <p class="col-2 header-hidden-close">X</p>
+        </div>
+
+        <ul>
+            <li><a href="{{ path('eyaltelecom') }}">La société</a></li>
+            <li><a href="{{ path('services') }}">Nos services</a></li>
+            <li><a href="{{ path('offre') }}">Nos offres</a></li>
+            <li><a href="{{ path('page_context',{'context':'offres-mobiles'}) }}">Offres mobiles</a></li>
+            <li><a href="{{ path('page_context',{'context':'partie-fixe'}) }}">Partie fixe</a></li>
+            <li><a href="{{ path('page_context',{'context':'internet'}) }}">Internet</a></li>
+            <li><a href="{{ path('equipement') }}">Equipement</a></li>
+            <li><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
+            <li><a href="{{ path('contact') }}">Contacts</a></li>
+            <li><a href="{{ path('membership') }}">Espace client</a></li>
+            {% if is_granted('ROLE_USER') %}
+                <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+            {% endif %}
+        </ul>
+    </div>
+
+</header>
 
 <main>
-    <section class="home-main d-none d-xl-block">
+    <section class=" home-main d-none d-xl-block">
         <div class="home-video-box">
             <div class="home-video-calc"></div>
-            <video autoplay muted loop>
+            <video autoplay muted loop class="img-fluid">
                 <source src="{{ asset('assets/video/video.mp4') }}" type="video/mp4">
             </video>
         </div>
 
         <div class="home-left-container">
+
+            <nav>
+                <ul>
+                    <li><a href="{{ path('eyaltelecom') }}">La société</a></li>
+                    <li><a href="{{ path('services') }}">Nos services</a></li>
+                    <li><a href="{{ path('offre') }}">Nos offres</a></li>
+                    <li><a href="{{ path('page_context',{'context':'offres-mobiles'}) }}">Offres mobiles</a></li>
+                    <li><a href="{{ path('page_context',{'context':'partie-fixe'}) }}">Partie fixe</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="home-center-container">
             <h1 class="home-h1">EYAL<br/> TELECOMM</h1>
             <p class="home-p">Pour un accompagnement sur-mesure dans votre accompagnement de téléphonie</p>
             <a href="{{ path('quote') }}">Demandez un devis</a>
@@ -30,10 +78,11 @@
         <div class="home-right-container">
             <nav>
                 <ul>
-                    <li><a href="{{ path('eyaltelecom') }}">La société</a></li>
-                    <li><a href="{{ path('services') }}">Nos services</a></li>
-                    <li><a href="{{ path('offre') }}">Nos offres</a></li>
-                    <li><a href="{{ path('contact') }}">Une question ?</a></li>
+                    <li><a href="{{ path('page_context',{'context':'internet'}) }}">Internet</a></li>
+                    <li><a href="{{ path('equipement') }}">Equipement</a></li>
+                    <li><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
+                    <li><a href="{{ path('contact') }}">Contacts</a></li>
+                    <li><a href="{{ path('membership') }}">Espace client</a></li>
                 </ul>
             </nav>
         </div>
@@ -43,7 +92,7 @@
         <div class="home-main-mobile">
                 <h1 class="home-h1">EYAL<br/> TELECOMM</h1>
                 <p class="home-p">Pour un accompagnement sur-mesure dans votre accompagnement de téléphonie</p>
-                <a href="{{ path('services') }}">Voir les services</a>
+                <a href="{{ path('quote') }}">Demander un devis</a>
         </div>
     </section>
 
@@ -78,11 +127,11 @@
 
 
 <footer class="container-fluid service-footer">
-    <div class="row mx-0 w-25">
-        <div class="col-12 col-md-6">
+    <div class="row mx-0 w-100 w-md-25">
+        <div class="col-6">
             <a href="{{ path('sitemap') }}">Plan du site</a>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-6">
             <a href="{{ path('legal') }}">Mentions légales</a>
         </div>
     </div>

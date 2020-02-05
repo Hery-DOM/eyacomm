@@ -71,11 +71,14 @@ class TextController extends AbstractController
                 // Condition nécessaire car le champ 'image' n'est pas requis
                 // donc le fichier doit être traité que s'il est téléchargé
                 if ($image) {
-                    $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
-                    // Nécessaire pour inclure le nom du fichier en tant qu'URL + sécurité + nom unique
-                    $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
-                    $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
-
+                    if($page->getPicture() == "outils0.png" || $page->getPicture() == "propositions0.png"){
+                        $newFilename = $page->getPicture();
+                    }else {
+                        $originalFilename = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                        // Nécessaire pour inclure le nom du fichier en tant qu'URL + sécurité + nom unique
+                        $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9_] remove; Lower()', $originalFilename);
+                        $newFilename = $safeFilename . '-' . uniqid() . '.' . $image->guessExtension();
+                    }
 
                     // Déplace le fichier dans le dossier des images d'articles
                     try {
@@ -124,7 +127,8 @@ class TextController extends AbstractController
 
         return $this->render("back-office/text_update.html.twig",[
             'form' => $formView,
-            'context' => $context
+            'context' => $context,
+            'page' => $page
         ]);
     }
 

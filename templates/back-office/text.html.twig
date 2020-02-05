@@ -40,11 +40,17 @@
                     <td class="category-button-box"><a href="{{ path('text_update',{'id':page.id}) }}"
                                                        class="category-button-update">Modifier</a></td>
                 </tr>
-                {% if page.context.id == 3 or page.context.id == 4 or page.context.id == 11 %}
-                <tr>
-                    <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('text_remove',
-                            {'id':page.id}) }}')" class="category-button-delete">Supprimer</a></td>
-                </tr>
+                {% if (page.context.id == 3 or page.context.id == 4 or page.context.id == 11)%}
+                    {% if page.id == 2 or page.id == 6 %}
+                        <td>
+                            <tr></tr>
+                        </td>
+                        {% else %}
+                        <tr>
+                            <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('text_remove',
+                                    {'id':page.id}) }}')" class="category-button-delete">Supprimer</a></td>
+                        </tr>
+                    {% endif %}
                 {% endif %}
             {% endfor %}
 
