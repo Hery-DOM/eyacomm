@@ -81,7 +81,8 @@ a:hover {
   position: relative;
   padding: 5px 0; }
   .base-header a, .base2-header a, .base3-header a, .home-header a {
-    color: white; }
+    color: white;
+    font-size: 1.2em; }
   .base-header a:hover, .base2-header a:hover, .base3-header a:hover, .home-header a:hover {
     border-bottom: 1px solid white; }
   .base-header .base-thread, .base2-header .base-thread, .base3-header .base-thread, .home-header .base-thread {
@@ -125,6 +126,12 @@ a:hover {
 .base-logo-box img {
   height: auto;
   width: 60%; }
+
+.menu-divider {
+  height: 2px;
+  width: 80%;
+  background-color: white;
+  margin: 20px auto; }
 
 .base-footer {
   background-color: black;
@@ -334,16 +341,17 @@ a:hover {
     color: #17447D; }
 
 .home-main-reasons {
-  background-image: url("../img/logo.png");
+  /*background-image: url("../img/logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain; }
+  background-size: contain;*/
+  background-color: white; }
 
 .home-main-reasons-text {
   padding: 50px 30px;
-  background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
   color: white;
+  color: #454141;
   font-size: 1.3em; }
   .home-main-reasons-text h1 {
     margin-bottom: 40px;
@@ -393,7 +401,8 @@ a:hover {
   background-repeat: no-repeat;
   position: relative; }
   .service-header .service-nav-link {
-    color: white; }
+    color: white;
+    font-size: 1.2em; }
   .service-header .service-nav-link:hover {
     border-bottom: 1px solid white; }
 

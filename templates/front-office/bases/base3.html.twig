@@ -21,6 +21,7 @@
                     <li class="col-4"><a href="{{ path('services') }}">Nos services</a></li>
                     <li class="col-4"><a href="{{ path('offre') }}">Nos offres</a></li>
                 </div>
+                <div class="menu-divider"></div>
                 <div class="row mx-0">
                     <li class="col-6"><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
                     <li class="col-6"><a href="{{ path('page_context',{'context':'offres-mobiles'}) }}">Offres mobiles</a></li>
@@ -36,11 +37,15 @@
                     <li class="col-4"><a href="{{ path('page_context',{'context':'internet'}) }}">Internet</a></li>
                     <li class="col-4"><a href="{{ path('membership') }}">Espace client</a></li>
                 </div>
+                <div class="menu-divider"></div>
                 <div class="row mx-0">
-                    <li class="col-6"><a href="{{ path('equipement') }}">Equipement</a></li>
-                    <li class="col-6"><a href="{{ path('contact') }}">Contacts</a></li>
                     {% if is_granted('ROLE_USER') %}
-                        <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                        <li class="col-4"><a href="{{ path('equipement') }}">Equipement</a></li>
+                        <li class="col-4"><a href="{{ path('contact') }}">Contacts</a></li>
+                        <li class="col-4"><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+                    {% else %}
+                        <li class="col-6"><a href="{{ path('equipement') }}">Equipement</a></li>
+                        <li class="col-6"><a href="{{ path('contact') }}">Contacts</a></li>
                     {% endif %}
                 </div>
             </div>

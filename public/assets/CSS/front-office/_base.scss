@@ -5,6 +5,7 @@
   padding: 5px 0;
   a{
     color: white;
+    font-size: 1.2em;
   }
   a:hover{
     border-bottom: 1px solid white;
@@ -68,6 +69,13 @@
     height: auto;
     width: 60%;
   }
+}
+
+.menu-divider{
+  height: 2px;
+  width: 80%;
+  background-color: white;
+  margin: 20px auto;
 }
 
 
