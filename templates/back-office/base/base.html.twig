@@ -27,9 +27,11 @@
                     <div class="back-aside-divider"></div>
                     <ul>
                         <li><a href="{{ path('admin_members') }}">Gérer les clients</a></li>
-                        <li><a href="{{ path('text_home') }}"> Gestion des pages</a></li>
-                        <li><a href="{{ path('show_categories') }}"> Les catégories de produits</a></li>
-                        <li><a href="{{ path('list_product') }}"> Les produits</a></li>
+                        {% if is_granted('ROLE_SUPER_ADMIN') %}
+                            <li><a href="{{ path('text_home') }}"> Gestion des pages</a></li>
+                            <li><a href="{{ path('show_categories') }}"> Les catégories de produits</a></li>
+                            <li><a href="{{ path('list_product') }}"> Les produits</a></li>
+                        {% endif %}
                         <li><a href="{{ path('admin_members_general_email') }}">Envoyer un mail général</a></li>
                         <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
                     </ul>

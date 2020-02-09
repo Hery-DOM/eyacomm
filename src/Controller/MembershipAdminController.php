@@ -11,6 +11,7 @@ use App\Form\UserType;
 use App\Repository\InvoiceRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use FOS\UserBundle\Model\UserManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -184,13 +185,24 @@ class MembershipAdminController extends AbstractController
      * @Route("/admin/members/delete", name="admin_members_delete")
      * To delete an user / no view
      */
-    public function membersDelete(Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)
+    public function membersDelete(Request $request, UserRepository $userRepository, EntityManagerInterface
+    $entityManager, InvoiceRepository $invoiceRepository)
     {
         // get user's ID
         $id = $request->query->get('id');
 
         //get user
         $user = $userRepository->find($id);
+
+        // get invoices
+        $invoices = $invoiceRepository->findBy(['user' => $id]);
+        //delete files
+        if(!empty($invoices)){
+            foreach($invoices as $invoice){
+                unlink("assets/pdf//".$invoice->getName());
+                $entityManager->remove($invoice);
+            }
+        }
 
         $entityManager->remove($user);
         $entityManager->flush();
@@ -260,6 +272,48 @@ class MembershipAdminController extends AbstractController
         return $this->render('back-office/members_general_email.html.twig',[
             'users' => $users
         ]);
+    }
+
+    /**
+     * @Route("/admin/member/new", name="admin_member_new")
+     */
+    public function memberNew(UserManagerInterface $manager, EntityManagerInterface $entityManager, PersonnalFunction
+    $personnalFunction)
+    {
+
+        if(isset($_POST['submit'])){
+            $username = $personnalFunction->checkInput($_POST['username']);
+            $email = $personnalFunction->checkInput($_POST['email']);
+            $psw = $personnalFunction->checkInput($_POST['password']);
+            $confirm = $personnalFunction->checkInput($_POST['confirm']);
+
+            if($psw != $confirm){
+                $this->addFlash('info','Les mots de passes ne sont pas identiques');
+                return $this->render("back-office/member_new.html.twig");
+            }
+
+            $user_check = $manager->findUserByEmail($email);
+            if($user_check){
+                $this->addFlash('info','L\'adresse mail est déjà utilisé');
+                return $this->render("back-office/member_new.html.twig");
+            }
+
+            $user = $manager->createUser();
+            $user->setUsername($username);
+            $user->setPlainPassword($psw);
+            $user->setEmail($email);
+            $user->setEmailCanonical($email);
+            $user->setEnabled(1);
+
+            $entityManager->persist($user);
+            $entityManager->flush();
+
+            $this->addFlash('info','Client créé');
+        }
+
+
+
+        return $this->render("back-office/member_new.html.twig");
     }
 
 

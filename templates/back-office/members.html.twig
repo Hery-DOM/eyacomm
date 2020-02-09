@@ -5,15 +5,22 @@
     <table class="categories-table">
         <tr>
             <th class="category-title">Liste des utilisateurs</th>
-            <th class="category-button-create"><button><a href="{{ path('fos_user_registration_register') }}">Créer un utilisateur</a></button></th>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <th class="category-button-create"><button><a href="{{ path('admin_member_new') }}">Créer un
+                            utilisateur</a></button></th>
+            {% endif %}
         </tr>
         {% for user in users %}
             <tr>
                 <td rowspan="4" class="category-name">{{ user.username }}</td>
-                <td class="category-button-box"><a href="{{ path('admin_members_update',{'id':user.id}) }}" class="category-button-update">Modifier</a></td>
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    <td class="category-button-box"><a href="{{ path('admin_members_update',{'id':user.id}) }}" class="category-button-update">Modifier</a></td>
+                {% endif %}
             </tr>
             <tr>
-                <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('admin_members_delete',{'id':user.id}) }}')" class="category-button-delete">Supprimer</a></td>
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                 <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('admin_members_delete',{'id':user.id}) }}')" class="category-button-delete">Supprimer</a></td>
+                {% endif %}
             </tr>
             <tr>
                 <td class="category-button-box"><a href="{{ path('admin_members_invoices',{'id':user.id}) }}" class="category-button-update">Factures</a></td>
