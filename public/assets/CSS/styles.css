@@ -522,6 +522,7 @@ a:hover {
     color: white; }
 
 .about-container-society, .about-container-team {
+  text-align: center;
   width: 80%;
   margin: 0 auto;
   min-height: 60vh;
@@ -561,9 +562,6 @@ a:hover {
 .products-filter:hover {
   background-color: white;
   color: #17447D; }
-
-#category {
-  border: 1px solid black; }
 
 .product-link-one {
   padding: 2%;

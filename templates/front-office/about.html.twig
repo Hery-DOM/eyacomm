@@ -5,7 +5,7 @@
     <div class="base3-container">
         <section class="about-container-society">
             <h1>{{ page.title }}</h1>
-            <p>{{ page.text }}</p>
+            <p>{{ page.text|raw }}</p>
             <div class="societe-action-box">
                 <a href="{{ path('contact') }}" class="societe-action">Contactez-nous !</a>
             </div>
@@ -20,7 +20,7 @@
                         <div class="about-img-box">
                             <img src="{{ asset('assets/img') }}/{{ portrait.picture }}" alt="image portrait {{ portrait.title }}" class="img-fluid">
                             <h3>{{ portrait.title }}</h3>
-                            <p>{{ portrait.text }}</p>
+                            <p>{{ portrait.text|raw }}</p>
                         </div>
                     </div>
 

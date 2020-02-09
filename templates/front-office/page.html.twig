@@ -4,7 +4,7 @@
 {% block content %}
     <div class="base3-container">
         <h1>{{ thread }}</h1>
-        <p>{{ page.text }}</p>
+        <p>{{ page.text|raw }}</p>
     </div>
     <div class="base3-quote-box">
         <a href="{{ path('quote') }}" class="base3-quote">Demander un devis</a>

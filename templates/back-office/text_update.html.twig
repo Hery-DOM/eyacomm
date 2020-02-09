@@ -6,29 +6,34 @@
         <p>{{ message }}</p>
     {% endfor %}
 {{ form_start(form) }}
-    <div>
-        {{ form_label(form.title) }}
-        {{ form_widget(form.title) }}
+    <div class="my-4">
+        {{ form_label(form.title,'Titre',{'label_attr':{'class':'font-weight-bolder'}}) }}
+        {{ form_widget(form.title,{'attr':{'class':'w-100'}}) }}
     </div>
 
-    <div>
-        {{ form_label(form.text) }}
+    <div class="my-4">
+        {{ form_label(form.text,'Texte',{'label_attr':{'class':'font-weight-bolder'}}) }}
         {{ form_widget(form.text) }}
     </div>
 
     {% if context.id != 11 and context.id != 3 and context.id != 4 %}
         {% do form.picture.setRendered %}
     {% else %}
-        <div>
-            {{ form_label(form.picture) }}
-            {{ form_widget(form.picture) }}
+        <div class="container my-5">
+            <div>
+                {{ form_label(form.picture) }}
+                {{ form_widget(form.picture) }}
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{ asset('assets/img/') }}{{ page.picture }}" alt="image {{ page.title }}" class="img-fluid">
+                </div>
+            </div>
         </div>
-        <div>
-            <img src="{{ asset('assets/img/') }}{{ page.picture }}" alt="image {{ page.title }}" class="img-fluid">
-        </div>
+
     {% endif %}
 
-    <div>
+    <div class="my-5">
         {{ form_widget(form.Valider) }}
     </div>
 

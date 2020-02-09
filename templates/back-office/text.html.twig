@@ -25,9 +25,9 @@
 
     {% if contextTarget is defined %}
         {% if contextTarget.id == 3 or contextTarget.id == 4 or contextTarget.id == 11%}
-            <button class="btn btn-primary">
-                <a href="{{ path('text_create',{'idContext':contextTarget.id}) }}">Créer une page pour la catégorie {{
-                    contextTarget.name }}</a>
+            <button class="btn btn-primary my-3">
+                <a href="{{ path('text_create',{'idContext':contextTarget.id}) }}" class="text-white">Créer une
+                    entrée pour la catégorie {{ contextTarget.name }}</a>
             </button>
         {% endif %}
         <table class="categories-table">

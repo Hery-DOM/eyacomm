@@ -9,7 +9,7 @@
         </tr>
         {% for user in users %}
             <tr>
-                <td rowspan="3" class="category-name">{{ user.username }}</td>
+                <td rowspan="4" class="category-name">{{ user.username }}</td>
                 <td class="category-button-box"><a href="{{ path('admin_members_update',{'id':user.id}) }}" class="category-button-update">Modifier</a></td>
             </tr>
             <tr>
@@ -17,6 +17,9 @@
             </tr>
             <tr>
                 <td class="category-button-box"><a href="{{ path('admin_members_invoices',{'id':user.id}) }}" class="category-button-update">Factures</a></td>
+            </tr>
+            <tr>
+                <td class="category-button-box"><a href="{{ path('admin_members_email',{'id':user.id}) }}" class="category-button-update">Envoyer un mail</a></td>
             </tr>
         {% endfor %}
 

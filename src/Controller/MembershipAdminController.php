@@ -198,6 +198,70 @@ class MembershipAdminController extends AbstractController
         return $this->redirectToRoute('admin_members');
     }
 
+    /**
+     * @Route("/admin/members/email", name="admin_members_email")
+     */
+    public function memberEmail(Request $request, UserRepository $userRepository, PersonnalFunction $personnalFunction)
+    {
+        // get user's ID
+        $id = $request->query->get('id');
+
+        //get user
+        $user = $userRepository->find($id);
+
+        if(isset($_POST['submit'])){
+            $to = $user->getEmail();
+            $subject = $personnalFunction->checkInput($_POST['subject']);
+            $message = $personnalFunction->checkInput($_POST['message']);
+            $headers = 'From: n.eyaletelcom@yahoo.fr' . "\r\n";
+
+            mail($to, $subject, $message, $headers);
+            $this->addFlash('info', 'Message envoyé');
+
+
+
+        }
+
+        return $this->render('back-office/members_email.html.twig',[
+            'user' => $user
+        ]);
+    }
+
+    /**
+     * @Route("/admin/members/general/email", name="admin_members_general_email")
+     */
+    public function membersEmail(UserRepository $userRepository, PersonnalFunction $personnalFunction)
+    {
+        // get every users
+        $users = $userRepository->findAll();
+
+        if(isset($_POST['submit'])){
+            $to = [];
+            foreach($_POST as $key => $value){
+                if(preg_match("#recipient#", $key)){
+                    $to[] = $personnalFunction->checkInput($value);
+                }
+
+            }
+            $subject = $personnalFunction->checkInput($_POST['subject']);
+            $message = $personnalFunction->checkInput($_POST['message']);
+            $headers = 'From: n.eyaletelcom@yahoo.fr' . "\r\n";
+
+            foreach($to as $to){
+                mail($to, $subject, $message, $headers);
+            }
+
+            $this->addFlash('info','Messages envoyés');
+
+
+        }
+
+
+        return $this->render('back-office/members_general_email.html.twig',[
+            'users' => $users
+        ]);
+    }
+
 
 
 }

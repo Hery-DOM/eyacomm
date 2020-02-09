@@ -1,0 +1,42 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+    {% for message in app.flashes('info') %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+
+    <h1>Envoi d'un mail généralisé</h1>
+
+    <form action="#" method="POST">
+        <label for="subject">Objet du mail*</label>
+        <div>
+            <input type="text" name="subject" id="subject" required>
+        </div>
+
+        <label for="recipients">Destinataires</label>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row flex-wrap">
+                    {% for user in users %}
+                        <div class="col-2">
+                            <label for="{{ user.username }}">{{ user.username }}</label>
+                            <input type="checkbox" name="recipient-{{ user.username }}" id="{{ user.username }}" value="{{ user.email }}" checked>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <label for="message">Message du mail*</label>
+        <div>
+            <textarea name="message" id="message" cols="80" rows="10" required></textarea>
+        </div>
+
+        <input type="submit" name="submit" value="Envoyer">
+
+    </form>
+
+
+{% endblock %}

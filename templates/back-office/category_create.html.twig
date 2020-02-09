@@ -1,1 +1,8 @@
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+    <div class="my-3">
+        <a href="{{ path('show_categories') }}">Retour</a>
+    </div>
 {{ form(form) }}
+{% endblock %}

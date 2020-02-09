@@ -1,8 +1,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
-
+<div class="my-2">
+    <a href="{{ path('admin_members') }}">Retour</a>
+</div>
 {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
     {{ form_widget(form) }}
     <div>
         <input type="submit" value="{{ 'registration.submit'|trans }}" />
     </div>
+    <p>Note : le nom d'utilisateur est le nom de la société</p>
 {{ form_end(form) }}
