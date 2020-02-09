@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>EYAL TELECOMM</title>
+    <title>EYAL TELECOM</title>
     <link rel="icon" href="{{ asset('assets/img/logo.png') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('assets/CSS/styles.css') }}">
@@ -72,7 +72,7 @@
         <div class="home-center-container">
             <h1 class="home-h1">EYAL<br/> TELECOM</h1>
             <p class="home-p">Pour un accompagnement sur-mesure dans votre accompagnement de téléphonie</p>
-            <a href="{{ path('quote') }}">Demandez un devis</a>
+            <a id="home-why" href="#home-main-reasons">Pourquoi nous choisir</a>
         </div>
 
         <div class="home-right-container">
@@ -96,7 +96,7 @@
         </div>
     </section>
 
-    <section class="home-main-reasons">
+    <section class="home-main-reasons" id="home-main-reasons">
         <article class="home-main-reasons-text">
             <h1>{{ page.title }}</h1>
             <p>{{ page.text|raw }}</p>

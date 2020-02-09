@@ -20,6 +20,12 @@ $(document).ready(function(){
             scrollTop: 800
         },'slow');
     });
+
+    $('#home-why').click(function(){
+        $('html').animate({
+            scrollTop: 800
+        }, 'slow');
+    });
 });
 
 $(document).ready(function(){
