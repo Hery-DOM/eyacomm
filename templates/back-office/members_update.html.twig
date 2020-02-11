@@ -2,9 +2,15 @@
 
 {% block content %}
     <a href="{{ path('admin_members') }}">Retour</a>
+    <h1>Modification du compte {{ user.username }}</h1>
+    <h2>{{ compta }}</h2>
+
+
     {% for message in app.flashes('info') %}
         {{ message }}
     {% endfor %}
 {{ form(form) }}
+
+    <a href="{{ path('admin_member_password',{'id':user.id}) }}">Modifier son mot de passe</a>
 
 {% endblock %}

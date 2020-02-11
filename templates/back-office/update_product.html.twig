@@ -2,6 +2,16 @@
 
 {% block content %}
 
-{{form(product)}}
+    <a href="{{ path('list_product') }}">Retour</a>
+
+    <h1>Modification du produit {{ product.name }}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <img src="{{ asset('assets/img') }}/{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
+            </div>
+        </div>
+    </div>
+    {{form(form)}}
 
 {% endblock %}

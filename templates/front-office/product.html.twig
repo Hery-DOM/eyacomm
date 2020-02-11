@@ -8,7 +8,7 @@
         <div class="product-one-img-box text-center my-4">
             <img src="{{ asset('assets/img/') }}{{ product.picture }}" alt="{{ product.name }}" class="img-fluid">
         </div>
-        <p>{{ product.description }}</p>
+        <p>{{ product.description|raw }}</p>
     </div>
     <div class="base3-quote-box">
         <a href="{{ path('quote') }}" class="base3-quote">Demander un devis</a>

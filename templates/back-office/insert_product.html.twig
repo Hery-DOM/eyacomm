@@ -2,9 +2,12 @@
 
 {% block content %}
     <a href="{{ path('list_product') }}">Retour</a>
+    <h1>Insertion d'un produit</h1>
+    <p>Attention : image au format jpg ou png, < 3 Mo</p>
+
     {% for message in app.flashes('info') %}
         {{ message }}
     {% endfor %}
-{{ form(product) }}
+{{ form(product,{'attr':{'class':'my-5'}}) }}
 
 {% endblock %}

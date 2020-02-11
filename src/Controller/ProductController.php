@@ -69,6 +69,11 @@ class ProductController extends AbstractController
 
             return $this->redirectToRoute('list_product');
 
+            }else{
+                $this->addFlash('info', 'Erreur lors du chargement (ex : image > 3Mo)');
+                return $this->render('back-office/insert_product.html.twig',[
+                    'product' => $formProductView
+                ]);
             }
 
         }
@@ -76,7 +81,7 @@ class ProductController extends AbstractController
         return $this->render('back-office/insert_product.html.twig'
         ,
             [
-                "product"=>$formProductView 
+                "product"=>$formProductView
             ]
         );
     }
@@ -144,12 +149,13 @@ class ProductController extends AbstractController
                 'id'=>$id
             ] );
 
-            }    
+            }
         }
          
         return $this->render('back-office/update_product.html.twig',
         [
-            'product'=>$formProductView,
+            'form'=>$formProductView,
+            'product' => $product
         ]
         );
     }

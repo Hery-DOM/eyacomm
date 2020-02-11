@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MembershipAdminController extends AbstractController
 {
     /**
-     * @Route("/admin/members", name="admin_members")
+     * @Route("/admin/home", name="admin_members")
      * To show every customers
      */
     public function membershipHome(UserRepository $userRepository)
@@ -153,11 +153,20 @@ class MembershipAdminController extends AbstractController
      */
     public function membersUpdate(Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)
     {
+        $compta = '';
         // get user's ID
         $id = $request->query->get('id');
 
         // get user with his ID
         $user = $userRepository->find($id);
+        $roles = $user->getRoles();
+
+        foreach($roles as $role){
+            if($role == 'ROLE_ADMIN'){
+                $compta = 'Rôle admin limité';
+            }
+        }
+
 
         //create form
         $form = $this->createForm(UserType::class, $user);
@@ -177,7 +186,9 @@ class MembershipAdminController extends AbstractController
         }
 
         return $this->render('back-office/members_update.html.twig',[
-            'form' => $formView
+            'form' => $formView,
+            'user' => $user,
+            'compta' => $compta
         ]);
     }
 
@@ -314,6 +325,33 @@ class MembershipAdminController extends AbstractController
 
 
         return $this->render("back-office/member_new.html.twig");
+    }
+
+    /**
+     * @Route("/admin/member/update/password/{id}",name="admin_member_password")
+     */
+    public function memberPassword($id, UserRepository $userRepository, PersonnalFunction $personnalFunction)
+    {
+        // get user by ID
+        $user = $userRepository->find($id);
+
+        if(isset($_POST['submit'])){
+
+            $psw = $personnalFunction->checkInput($_POST['psw']);
+            $check = $personnalFunction->checkInput($_POST['check']);
+
+            if($psw == $check){
+                $user->setPlainPassword($psw);
+
+                $this->addFlash('info','Mot de passe modifié');
+            }else{
+                $this->addFlash('info', 'Les mots de passes ne sont pas identiques');
+            }
+        }
+        return $this->render('back-office/member_password.html.twig',[
+            'user' => $user
+        ]);
+
     }
 
 
