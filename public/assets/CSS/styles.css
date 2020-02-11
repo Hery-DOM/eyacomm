@@ -28,7 +28,7 @@ a:hover {
 
 .back-aside {
   background-color: #333333;
-  height: 90vh; }
+  min-height: 90vh; }
   .back-aside nav ul {
     padding-left: 20px; }
   .back-aside nav a {

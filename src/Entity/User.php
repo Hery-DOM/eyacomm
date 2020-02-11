@@ -51,6 +51,86 @@ class User extends BaseUser
      */
     private $lastname;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $mobile;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $siret;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $ape;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $iban;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $bic;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $banque;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $sepa;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_signature;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $ref;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $offre;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $htlocam;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $dtfinlocam;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $ht;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $date_portabilite;
+
     public function __construct()
     {
         parent::__construct();
@@ -205,6 +285,199 @@ class User extends BaseUser
     public function setLastname(?string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getAddress(): ?string
+    {
+        return $this->address;
+    }
+
+    public function setAddress(?string $address): self
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getMobile(): ?string
+    {
+        return $this->mobile;
+    }
+
+    public function setMobile(?string $mobile): self
+    {
+        $this->mobile = $mobile;
+
+        return $this;
+    }
+
+
+    public function getSiret(): ?string
+    {
+        return $this->siret;
+    }
+
+    public function setSiret(?string $siret): self
+    {
+        $this->siret = $siret;
+
+        return $this;
+    }
+
+    public function getApe(): ?string
+    {
+        return $this->ape;
+    }
+
+    public function setApe(?string $ape): self
+    {
+        $this->ape = $ape;
+
+        return $this;
+    }
+
+    public function getIban(): ?string
+    {
+        return $this->iban;
+    }
+
+    public function setIban(?string $iban): self
+    {
+        $this->iban = $iban;
+
+        return $this;
+    }
+
+    public function getBic(): ?string
+    {
+        return $this->bic;
+    }
+
+    public function setBic(?string $bic): self
+    {
+        $this->bic = $bic;
+
+        return $this;
+    }
+
+    public function getBanque(): ?string
+    {
+        return $this->banque;
+    }
+
+    public function setBanque(?string $banque): self
+    {
+        $this->banque = $banque;
+
+        return $this;
+    }
+
+    public function getSepa(): ?string
+    {
+        return $this->sepa;
+    }
+
+    public function setSepa(?string $sepa): self
+    {
+        $this->sepa = $sepa;
+
+        return $this;
+    }
+
+    public function getDateSignature(): ?\DateTimeInterface
+    {
+        return $this->date_signature;
+    }
+
+    public function setDateSignature(?\DateTimeInterface $date_signature): self
+    {
+        $this->date_signature = $date_signature;
+
+        return $this;
+    }
+
+    public function getRef(): ?string
+    {
+        return $this->ref;
+    }
+
+    public function setRef(?string $ref): self
+    {
+        $this->ref = $ref;
+
+        return $this;
+    }
+
+    public function getOffre(): ?string
+    {
+        return $this->offre;
+    }
+
+    public function setOffre(?string $offre): self
+    {
+        $this->offre = $offre;
+
+        return $this;
+    }
+
+    public function getHTLOCAM(): ?string
+    {
+        return $this->htlocam;
+    }
+
+    public function setHtlocam(?string $htlocam): self
+    {
+        $this->htlocam = $htlocam;
+
+        return $this;
+    }
+
+    public function getDtfinlocam(): ?string
+    {
+        return $this->dtfinlocam;
+    }
+
+    public function setDtfinlocam(?string $dtfinlocam): self
+    {
+        $this->dtfinlocam = $dtfinlocam;
+
+        return $this;
+    }
+
+    public function getHt(): ?string
+    {
+        return $this->ht;
+    }
+
+    public function setHt(?string $ht): self
+    {
+        $this->ht = $ht;
+
+        return $this;
+    }
+
+    public function getDatePortabilite(): ?\DateTimeInterface
+    {
+        return $this->date_portabilite;
+    }
+
+    public function setDatePortabilite(?\DateTimeInterface $date_portabilite): self
+    {
+        $this->date_portabilite = $date_portabilite;
 
         return $this;
     }
