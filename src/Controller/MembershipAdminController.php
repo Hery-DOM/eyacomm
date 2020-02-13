@@ -24,10 +24,16 @@ class MembershipAdminController extends AbstractController
      * @Route("/admin/home", name="admin_members")
      * To show every customers
      */
-    public function membershipHome(UserRepository $userRepository)
+    public function membershipHome(UserRepository $userRepository, Request $request, PersonnalFunction $personnalFunction)
     {
         // get every users with role = "ROLE_USER"
         $users = $userRepository->findAll();
+
+        $param = $request->query->get('search');
+        $param = $personnalFunction->checkInput($param);
+        if($param){
+            $users   = $userRepository->findBySearch($param);
+        }
 
         return $this->render('back-office/members.html.twig',[
             'users' => $users

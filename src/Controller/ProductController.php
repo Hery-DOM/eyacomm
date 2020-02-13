@@ -173,9 +173,16 @@ class ProductController extends AbstractController
     /**
      * @Route("/admin/list_product", name="list_product")
      */
-    public function listProduct(ProductRepository $productRepository)
+    public function listProduct(ProductRepository $productRepository, Request $request, PersonnalFunction $personnalFunction)
     {   
-        $products = $productRepository->findAll(); 
+        $products = $productRepository->findAll();
+
+        //get search
+        $param = $request->query->get('search');
+        $param = $personnalFunction->checkInput($param);
+        if($param){
+            $products = $productRepository->findBySearch($param);
+        }
 
         return $this->render('back-office/list_product.html.twig',
         [
