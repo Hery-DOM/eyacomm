@@ -1,13 +1,41 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-{{ form(tariff) }}
-</body>
-</html>
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+    <a href="{{ path('list_tariff') }}">Retour</a>
+
+    {% for message in app.flashes('info') %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
+    <h1>Modification de l'offre {{ tariff.title }}</h1>
+    {{ form_start(form) }}
+
+    <div class="my-3">
+        {{ form_label(form.title) }}
+        <div>
+            {{ form_widget(form.title) }}
+        </div>
+    </div>
+
+    <div class="my-3">
+        {{ form_label(form.description) }}
+        <div>
+            {{ form_widget(form.description) }}
+        </div>
+    </div>
+
+    <div class="my-3">
+        {{ form_label(form.price) }}
+        <div>
+            {{ form_widget(form.price) }}
+        </div>
+    </div>
+
+    <div class="my-3 mb-5">
+        {{ form_widget(form.Enregistrer) }}
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}

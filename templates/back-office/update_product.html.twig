@@ -4,6 +4,10 @@
 
     <a href="{{ path('list_product') }}">Retour</a>
 
+    {% for message in app.flashes('info') %}
+        <p>{{ message }}</p>
+    {% endfor %}
+
     <h1>Modification du produit {{ product.name }}</h1>
     <div class="container">
         <div class="row">

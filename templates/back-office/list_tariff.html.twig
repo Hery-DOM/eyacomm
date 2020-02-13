@@ -1,29 +1,24 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script
-            src="https://code.jquery.com/jquery-3.4.1.slim.js"
-            integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
-            crossorigin="anonymous">
-    </script>
-</head>
-<body>
-    <a href="{{ path('insert_tariff') }}"><button>Créer</button><a/>
-    <br>
-    {% for tariff in tariff %}
-        <div>
-        {{ tariff.title }}
-        {{ tariff.description }}
-        {{ tariff.price }}
-        <button><a onclick="confirmRemove('{{ path('delete_tariff',{'id':tariff.id}) }}')">Supprimer</a></button>
-        <a href="{{ path('update_tariff', {'id':tariff.id}) }}"><button>Modifier</button></a>
-        </div>
-    {% endfor %}
-        <script src="{{ asset('assets/JS/script.js') }}"></script>
-</body>
-</html>
+{% extends 'back-office/base/base.html.twig' %}
+
+{% block content %}
+
+    <table class="categories-table">
+        <tr>
+            <th class="category-title">Liste des offres</th>
+            <th class="category-button-create"><button><a href="{{ path('insert_tariff') }}">Créer une offre
+                    </a></button></th>
+        </tr>
+        {% for tariff in tariffs %}
+            <tr>
+                <td rowspan="2" class="category-name">{{ tariff.title }}</td>
+                <td class="category-button-box"><a href="{{ path('update_tariff',{'id':tariff.id}) }}" class="category-button-update">Modifier</a></td>
+            </tr>
+            <tr>
+                <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('delete_tariff',{'id':tariff.id}) }}')">Supprimer</a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

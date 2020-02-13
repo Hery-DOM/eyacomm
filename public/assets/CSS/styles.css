@@ -642,7 +642,8 @@ a:hover {
   border: 5px solid white;
   border-radius: 5%;
   padding: 20px 30px;
-  background-color: #17447D; }
+  background-color: #17447D;
+  min-height: 500px; }
   .offer-box-intern p {
     color: white; }
 

@@ -143,12 +143,7 @@ class ProductController extends AbstractController
 
                 $entityManager->persist($product);
                 $entityManager->flush();
-            
-            return $this->redirectToRoute('list_product',
-            [
-                'id'=>$id
-            ] );
-
+                $this->addFlash('info', 'Données modifiées');
             }
         }
          

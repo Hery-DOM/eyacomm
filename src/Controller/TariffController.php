@@ -65,7 +65,9 @@ class TariffController extends AbstractController
                 $entityManager->persist($tariff);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('list_tariff',[
+                $this->addFlash('info', 'Données modifiées');
+
+                return $this->redirectToRoute('update_tariff',[
                     "id" => $id
                 ]);
             }
@@ -75,7 +77,8 @@ class TariffController extends AbstractController
 
         return $this->render('back-office/update_tariff.html.twig',
         [
-            'tariff' => $formTariffView,
+            'form' => $formTariffView,
+            'tariff' => $tariff
         ]
 
         );
