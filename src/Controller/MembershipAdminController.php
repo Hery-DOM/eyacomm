@@ -160,10 +160,16 @@ class MembershipAdminController extends AbstractController
         // get user with his ID
         $user = $userRepository->find($id);
         $roles = $user->getRoles();
+        $admin = 0;
 
         foreach($roles as $role){
             if($role == 'ROLE_ADMIN'){
-                $compta = 'Rôle admin limité';
+                $compta = 'limité';
+                $admin = 1;
+            }
+
+            if($role == 'ROLE_SUPER_ADMIN'){
+                $admin = 1;
             }
         }
 
@@ -188,7 +194,8 @@ class MembershipAdminController extends AbstractController
         return $this->render('back-office/members_update.html.twig',[
             'form' => $formView,
             'user' => $user,
-            'compta' => $compta
+            'compta' => $compta,
+            'admin' => $admin
         ]);
     }
 

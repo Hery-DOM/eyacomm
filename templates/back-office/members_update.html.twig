@@ -3,133 +3,170 @@
 {% block content %}
     <a href="{{ path('admin_members') }}">Retour</a>
     <h1>Modification du compte {{ user.username }}</h1>
-    <h2>{{ compta }}</h2>
+    {% if admin != 0 %}
+        <h2>Compte administrateur {{ compta }}</h2>
+    {% endif %}
 
 
     {% for message in app.flashes('info') %}
         {{ message }}
     {% endfor %}
-    {{ form_start(form) }}
-        {{ form_label(form.username) }}
-        <div>
-            {{ form_widget(form.username,{'attr':{'class':'w-50'}}) }}
-        </div>
 
-        {{ form_label(form.lastname) }}
-        <div>
-            {{ form_widget(form.lastname,{'attr':{'class':'w-50'}}) }}
-        </div>
+    {% if admin == 0 %}
+        {{ form_start(form) }}
+            {{ form_label(form.username) }}
+            <div>
+                {{ form_widget(form.username,{'attr':{'class':'w-50'}}) }}
+            </div>
 
-    {{ form_label(form.firstname) }}
-    <div>
-        {{ form_widget(form.firstname,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.lastname) }}
+            <div>
+                {{ form_widget(form.lastname,{'attr':{'class':'w-50'}}) }}
+            </div>
 
-
-    {{ form_label(form.email) }}
-    <div>
-        {{ form_widget(form.email,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.firstname) }}
+            <div>
+                {{ form_widget(form.firstname,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.address) }}
-    <div>
-        {{ form_widget(form.address,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.email) }}
+            <div>
+                {{ form_widget(form.email,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.phone) }}
-    <div>
-        {{ form_widget(form.phone,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.address) }}
+            <div>
+                {{ form_widget(form.address,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.mobile) }}
-    <div>
-        {{ form_widget(form.mobile,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.phone) }}
+            <div>
+                {{ form_widget(form.phone,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.siret) }}
-    <div>
-        {{ form_widget(form.siret,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.mobile) }}
+            <div>
+                {{ form_widget(form.mobile,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.ape) }}
-    <div>
-        {{ form_widget(form.ape,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.siret) }}
+            <div>
+                {{ form_widget(form.siret,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.iban) }}
-    <div>
-        {{ form_widget(form.iban,{'attr':{'class':'w-50'}}) }}
-    </div>
-
-    {{ form_label(form.bic) }}
-    <div>
-        {{ form_widget(form.bic,{'attr':{'class':'w-50'}}) }}
-    </div>
-
-    {{ form_label(form.banque) }}
-    <div>
-        {{ form_widget(form.banque,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.ape) }}
+            <div>
+                {{ form_widget(form.ape,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.sepa) }}
-    <div>
-        {{ form_widget(form.sepa,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.iban) }}
+            <div>
+                {{ form_widget(form.iban,{'attr':{'class':'w-50'}}) }}
+            </div>
+
+            {{ form_label(form.bic) }}
+            <div>
+                {{ form_widget(form.bic,{'attr':{'class':'w-50'}}) }}
+            </div>
+
+            {{ form_label(form.banque) }}
+            <div>
+                {{ form_widget(form.banque,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.date_signature) }}
-    <div>
-        {{ form_widget(form.date_signature,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.sepa) }}
+            <div>
+                {{ form_widget(form.sepa,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.ref) }}
-    <div>
-        {{ form_widget(form.ref,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.date_signature) }}
+            <div>
+                {{ form_widget(form.date_signature,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.offre) }}
-    <div>
-        {{ form_widget(form.offre,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.ref) }}
+            <div>
+                {{ form_widget(form.ref,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.htlocam) }}
-    <div>
-        {{ form_widget(form.htlocam,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.offre) }}
+            <div>
+                {{ form_widget(form.offre,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.dtfinlocam) }}
-    <div>
-        {{ form_widget(form.dtfinlocam,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.htlocam) }}
+            <div>
+                {{ form_widget(form.htlocam,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.ht) }}
-    <div>
-        {{ form_widget(form.ht,{'attr':{'class':'w-50'}}) }}
-    </div>
+            {{ form_label(form.dtfinlocam) }}
+            <div>
+                {{ form_widget(form.dtfinlocam,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
-    {{ form_label(form.date_portabilite) }}
-    <div>
-        {{ form_widget(form.date_portabilite,{'attr':{'class':'w-50'}}) }}
-    </div>
-
-    {{ form_widget(form.Modifier,{'attr':{'class':'mt-5 mb-3'}}) }}
+            {{ form_label(form.ht) }}
+            <div>
+                {{ form_widget(form.ht,{'attr':{'class':'w-50'}}) }}
+            </div>
 
 
+            {{ form_label(form.date_portabilite) }}
+            <div>
+                {{ form_widget(form.date_portabilite,{'attr':{'class':'w-50'}}) }}
+            </div>
 
-    {{ form_end(form) }}
+            {{ form_widget(form.Modifier,{'attr':{'class':'mt-5 mb-3'}}) }}
+        {{ form_end(form) }}
+    {% else %}
+        {{ form_start(form) }}
+            {{ form_label(form.username,'Nom d\'utilisateur') }}
+            <div>
+                {{ form_widget(form.username,{'attr':{'class':'w-50'}}) }}
+            </div>
+
+            {{ form_label(form.email) }}
+            <div>
+                {{ form_widget(form.email,{'attr':{'class':'w-50'}}) }}
+            </div>
+
+            {% do form.lastname.setRendered %}
+            {% do form.firstname.setRendered %}
+            {% do form.email.setRendered %}
+            {% do form.address.setRendered %}
+            {% do form.phone.setRendered %}
+            {% do form.mobile.setRendered %}
+            {% do form.siret.setRendered %}
+            {% do form.ape.setRendered %}
+            {% do form.iban.setRendered %}
+            {% do form.bic.setRendered %}
+            {% do form.banque.setRendered %}
+            {% do form.sepa.setRendered %}
+            {% do form.date_signature.setRendered %}
+            {% do form.ref.setRendered %}
+            {% do form.offre.setRendered %}
+            {% do form.htlocam.setRendered %}
+            {% do form.dtfinlocam.setRendered %}
+            {% do form.ht.setRendered %}
+            {% do form.date_portabilite.setRendered %}
+
+        {{ form_widget(form.Modifier,{'attr':{'class':'mt-5 mb-3'}}) }}
+
+        {{ form_end(form) }}
+    {% endif %}
 
     <div class="mb-5">
         <a href="{{ path('admin_member_password',{'id':user.id}) }}">Modifier son mot de passe</a>

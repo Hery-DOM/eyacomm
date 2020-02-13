@@ -8,6 +8,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,64 +22,82 @@ class UserType extends AbstractType
                 'label' => 'Nom de la société'
             ])
             ->add('firstname', TextType::class,[
-                'label' => 'Prénom du contact'
+                'label' => 'Prénom du contact',
+                'required' => false
             ])
             ->add('lastname', TextType::class,[
-                'label' => 'Nom du contact'
+                'label' => 'Nom du contact',
+                'required' => false
             ])
             ->add('email', TextType::class,[
                 'label' => 'Email'
             ])
             ->add('address', TextType::class,[
-                'label' => 'Adresse'
+                'label' => 'Adresse',
+                'required' => false
             ])
             ->add('phone', TextType::class,[
-                'label' => 'Téléphone'
+                'label' => 'Téléphone',
+                'required' => false
             ])
             ->add('mobile', TextType::class,[
-                'label' => 'Mobile'
+                'label' => 'Mobile',
+                'required' => false
             ])
             ->add('siret', TextType::class,[
-                'label' => 'SIRET'
+                'label' => 'SIRET',
+                'required' => false
             ])
             ->add('ape', TextType::class,[
-                'label' => 'APE'
+                'label' => 'APE',
+                'required' => false
             ])
             ->add('iban', TextType::class,[
-                'label' => 'IBAN'
+                'label' => 'IBAN',
+                'required' => false
             ])
             ->add('bic', TextType::class,[
-                'label' => 'BIC'
+                'label' => 'BIC',
+                'required' => false
             ])
             ->add('banque', TextType::class,[
-                'label' => 'Banque'
+                'label' => 'Banque',
+                'required' => false
             ])
             ->add('sepa', TextType::class,[
-                'label' => 'SEPA'
+                'label' => 'SEPA',
+                'required' => false
             ])
             ->add('date_signature', DateType::class,[
                 'widget' => 'single_text',
-                'label' => 'Date de la signature'
+                'label' => 'Date de la signature',
+                'required' => false
             ])
             ->add('ref', TextType::class,[
-                'label' => 'Référence'
+                'label' => 'Référence',
+                'required' => false
             ])
-            ->add('offre', TextType::class,[
-                'label' => 'Offre'
+            ->add('offre', TextareaType::class,[
+                'label' => 'Offre',
+                'required' => false
             ])
             ->add('htlocam', TextType::class,[
-                'label' => 'HTLOCAM'
+                'label' => 'HTLOCAM',
+                'required' => false
             ])
             ->add('dtfinlocam', DateType::class,[
                 'widget' => 'single_text',
-                'label' => 'DTFINLOCAM'
+                'label' => 'DTFINLOCAM',
+                'required' => false
             ])
             ->add('ht', TextType::class,[
-                'label' => 'HT par mois'
+                'label' => 'HT par mois',
+                'required' => false
             ])
             ->add('date_portabilite', DateType::class,[
                 'widget' => 'single_text',
-                'label' => 'Date de la portabilité'
+                'label' => 'Date de la portabilité',
+                'required' => false
             ])
             ->add('Modifier', SubmitType::class)
         ;

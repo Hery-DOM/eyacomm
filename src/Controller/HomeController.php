@@ -9,6 +9,7 @@ use App\Repository\ContextRepository;
 use App\Repository\InvoiceRepository;
 use App\Repository\PageRepository;
 use App\Repository\ProductRepository;
+use App\Repository\UserRepository;
 use App\Repository\TariffRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -188,10 +189,13 @@ class HomeController extends AbstractController
      * @Route("/contact", name="contact")
      * Page's contact
      */
-    public function contact(PersonnalFunction $personnalFunction)
+    public function contact(PersonnalFunction $personnalFunction, PageRepository $pageRepository, UserRepository $userRepository )
     {
         //get thread
         $thread = "Nous contacter";
+
+        //get every  portraits
+        $portraits = $pageRepository->findBy(['context' => 11]);
 
         if(isset($_POST['submit'])){
 
@@ -204,7 +208,8 @@ class HomeController extends AbstractController
             $message_input = $personnalFunction->checkInput($_POST['message']);
 
 
-            $to = "mail@mail.fr";
+            //get admin's email
+            $to = $userRepository->find(1)->getEmail();
             $subject = "Message via le site d'Eyacomm";
             $message = "\n\rVous avez reçu un mail de la société ".$society;
             $message .= "\n\rActivité : ".$activity;
@@ -224,7 +229,8 @@ class HomeController extends AbstractController
         }
 
         return $this->render("front-office/contact.html.twig",[
-            "thread" => $thread
+            "thread" => $thread,
+            'portraits' => $portraits
         ]);
     }
 
@@ -232,13 +238,17 @@ class HomeController extends AbstractController
      * @Route("/mentions-legales", name="legal")
      * To show legal notice
      */
-    public function legal()
+    public function legal(PageRepository $pageRepository)
     {
         //get thread
         $thread = "Mentions légales";
 
+        //get text
+        $text = $pageRepository->findOneBy(['context' => 13]);
+
         return $this->render('front-office/legal.html.twig',[
-            'thread' => $thread
+            'thread' => $thread,
+            'text' => $text
         ]);
     }
 
@@ -269,7 +279,7 @@ class HomeController extends AbstractController
      * @Route("/devis", name="quote")
      * To show quote's form
      */
-    public function quote(PersonnalFunction $personnalFunction)
+    public function quote(PersonnalFunction $personnalFunction, UserRepository $userRepository)
     {
         // get thread
         $thread = "Devis";
@@ -289,7 +299,7 @@ class HomeController extends AbstractController
                     $$title = $personnalFunction->checkInput($value);
                 }
 
-                $to = "mail@mail.fr";
+                $to = $userRepository->find(1)->getEmail();
                 $subject = "Demande de devis";
                 $message = "Vous avez une demande de devis : ";
                 $message .= "\n\r Nom de la société : ".$society;

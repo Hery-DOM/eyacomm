@@ -188,7 +188,10 @@ class TextController extends AbstractController
                 $entityManager->persist($page);
                 $page->setContext($context);
                 $entityManager->flush();
-                return $this->redirectToRoute('text_home');
+                return $this->redirectToRoute('text_home',[
+                    'id' => $idContext,
+                    'submit1' => 'Selectionner'
+                ]);
             }
         }
 
@@ -203,11 +206,17 @@ class TextController extends AbstractController
     public function textRemove(EntityManagerInterface $entityManager, PageRepository $pageRepository, $id)
     {
         $page = $pageRepository->find($id);
-        unlink("assets/img//".$page->getPicture());
+        $context = $page->getContext()->getId();
+        if(!empty($page->getPicture())){
+            unlink("assets/img//".$page->getPicture());
+        }
         $entityManager->remove($page);
         $entityManager->flush();
 
-        return $this->redirectToRoute('text_home');
+        return $this->redirectToRoute('text_home',[
+            'id' => $context,
+            'submit1' => 'Selectionner'
+        ]);
     }
 
 }

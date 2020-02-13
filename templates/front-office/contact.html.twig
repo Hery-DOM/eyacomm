@@ -6,7 +6,18 @@
         <h1 class="contact-h1">Contactez<span class="d-none d-md-inline-block">-</span><span
                     class="d-block d-md-inline">nous</span></h1>
 
-        <div class="contact-person-box">
+        <div class="row mx-0">
+            {% for portrait in portraits %}
+                <div class="contact-person-box col-4">
+                    <h2>{{ portrait.title }}</h2>
+                    <p>{{ portrait.text|raw }}</p>
+                </div>
+
+            {% endfor %}
+        </div>
+
+
+       {# <div class="contact-person-box">
             <h2>Madame Nathalie ARZOINE, Directrice EYAL TELECOM</h2>
             <p>Numéro de téléphone : 06 50 31 58 08</p>
             <p>Courriel : m.eyaltelecom@yahoo.fr</p>
@@ -14,13 +25,10 @@
 
         <div class="contact-person-box">
             <h2>Monsieur Gérald LAGARDERE, Directeur technique</h2>
-        </div>
+        </div>#}
 
-        <div class="contact-person-box">
-            <h2>Monsieur Gérald LAGARDERE, Directeur technique</h2>
-        </div>
-
-        <p class="contact-p">Pour être recontacté ou nous posez vos questions, merci de remplir le formulaire suivant
+        <p class="contact-p my-5">Pour être recontacté ou nous posez vos questions, merci de remplir le formulaire
+            suivant
             :</p>
         <div>
             {% for message in app.flashes('info') %}
@@ -31,8 +39,8 @@
 
         <form action="#" method="POST" class="contact-form">
             <div class="contact-form-box">
-                <label for="name">Nom de la société</label>
-                <input type="text" placeholder="Ex : Eyal Telecom" id="name" name="name">
+                <label for="name">Nom de la société*</label>
+                <input type="text" placeholder="Ex : Eyal Telecom" id="name" name="name" required>
             </div>
 
             <div class="contact-form-box">
@@ -46,13 +54,13 @@
             </div>
 
             <div class="contact-form-box">
-                <label for="phone">Numéro de téléphone</label>
-                <input type="text" placeholder="Ex : 01 23 45 67 89" id="phone" name="phone">
+                <label for="phone">Numéro de téléphone*</label>
+                <input type="text" placeholder="Ex : 01 23 45 67 89" id="phone" name="phone" required>
             </div>
 
             <div class="contact-form-box">
-                <label for="email">Courriel</label>
-                <input type="email" placeholder="Ex : contact@eyacomm.fr" id="email" name="email">
+                <label for="email">Courriel*</label>
+                <input type="email" placeholder="Ex : contact@eyacomm.fr" id="email" name="email" required>
             </div>
 
             <div class="contact-form-box">
@@ -60,11 +68,12 @@
                 <textarea name="message" id="message" cols="30" rows="10"></textarea>
             </div>
 
-            <div class="contact-form-submit-box">
+            <div class="contact-form-submit-box my-4">
                 <input type="submit" name="submit" value="Envoyer" class="contact-form-submit">
             </div>
 
         </form>
+        <p>*champs requis</p>
     </section>
 
 
