@@ -206,6 +206,7 @@ class HomeController extends AbstractController
             $phone = $personnalFunction->checkInput($_POST['phone']);
             $email = $personnalFunction->checkInput($_POST['email']);
             $message_input = $personnalFunction->checkInput($_POST['message']);
+            $solicitation = $personnalFunction->checkInput($_POST['solicitation']);
 
 
             //get admin's email
@@ -217,6 +218,11 @@ class HomeController extends AbstractController
             $message .= "\n\rNuméro de téléphone : ".$phone;
             $message .= "\n\rCourriel : ".$email;
             $message .= "\n\rSa demande : ".$message_input;
+            if($solicitation){
+                $message .= "\n\r Souhaite être sollicité : oui";
+            }else{
+                $message .= "\n\r Souhaite être sollicité : non";
+            }
 
             $send = mail($to, $subject, $message);
 
@@ -327,7 +333,12 @@ class HomeController extends AbstractController
                 }
                 $message .= "\n\r Coût mensuel : ".$coast_material;
                 $message .= "\n\r Commentaires : ".$comments;
-                DD($message);
+                if($solicitation){
+                    $message .= "\n\r Souhaite être sollicité : oui";
+                }else{
+                    $message .= "\n\r Souhaite être sollicité : non";
+                }
+
 
                 $send = mail($to, $subject, $message);
 

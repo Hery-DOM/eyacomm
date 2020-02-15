@@ -47,7 +47,7 @@
                             <li class="col-4"><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
                         {% else %}
                             <li class="col-6"><a href="{{ path('equipement') }}">Equipement</a></li>
-                            <li class="col-6"><a href="{{ path('contact') }}">Contacts</a></li>
+                            <li class="col-6"><a href="{{ path('contact') }}">Contact</a></li>
                         {% endif %}
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                 <li><a href="{{ path('page_context',{'context':'internet'}) }}">Internet</a></li>
                 <li><a href="{{ path('equipement') }}">Equipement</a></li>
                 <li><a href="{{ path('page_context',{'context':'partenaires'}) }}">Partenaires</a></li>
-                <li><a href="{{ path('contact') }}">Contacts</a></li>
+                <li><a href="{{ path('contact') }}">Contact</a></li>
                 <li><a href="{{ path('membership') }}">Espace client</a></li>
                 {% if is_granted('ROLE_USER') %}
                     <li><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
