@@ -18,10 +18,12 @@ class PageType extends AbstractType
     {
         $builder
             ->add('title', TextType::class,[
-                'required' => true
+                'required' => true,
+                'label' => 'Titre'
             ])
             ->add('text', CKEditorType::class,[
-                'empty_data' => ' '
+                'empty_data' => ' ',
+                'label' => 'Texte'
             ])
             ->add('picture', FileType::class,[
                 'label' => 'Photo',
