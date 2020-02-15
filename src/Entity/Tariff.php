@@ -22,14 +22,10 @@ class Tariff
     private $title;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="tariff")
@@ -65,17 +61,6 @@ class Tariff
         return $this;
     }
 
-    public function getPrice(): ?int
-    {
-        return $this->price;
-    }
-
-    public function setPrice(int $price): self
-    {
-        $this->price = $price;
-
-        return $this;
-    }
 
     public function getUser(): ?User
     {

@@ -12,9 +12,6 @@
                                 <h2 class="offer-h2">{{ offer.title }}</h2>
                             </div>
                             <p>{{ offer.description|raw }}</p>
-                            {% if offer.price is not empty %}
-                            <p>Tarif : {{ offer.price }} €</p>
-                            {% endif %}
                         </div>
                 </div>
             {% endfor %}

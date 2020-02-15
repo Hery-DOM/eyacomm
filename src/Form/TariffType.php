@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Tariff;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use phpDocumentor\Reflection\Types\Nullable;
+use PhpParser\Node\NullableType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -20,9 +22,8 @@ class TariffType extends AbstractType
             ->add('title', TextType::class,[
                 'label' => 'Nom de l\'offre'
             ])
-            ->add('description', CKEditorType::class)
-            ->add('price', IntegerType::class,[
-                'label' => 'Prix (facultatif)',
+            ->add('description', CKEditorType::class,[
+                'empty_data' => ' ',
                 'required' => false
             ])
 
