@@ -19,54 +19,67 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username', TextType::class,[
-                'label' => 'Nom de la société'
+                'label' => 'Nom de la société',
+                'empty_data' => ' '
             ])
             ->add('firstname', TextType::class,[
                 'label' => 'Prénom du contact',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('lastname', TextType::class,[
                 'label' => 'Nom du contact',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('email', TextType::class,[
-                'label' => 'Email'
+                'label' => 'Email',
+                'empty_data' => ' '
             ])
             ->add('address', TextType::class,[
                 'label' => 'Adresse',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('phone', TextType::class,[
                 'label' => 'Téléphone',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('mobile', TextType::class,[
                 'label' => 'Mobile',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('siret', TextType::class,[
                 'label' => 'SIRET',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('ape', TextType::class,[
                 'label' => 'APE',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('iban', TextType::class,[
                 'label' => 'IBAN',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('bic', TextType::class,[
                 'label' => 'BIC',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('banque', TextType::class,[
                 'label' => 'Banque',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('sepa', TextType::class,[
                 'label' => 'SEPA',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('date_signature', DateType::class,[
                 'widget' => 'single_text',
@@ -75,15 +88,18 @@ class UserType extends AbstractType
             ])
             ->add('ref', TextType::class,[
                 'label' => 'Référence',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('offre', TextareaType::class,[
                 'label' => 'Offre',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('htlocam', TextType::class,[
                 'label' => 'HTLOCAM',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('dtfinlocam', DateType::class,[
                 'widget' => 'single_text',
@@ -92,7 +108,8 @@ class UserType extends AbstractType
             ])
             ->add('ht', TextType::class,[
                 'label' => 'HT par mois',
-                'required' => false
+                'required' => false,
+                'empty_data' => ' '
             ])
             ->add('date_portabilite', DateType::class,[
                 'widget' => 'single_text',

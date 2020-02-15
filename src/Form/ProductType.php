@@ -33,7 +33,10 @@ class ProductType extends AbstractType
                     ])
                 ]
             ])
-            ->add('description', CKEditorType::class)
+            ->add('description', CKEditorType::class,[
+                'required' => false,
+                'empty_data' => ' '
+            ])
              ->add('category', EntityType::class,[
                  'class' => Category::class,
                  'choice_label' => 'name'

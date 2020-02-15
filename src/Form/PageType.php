@@ -20,7 +20,9 @@ class PageType extends AbstractType
             ->add('title', TextType::class,[
                 'required' => true
             ])
-            ->add('text', CKEditorType::class)
+            ->add('text', CKEditorType::class,[
+                'empty_data' => ' '
+            ])
             ->add('picture', FileType::class,[
                 'label' => 'Photo',
                 'mapped' => false,
