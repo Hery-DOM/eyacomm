@@ -170,7 +170,9 @@ class HomeController extends AbstractController
 
         // if the product exists => get it
         $product = $productRepository->findOneBy(['name' => $product]);
-        $category = $product->getCategory()->getName();
+        if($product){
+            $category = $product->getCategory()->getName();
+        }
 
         //get thread
         $thread = "Equipement / ".$category." / ".$product->getName();
