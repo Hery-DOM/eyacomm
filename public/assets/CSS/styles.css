@@ -71,6 +71,12 @@ a:hover {
   border: 1px solid black;
   padding: 10px; }
 
+.categories-table-subtitle {
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  text-transform: uppercase; }
+
 .category-button-box {
   text-align: center;
   width: 20%; }
@@ -103,7 +109,9 @@ a:hover {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 80vh; }
+  height: 100vh;
+  position: sticky;
+  top: 0; }
 
 .base-title-optionnal {
   position: absolute;
@@ -189,7 +197,7 @@ a:hover {
   width: 80%;
   margin: 50px auto;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
+  padding: 50px;
   border-radius: 20px;
   position: relative; }
   .base3-container h1 {
@@ -539,6 +547,7 @@ a:hover {
     text-align: center; }
 
 .societe-action-box {
+  margin: 50px 0;
   width: 100%;
   text-align: center; }
 
@@ -671,7 +680,7 @@ a:hover {
   text-transform: uppercase;
   border-radius: 10px;
   border: 2px solid white;
-  font-size: 1.7em;
+  font-size: 1.2em;
   font-weight: bold; }
 
 .offers-button:hover {

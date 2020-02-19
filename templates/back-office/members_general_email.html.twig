@@ -31,12 +31,12 @@
 
         <label for="message">Message du mail*</label>
         <div>
-            <textarea name="message" id="message" cols="80" rows="10" required></textarea>
+            <textarea name="message" id="message" cols="80" rows="10" class="ckeditor" required></textarea>
         </div>
 
-        <input type="submit" name="submit" value="Envoyer">
+        <input class="my-3" type="submit" name="submit" value="Envoyer">
 
     </form>
-
+    <script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
 
 {% endblock %}

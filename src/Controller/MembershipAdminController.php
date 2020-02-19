@@ -324,6 +324,7 @@ class MembershipAdminController extends AbstractController
 
             $user = $manager->createUser();
             $user->setUsername($username);
+            $user->setUsernameCanonical($username);
             $user->setPlainPassword($psw);
             $user->setEmail($email);
             $user->setEmailCanonical($email);
@@ -343,7 +344,8 @@ class MembershipAdminController extends AbstractController
     /**
      * @Route("/admin/member/update/password/{id}",name="admin_member_password")
      */
-    public function memberPassword($id, UserRepository $userRepository, PersonnalFunction $personnalFunction)
+    public function memberPassword($id, UserRepository $userRepository, PersonnalFunction $personnalFunction,
+                                   EntityManagerInterface $entityManager, UserManagerInterface $manager)
     {
         // get user by ID
         $user = $userRepository->find($id);
@@ -355,6 +357,10 @@ class MembershipAdminController extends AbstractController
 
             if($psw == $check){
                 $user->setPlainPassword($psw);
+                $manager->updatePassword($user);
+
+                $entityManager->persist($user);
+                $entityManager->flush();
 
                 $this->addFlash('info','Mot de passe modifié');
             }else{

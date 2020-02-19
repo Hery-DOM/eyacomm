@@ -189,14 +189,15 @@ class TextController extends AbstractController
                 $page->setContext($context);
                 $entityManager->flush();
                 return $this->redirectToRoute('text_home',[
-                    'id' => $idContext,
-                    'submit1' => 'Selectionner'
+                    'id' => $idContext
                 ]);
             }
         }
 
         return $this->render("back-office/text_create.html.twig",[
-            'form' => $formView
+            'form' => $formView,
+            'context' => $context,
+            'submit1' => 'Selectionner'
         ]);
     }
 

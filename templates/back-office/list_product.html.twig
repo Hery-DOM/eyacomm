@@ -15,9 +15,15 @@
             <th class="category-title">Liste des produits</th>
             <th class="category-button-create"><button><a href="{{ path('insert_product') }}">Créer un produit</a></button></th>
         </tr>
+        <tr>
+            <td class="categories-table-subtitle">Nom du produit</td>
+            <td class="categories-table-subtitle">Catégorie</td>
+            <td class="categories-table-subtitle">Action</td>
+        </tr>
         {% for product in products %}
             <tr>
                 <td rowspan="2" class="category-name">{{ product.name }}</td>
+                <td rowspan="2">{{ product.category.name }}</td>
                 <td class="category-button-box"><a href="{{ path('update_product',{'id':product.id}) }}" class="category-button-update">Modifier</a></td>
             </tr>
             <tr>

@@ -175,7 +175,7 @@ class ProductController extends AbstractController
      */
     public function listProduct(ProductRepository $productRepository, Request $request, PersonnalFunction $personnalFunction)
     {   
-        $products = $productRepository->findAll();
+        $products = $productRepository->findEveryProducts();
 
         //get search
         $param = $request->query->get('search');

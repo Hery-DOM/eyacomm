@@ -20,9 +20,10 @@
         </div>
         <label for="message">Message du mail*</label>
         <div>
-            <textarea name="message" id="message" cols="80" rows="10" required></textarea>
+            <textarea name="message" id="message" cols="80" rows="10" class="ckeditor" required></textarea>
         </div>
-        <input type="submit" name="submit">
+        <input class="my-4" type="submit" name="submit">
     </form>
+    <script src="{{ asset('bundles/fosckeditor/ckeditor.js') }}"></script>
 
 {% endblock %}

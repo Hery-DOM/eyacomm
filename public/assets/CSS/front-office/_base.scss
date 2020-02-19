@@ -36,8 +36,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 80vh;
-  //position: fixed;
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 .base-title-optionnal{
@@ -162,7 +163,7 @@
   width: 80%;
   margin: 50px auto;
   background-color: rgba(255,255,255,0.8);
-  padding: 20px;
+  padding: 50px;
   border-radius: 20px;
   position: relative;
   h1{

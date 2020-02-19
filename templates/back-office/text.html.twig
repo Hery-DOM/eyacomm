@@ -42,9 +42,7 @@
                 </tr>
                 {% if (page.context.id == 3 or page.context.id == 4 or page.context.id == 11)%}
                     {% if page.id == 2 or page.id == 6 %}
-                        <td>
-                            <tr></tr>
-                        </td>
+                        <tr></tr>
                         {% else %}
                         <tr>
                             <td class="category-button-box"><a href="#" onclick="confirmRemove('{{ path('text_remove',
