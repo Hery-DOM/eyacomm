@@ -133,9 +133,29 @@ a:hover {
     color: #4A4A4A;
     text-transform: uppercase; }
 
-.base-logo-box img {
-  height: auto;
-  width: 60%; }
+.base-logo-box {
+  position: relative; }
+  .base-logo-box img {
+    height: auto;
+    width: 60%; }
+
+.base-logo-hover {
+  width: 80%;
+  height: 180px;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  flex-direction: column;
+  justify-content: space-around; }
+  .base-logo-hover p {
+    color: black;
+    font-size: 1.3em; }
+
+.base-logo-box:hover .base-logo-hover {
+  display: flex; }
 
 .menu-divider {
   height: 2px;

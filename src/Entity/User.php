@@ -131,6 +131,8 @@ class User extends BaseUser
      */
     private $date_portabilite;
 
+
+
     public function __construct()
     {
         parent::__construct();
@@ -481,4 +483,6 @@ class User extends BaseUser
 
         return $this;
     }
+
+
 }
