@@ -2,10 +2,29 @@
 
 {% block content %}
 
+    <div class="my-4">
+        <a href="{{ path('admin_members_update',{'id':user.id}) }}">Retour</a>
+    </div>
+
     {% for message in app.flashes('info') %}
         {{ message }}
     {% endfor %}
 
-{{ form(form) }}
+    {{ form_start(form) }}
+
+    <div class="my-3">
+        {{ form_label(form.name) }}
+        <div>
+            {{ form_widget(form.name) }}
+        </div>
+    </div>
+
+    <div class="my-3">
+        {{ form(form.Envoyer) }}
+    </div>
+
+    {{ form_end(form) }}
+
+
 
 {% endblock %}

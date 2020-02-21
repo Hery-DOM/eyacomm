@@ -129,7 +129,8 @@ class MembershipAdminController extends AbstractController
 
 
         return $this->render('back-office/members_invoice_add.html.twig',[
-            'form' => $formView
+            'form' => $formView,
+            'user' => $user
         ]);
     }
 
