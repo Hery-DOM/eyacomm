@@ -283,10 +283,10 @@ class MembershipAdminController extends AbstractController
         $users = $userRepository->findAll();
 
         if(isset($_POST['submit'])){
-            $to = [];
+            $to_array = [];
             foreach($_POST as $key => $value){
                 if(preg_match("#recipient#", $key)){
-                    $to[] = $personnalFunction->checkInput($value);
+                    $to_array[] = $personnalFunction->checkInput($value);
                 }
 
             }
@@ -294,7 +294,7 @@ class MembershipAdminController extends AbstractController
             $message = $personnalFunction->checkInput($_POST['message']);
             $headers = 'From: n.eyaletelcom@yahoo.fr' . "\r\n";
 
-            foreach($to as $to){
+            foreach($to_array as $to){
                 mail($to, $subject, $message, $headers);
             }
 

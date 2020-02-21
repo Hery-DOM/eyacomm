@@ -81,6 +81,20 @@ a:hover {
   text-align: center;
   width: 20%; }
 
+.general-email-recipients {
+  font-size: 0.8em;
+  border: 1px solid grey;
+  border-radius: 5ox;
+  margin: 2px;
+  padding: 1px; }
+
+.general-email-container {
+  display: flex;
+  flex-wrap: wrap; }
+
+.general-email-label {
+  margin-bottom: 0; }
+
 .base-header, .base2-header, .base3-header, .home-header {
   min-height: 12vh;
   background-color: black;

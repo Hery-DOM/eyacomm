@@ -15,18 +15,16 @@
             <input type="text" name="subject" id="subject" required>
         </div>
 
-        <label for="recipients">Destinataires</label>
-        <div class="container-fluid">
-            <div class="container">
-                <div class="row flex-wrap">
+        <label class="general-email-label" for="recipients">Destinataires</label>
+        <div class="container-fluid general-email-container">
                     {% for user in users %}
-                        <div class="col-2">
-                            <label for="{{ user.username }}">{{ user.username }}</label>
+                        <span class="general-email-recipients">
                             <input type="checkbox" name="recipient-{{ user.username }}" id="{{ user.username }}" value="{{ user.email }}" checked>
-                        </div>
+                            <label for="{{ user.username }}">{{ user.username }}</label>
+                        </span>
+
+
                     {% endfor %}
-                </div>
-            </div>
         </div>
 
         <label for="message">Message du mail*</label>
