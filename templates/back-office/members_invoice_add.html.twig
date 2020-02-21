@@ -3,7 +3,7 @@
 {% block content %}
 
     <div class="my-4">
-        <a href="{{ path('admin_members_update',{'id':user.id}) }}">Retour</a>
+        <a href="{{ path('admin_members_invoices',{'id':user.id}) }}">Retour</a>
     </div>
 
     {% for message in app.flashes('info') %}
@@ -20,7 +20,7 @@
     </div>
 
     <div class="my-3">
-        {{ form(form.Envoyer) }}
+        {{ form_widget(form.Envoyer) }}
     </div>
 
     {{ form_end(form) }}
