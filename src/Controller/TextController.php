@@ -9,6 +9,8 @@ use App\Form\PageType;
 use App\Repository\ContextRepository;
 use App\Repository\PageRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -18,7 +20,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class TextController extends AbstractController
 {
     /**
-     * @Route("/admin/text",name="text_home")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/text",name="text_home")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function textHome(ContextRepository $contextRepository, Request $request, PersonnalFunction
     $personnalFunction, PageRepository $pageRepository)
@@ -46,7 +49,8 @@ class TextController extends AbstractController
     }
 
     /**
-     * @Route("/admin/text/update/{id}", name="text_update")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/text/update/{id}", name="text_update")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function textUpdate($id, PageRepository $pageRepository, Request $request, EntityManagerInterface $entityManager)
     {
@@ -133,7 +137,8 @@ class TextController extends AbstractController
     }
 
     /**
-     * @Route("/admin/text/create", name="text_create")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/text/create", name="text_create")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function textCreate(Request $request, EntityManagerInterface $entityManager, ContextRepository $contextRepository)
     {
@@ -202,7 +207,8 @@ class TextController extends AbstractController
     }
 
     /**
-     * @Route("/admin/text/remove/{id}",name="text_remove")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/text/remove/{id}",name="text_remove")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function textRemove(EntityManagerInterface $entityManager, PageRepository $pageRepository, $id)
     {

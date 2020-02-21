@@ -11,6 +11,8 @@ use App\Repository\PageRepository;
 use App\Repository\ProductRepository;
 use App\Repository\UserRepository;
 use App\Repository\TariffRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -361,6 +363,7 @@ class HomeController extends AbstractController
 
     /**
      * @Route("/user/espace-client", name="membership")
+     * @IsGranted("ROLE_USER")
      * To see customer's bills
      */
     public function membership(InvoiceRepository $invoiceRepository)

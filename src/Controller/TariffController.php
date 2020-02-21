@@ -6,6 +6,8 @@ namespace App\Controller;
 use App\Entity\Tariff;
 use App\Form\TariffType;
 use App\Repository\TariffRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +16,8 @@ use Doctrine\ORM\EntityManagerInterface;
 class TariffController extends AbstractController
 {
     /**
-     * @Route("/admin/tariff/insert_tariff", name="insert_tariff")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/tariff/insert_tariff", name="insert_tariff")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function insertTarrif(EntityManagerInterface $entityManager, Request $request)
     {
@@ -48,7 +51,8 @@ class TariffController extends AbstractController
 
 
     /**
-     * @Route("/admin/tariff/update_tariff/{id}", name="update_tariff")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/tariff/update_tariff/{id}", name="update_tariff")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function updateTariff(EntityManagerInterface $entityManager, Request $request, TariffRepository $tariffRepository, $id)
     {
@@ -86,7 +90,8 @@ class TariffController extends AbstractController
 
 
     /**
-     * @Route("/admin/tariff/delete_tariff/{id}", name="delete_tariff")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/tariff/delete_tariff/{id}", name="delete_tariff")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function deleteTariff($id, EntityManagerInterface $entityManager, 
     Request $request, TariffRepository $tariffRepository)
@@ -102,7 +107,8 @@ class TariffController extends AbstractController
     }
 
     /**
-     * @Route("/admin/list_tariff", name="list_tariff")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/list_tariff", name="list_tariff")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function listTariff(TariffRepository $tariffRepository)
     {

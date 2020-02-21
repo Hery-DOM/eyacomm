@@ -41,6 +41,16 @@
                 {{ form_widget(form.address,{'attr':{'class':'w-50'}}) }}
             </div>
 
+            {{ form_label(form.cp) }}
+            <div>
+                {{ form_widget(form.cp,{'attr':{'class':'w-50'}}) }}
+            </div>
+
+            {{ form_label(form.city) }}
+            <div>
+                {{ form_widget(form.city,{'attr':{'class':'w-50'}}) }}
+            </div>
+
 
             {{ form_label(form.phone) }}
             <div>
@@ -147,6 +157,8 @@
             {% do form.firstname.setRendered %}
             {% do form.email.setRendered %}
             {% do form.address.setRendered %}
+            {% do form.cp.setRendered %}
+            {% do form.city.setRendered %}
             {% do form.phone.setRendered %}
             {% do form.mobile.setRendered %}
             {% do form.siret.setRendered %}

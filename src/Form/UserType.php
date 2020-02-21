@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\StringType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -38,6 +39,16 @@ class UserType extends AbstractType
             ])
             ->add('address', TextType::class,[
                 'label' => 'Adresse',
+                'required' => false,
+                'empty_data' => ' '
+            ])
+            ->add('cp', TextType::class,[
+                'label' => 'Code postal',
+                'required' => false,
+                'empty_data' => ' '
+            ])
+            ->add('city', TextType::class,[
+                'label' => 'Ville',
                 'required' => false,
                 'empty_data' => ' '
             ])

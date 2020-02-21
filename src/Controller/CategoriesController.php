@@ -8,6 +8,8 @@ use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,7 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoriesController extends AbstractController
 {
     /**
-     * @Route("/admin/category", name="show_categories")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/category", name="show_categories")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function showCategories(CategoryRepository $categoryRepository)
     {
@@ -28,7 +31,8 @@ class CategoriesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/category/new", name="create_category")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/category/new", name="create_category")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      * To create a new category
      */
     public function createCategory(Request $request, EntityManagerInterface $entityManager)
@@ -56,7 +60,8 @@ class CategoriesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/category/update/{id}", name="update_category")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/category/update/{id}", name="update_category")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      * To update a category, id in wild card
      */
     public function updateCategory($id, CategoryRepository $categoryRepository, Request $request,
@@ -89,7 +94,8 @@ class CategoriesController extends AbstractController
     }
 
     /**
-     * @Route("/admin/category/remove/{id}", name="remove_category")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/category/remove/{id}", name="remove_category")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      * To remove a category, without view
      */
     public function removeCategory($id, CategoryRepository $categoryRepository, EntityManagerInterface $entityManager)

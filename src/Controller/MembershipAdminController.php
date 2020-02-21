@@ -12,6 +12,8 @@ use App\Repository\InvoiceRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\UserBundle\Model\UserManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -21,7 +23,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class MembershipAdminController extends AbstractController
 {
     /**
-     * @Route("/admin/home", name="admin_members")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/home", name="admin_members")
+     * @IsGranted("ROLE_ADMIN")
      * To show every customers
      */
     public function membershipHome(UserRepository $userRepository, Request $request, PersonnalFunction $personnalFunction)
@@ -41,7 +44,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members/invoices", name="admin_members_invoices")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/members/invoices", name="admin_members_invoices")
+     * @IsGranted("ROLE_ADMIN")
      * To see every invoices according with user
      */
     public function memberInvoices(Request $request, UserRepository $userRepository, InvoiceRepository $invoiceRepository)
@@ -62,7 +66,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members/invoices/add/{id}", name="admin_members_invoice_add")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/members/invoices/add/{id}", name="admin_members_invoice_add")
+     * @IsGranted("ROLE_ADMIN")
      * {id} is user's ID
      */
     public function memberInvoiceAdd($id, Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)
@@ -129,7 +134,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members/invoice/delete/{id}", name="admin_members_invoice_delete")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/members/invoice/delete/{id}", name="admin_members_invoice_delete")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      * {id} is invoice's ID
      */
     public function membersInvoiceDelete($id, InvoiceRepository $invoiceRepository, EntityManagerInterface $entityManager)
@@ -154,7 +160,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members/update", name="admin_members_update")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/members/update", name="admin_members_update")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      * To update an user
      */
     public function membersUpdate(Request $request, UserRepository $userRepository, EntityManagerInterface $entityManager)
@@ -206,7 +213,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members/delete", name="admin_members_delete")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/members/delete", name="admin_members_delete")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      * To delete an user / no view
      */
     public function membersDelete(Request $request, UserRepository $userRepository, EntityManagerInterface
@@ -235,7 +243,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members/email", name="admin_members_email")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/members/email", name="admin_members_email")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function memberEmail(Request $request, UserRepository $userRepository, PersonnalFunction $personnalFunction)
     {
@@ -264,7 +273,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/members/general/email", name="admin_members_general_email")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/members/general/email", name="admin_members_general_email")
+     * @IsGranted("ROLE_ADMIN")
      */
     public function membersEmail(UserRepository $userRepository, PersonnalFunction $personnalFunction)
     {
@@ -299,7 +309,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/member/new", name="admin_member_new")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/member/new", name="admin_member_new")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function memberNew(UserManagerInterface $manager, EntityManagerInterface $entityManager, PersonnalFunction
     $personnalFunction)
@@ -342,7 +353,8 @@ class MembershipAdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/member/update/password/{id}",name="admin_member_password")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/member/update/password/{id}",name="admin_member_password")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function memberPassword($id, UserRepository $userRepository, PersonnalFunction $personnalFunction,
                                    EntityManagerInterface $entityManager, UserManagerInterface $manager)

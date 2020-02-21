@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -16,7 +18,8 @@ class ProductController extends AbstractController
 {
 
     /**
-     * @Route("/admin/product/insert_product", name="insert_product")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/product/insert_product", name="insert_product")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function insertProduct(EntityManagerInterface $entityManager, Request $request)
     {
@@ -87,7 +90,8 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/admin/product/update_product/{id}", name="update_product")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/product/update_product/{id}", name="update_product")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function updateProduct(EntityManagerInterface $entityManager, 
     ProductRepository $productRepository, Request $request, $id )
@@ -157,7 +161,8 @@ class ProductController extends AbstractController
 
 
     /**
-     * @Route("/admin/product/delete_product/{id}", name="delete_product")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/product/delete_product/{id}", name="delete_product")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */ 
     public function deleteProduct(EntityManagerInterface $entityManager, 
     ProductRepository $productRepository, Request $request, $id)
@@ -171,7 +176,8 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/admin/list_product", name="list_product")
+     * @Route("/jazeiDAAI842NZidsrehz8327hzkefe4224/list_product", name="list_product")
+     * @IsGranted("ROLE_SUPER_ADMIN")
      */
     public function listProduct(ProductRepository $productRepository, Request $request, PersonnalFunction $personnalFunction)
     {   

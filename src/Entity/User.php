@@ -131,6 +131,16 @@ class User extends BaseUser
      */
     private $date_portabilite;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $cp;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $city;
+
 
 
     public function __construct()
@@ -480,6 +490,30 @@ class User extends BaseUser
     public function setDatePortabilite(?\DateTimeInterface $date_portabilite): self
     {
         $this->date_portabilite = $date_portabilite;
+
+        return $this;
+    }
+
+    public function getCp(): ?string
+    {
+        return $this->cp;
+    }
+
+    public function setCp(?string $cp): self
+    {
+        $this->cp = $cp;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(?string $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }
