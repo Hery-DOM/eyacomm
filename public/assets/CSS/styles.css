@@ -652,6 +652,10 @@ a:hover {
   flex-direction: column;
   justify-content: center; }
 
+.category-img-box img {
+  width: 100%;
+  height: auto; }
+
 .category-text-box-color {
   background-color: #17447D;
   color: white; }

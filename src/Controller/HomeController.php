@@ -90,9 +90,10 @@ class HomeController extends AbstractController
     {
         // secure the wild card
         $cat = $personnalFunction->checkInput($cat);
+        $cat = ucfirst($cat);
 
         //get thread
-        $thread = "Nos services / Nos ".$cat;
+        $thread = "Nos services / ".$cat;
 
         //get contexts
         $context_id = $contextRepository->findBy(['name' => $cat]);
