@@ -458,7 +458,8 @@ a:hover {
 
 .home-main-team-img-box {
   border-radius: 20px;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 350px; }
 
 .home-main-team-text h2, .home-main-team-text p {
   text-align: center;
