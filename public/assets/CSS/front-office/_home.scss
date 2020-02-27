@@ -19,6 +19,12 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
+  video{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .home-video-calc{

@@ -280,6 +280,11 @@ a:hover {
   height: 100vh;
   overflow: hidden;
   position: relative; }
+  .home-video-box video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
 
 .home-video-calc {
   width: 100%;
