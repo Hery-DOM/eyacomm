@@ -112,8 +112,8 @@ class UserType extends AbstractType
                 'required' => false,
                 'empty_data' => ' '
             ])
-            ->add('dtfinlocam', DateType::class,[
-                'widget' => 'single_text',
+            ->add('dtfinlocam', TextType::class,[
+                'empty_data' => '',
                 'label' => 'DTFINLOCAM',
                 'required' => false
             ])
