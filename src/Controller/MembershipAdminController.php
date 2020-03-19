@@ -256,13 +256,54 @@ class MembershipAdminController extends AbstractController
         $user = $userRepository->find($id);
 
         if(isset($_POST['submit'])){
+            //$to = $user->getEmail();
+            //$subject = $personnalFunction->checkInput($_POST['subject']);
+           /* $message = '<html><head></head>';
+            $message .= '<body>';
+            $message .= $_POST['message'];
+            $message .= '</body></html>';*/
+           $message = 'hello';
+
+            /*$headers = 'MIME-Version: 1.0'."\r\n".
+                'Content-type: text/html; charset=utf-8'."\r\n".
+                'From: n.eyaletelcom@yahoo.fr'
+            ;
+
+            $test = mail($to, $subject, $message, $headers);*/
+
+
+//            $test = mail($to,$subject,'test en dur');
             $to = $user->getEmail();
             $subject = $personnalFunction->checkInput($_POST['subject']);
-            $message = $personnalFunction->checkInput($_POST['message']);
-            $headers = 'From: n.eyaletelcom@yahoo.fr' . "\r\n";
+            //$headers[] = 'From: n.eyaltelecom@yahoo.fr';
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=utf-8';
+            $headers[] = 'From: Eyal Telecom <no-reply@eyaltelecom.com>';
 
-            mail($to, $subject, $message, $headers);
-            $this->addFlash('info', 'Message envoyé');
+
+
+            $message = "
+    <!doctype html>
+    <html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\"
+              content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+        <title>Document</title>
+    </head>
+    <body>
+    ".$_POST['message']."
+    </body>
+    </html>
+    ";
+            $test = mail($to, $subject, $message, implode("\r\n", $headers));
+
+            if($test){
+                $this->addFlash('info', 'Message envoyé');
+            }else{
+                $this->addFlash('info', 'Erreur lors de l\'envoi');
+            }
 
 
 
