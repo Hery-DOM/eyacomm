@@ -278,7 +278,7 @@ class MembershipAdminController extends AbstractController
             //$headers[] = 'From: n.eyaltelecom@yahoo.fr';
             $headers[] = 'MIME-Version: 1.0';
             $headers[] = 'Content-type: text/html; charset=utf-8';
-            $headers[] = 'From: Eyal Telecom <no-reply@eyaltelecom.com>';
+            $headers[] = 'From: EyalTelecom <noreply@eyaltelecom.com>';
 
 
 
@@ -332,11 +332,27 @@ class MembershipAdminController extends AbstractController
 
             }
             $subject = $personnalFunction->checkInput($_POST['subject']);
-            $message = $personnalFunction->checkInput($_POST['message']);
-            $headers = 'From: n.eyaletelcom@yahoo.fr' . "\r\n";
+            $message = "
+    <!doctype html>
+    <html lang=\"en\">
+    <head>
+        <meta charset=\"UTF-8\">
+        <meta name=\"viewport\"
+              content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">
+        <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">
+        <title>Document</title>
+    </head>
+    <body>
+    ".$_POST['message']."
+    </body>
+    </html>
+    ";
+            $headers[] = 'MIME-Version: 1.0';
+            $headers[] = 'Content-type: text/html; charset=utf-8';
+            $headers[] = 'From: EyalTelecom <noreply@eyaltelecom.com>';
 
             foreach($to_array as $to){
-                mail($to, $subject, $message, $headers);
+                mail($to, $subject, $message, implode("\r\n", $headers));
             }
 
             $this->addFlash('info','Messages envoyés');
